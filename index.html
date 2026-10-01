@@ -14,6 +14,7 @@
     --shadow:0 2px 8px rgba(0,0,0,0.08);--shadow-lg:0 4px 20px rgba(0,0,0,0.12);
     --radius:12px;--radius-sm:8px;--transition:0.3s ease;
     --gold:#ffd700;--gold-dark:#ff8f00;
+    --teal:#00897b;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
@@ -29,10 +30,8 @@ body{
     0% { background-position: -400px 0; }
     100% { background-position: 400px 0; }
 }
-@keyframes toastOut {
-    0%,70% { transform: translateX(-50%) translateY(0); opacity: 1; }
-    100% { transform: translateX(-50%) translateY(100px); opacity: 0; }
-}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
 .developer-banner {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
     color: var(--gold); padding: 12px 16px; border-radius: 12px; text-align: center;
@@ -60,6 +59,7 @@ body{
 }
 .auth-footer-credit .star { color: #fff; margin: 0 8px; font-size: 14px; }
 .auth-footer-credit.hidden { display: none !important; }
+
 .auth-screen{
     display:flex;align-items:center;justify-content:center;
     min-height:100vh;padding:20px;
@@ -165,6 +165,7 @@ body{
     border-radius: 10px;
     background: linear-gradient(135deg, rgba(26,115,232,0.08), rgba(255,215,0,0.08));
 }
+
 .app-header{
     background:#fff;padding:12px 16px;box-shadow:var(--shadow);
     display:flex;align-items:center;justify-content:space-between;
@@ -186,6 +187,7 @@ body{
     font-weight:800;font-size:17px;overflow:hidden;border:2px solid var(--gold);
 }
 .user-avatar-sm img{width:100%;height:100%;object-fit:cover;}
+
 .sidebar{
     position:fixed;top:0;right:-340px;width:300px;height:100vh;
     background:#fff;box-shadow:-4px 0 20px rgba(0,0,0,0.15);
@@ -222,7 +224,11 @@ body{
 .sidebar-link .icon{font-size:19px;width:24px;text-align:center;}
 .sidebar-link.logout{color:var(--danger);border-top:1px solid #f0f0f0;margin-top:8px;}
 .sidebar-link.logout:hover{background:#ffebee;border-right-color:var(--danger);}
+.sidebar-link.loans{color:#00897b;}
+.sidebar-link.loans.active{background:#e0f2f1;color:#00897b;border-right-color:#00897b;}
+
 .container{max-width:1200px;margin:0 auto;padding:16px;flex:1;width:100%;}
+
 .balance-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;}
 .balance-display{
     border-radius:var(--radius);padding:20px 16px;color:#fff;
@@ -233,6 +239,7 @@ body{
 .balance-display .balance-label{font-size:12.5px;font-weight:700;opacity:0.9;margin-bottom:6px;}
 .balance-display .balance-amount{font-size:28px;font-weight:900;margin:4px 0;}
 .balance-display .balance-sub{font-size:11.5px;opacity:0.8;}
+
 .dashboard-cards{
     display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
     gap:12px;margin-bottom:20px;
@@ -251,10 +258,10 @@ body{
 .dash-card.yellow{border-top-color:var(--warning);}
 .dash-card.blue{border-top-color:var(--primary);}
 .dash-card.purple{border-top-color:#9c27b0;}
-.dash-card.teal{border-top-color:#00897b;}
+.dash-card.teal{border-top-color:var(--teal);}
+
 .section{display:none;animation:fadeIn 0.3s ease;}
 .section.active{display:block;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
 .section-title{font-size:19px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
 .section-title .emoji{font-size:22px;}
 .action-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;}
@@ -279,6 +286,9 @@ body{
 .btn-danger-outline:hover{background:var(--danger);color:#fff;}
 .btn-orange{background:#ff6d00;color:#fff;}
 .btn-orange:hover{background:#e65100;}
+.btn-teal{background:var(--teal);color:#fff;}
+.btn-teal:hover{background:#00695c;}
+
 .settings-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px;}
 .settings-card{background:#fff;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);}
 .settings-card h3{font-size:16.5px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:10px;color:var(--primary);}
@@ -302,6 +312,23 @@ body{
 .settings-card .save-btn:hover{background:var(--primary-dark);transform:translateY(-2px);}
 .settings-card .save-btn.danger{background:var(--danger);}
 .settings-card .save-btn.danger:hover{background:#c62828;}
+.settings-card .save-btn.teal{background:var(--teal);}
+.settings-card .save-btn.teal:hover{background:#00695c;}
+
+.toggle-row {display: flex;align-items: center;justify-content: space-between;padding: 12px 0;gap: 12px;}
+.toggle-info { flex: 1; }
+.toggle-info .toggle-title {font-weight: 800;font-size: 14px;color: var(--text);margin-bottom: 3px;}
+.toggle-info .toggle-desc {font-size: 12px;color: var(--text-secondary);line-height: 1.5;}
+.toggle-switch {position: relative;display: inline-block;width: 52px;height: 28px;flex-shrink: 0;}
+.toggle-switch input { opacity: 0; width: 0; height: 0; }
+.toggle-slider {position: absolute;cursor: pointer;top: 0; left: 0; right: 0; bottom: 0;background-color: #ccc;transition: 0.3s;border-radius: 34px;}
+.toggle-slider:before {position: absolute;content: "";height: 20px;width: 20px;left: 4px;bottom: 4px;background-color: #fff;transition: 0.3s;border-radius: 50%;box-shadow: 0 2px 4px rgba(0,0,0,0.2);}
+.toggle-switch input:checked + .toggle-slider {background-color: var(--success);}
+.toggle-switch input:checked + .toggle-slider:before {transform: translateX(24px);}
+.toggle-status {text-align: center;font-size: 12.5px;font-weight: 700;margin-top: 8px;padding: 6px;border-radius: 6px;transition: 0.3s;}
+.toggle-status.on {background: #e8f5e9;color: #2e7d32;}
+.toggle-status.off {background: #ffebee;color: #c62828;}
+
 .table-wrapper{overflow-x:auto;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:14px;}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:600px;}
 th{background:#f8f9fa;padding:12px 14px;text-align:right;font-weight:800;font-size:12.5px;color:var(--text-secondary);border-bottom:2px solid var(--border);white-space:nowrap;}
@@ -309,10 +336,14 @@ td{padding:11px 14px;border-bottom:1px solid #f0f0f0;white-space:nowrap;}
 tr:hover td{background:#fafbfc;}
 .amount-positive{color:var(--success);font-weight:800;}
 .amount-negative{color:var(--danger);font-weight:800;}
+.amount-loan{color:var(--teal);font-weight:800;}
 .badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11.5px;font-weight:700;}
 .badge-cash{background:#e8f5e9;color:#2e7d32;}
 .badge-account{background:#e3f2fd;color:#1565c0;}
 .badge-paid{background:#e8f5e9;color:#2e7d32;}
+.badge-loan-active{background:#e0f2f1;color:#00695c;}
+.badge-loan-paid{background:#e8f5e9;color:#2e7d32;}
+
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:300;align-items:center;justify-content:center;padding:16px;}
 .modal-overlay.active{display:flex;animation:fadeIn 0.2s ease;}
 .modal{background:#fff;border-radius:var(--radius);padding:22px 20px;max-width:460px;width:100%;box-shadow:var(--shadow-lg);max-height:90vh;overflow-y:auto;position:relative;}
@@ -333,12 +364,15 @@ tr:hover td{background:#fafbfc;}
 .modal .close-modal:hover{color:var(--danger);}
 .modal .info-box{background:#e3f2fd;border-right:4px solid var(--primary);padding:10px 12px;border-radius:6px;margin-bottom:13px;font-size:13.5px;font-weight:700;color:#0d47a1;}
 .modal .balance-hint{background:#fff8e1;border-right:4px solid var(--warning);padding:10px 12px;border-radius:6px;margin-bottom:13px;font-size:13.5px;font-weight:700;color:#b8860b;text-align:center;}
+.modal .loan-info-box{background:#e0f2f1;border-right:4px solid var(--teal);padding:10px 12px;border-radius:6px;margin-bottom:13px;font-size:13.5px;font-weight:700;color:#00695c;}
+
 .filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
 .filter-bar input,.filter-bar select{
     padding:9px 13px;border:2px solid var(--border);border-radius:var(--radius-sm);
     font-size:13.5px;font-family:'Cairo',sans-serif;background:#fff;flex:1;min-width:120px;
 }
 .filter-bar input:focus,.filter-bar select:focus{outline:none;border-color:var(--primary);}
+
 .month-selector{
     display:flex;gap:10px;align-items:center;flex-wrap:wrap;
     margin-bottom:16px;background:#fff;padding:10px 14px;
@@ -349,6 +383,7 @@ tr:hover td{background:#fafbfc;}
     padding:8px 12px;border:2px solid var(--border);border-radius:var(--radius-sm);
     font-size:14px;font-family:'Cairo',sans-serif;background:#fff;font-weight:700;cursor:pointer;
 }
+
 .debt-card{
     background:#fff;border-radius:var(--radius);padding:15px;box-shadow:var(--shadow);
     margin-bottom:12px;border-right:5px solid var(--warning);transition:var(--transition);
@@ -365,6 +400,24 @@ tr:hover td{background:#fafbfc;}
 .debt-card .progress-bar{height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden;margin:8px 0;}
 .debt-card .progress-fill{height:100%;background:linear-gradient(90deg,#34a853,#66bb6a);border-radius:3px;transition:width 0.3s;}
 .debt-card .partial-info{font-size:12px;color:#0277bd;font-weight:600;background:#e1f5fe;padding:5px 10px;border-radius:6px;margin-top:6px;}
+
+.loan-card{
+    background:#fff;border-radius:var(--radius);padding:15px;box-shadow:var(--shadow);
+    margin-bottom:12px;border-right:5px solid var(--teal);transition:var(--transition);
+}
+.loan-card.partial{border-right-color:#0288d1;}
+.loan-card.returned{border-right-color:var(--success);background:#f9fff9;}
+.loan-card .loan-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px;}
+.loan-card .loan-person{font-weight:800;font-size:15.5px;}
+.loan-card .loan-amount{font-size:17px;font-weight:900;color:var(--teal);}
+.loan-card.returned .loan-amount{color:var(--success);}
+.loan-card.partial .loan-amount{color:#0277bd;}
+.loan-card .loan-details{font-size:12.5px;color:var(--text-secondary);display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px;}
+.loan-card .loan-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+.loan-card .progress-bar{height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden;margin:8px 0;}
+.loan-card .progress-fill{height:100%;background:linear-gradient(90deg,#00897b,#4db6ac);border-radius:3px;transition:width 0.3s;}
+.loan-card .partial-info{font-size:12px;color:#00695c;font-weight:600;background:#e0f2f1;padding:5px 10px;border-radius:6px;margin-top:6px;}
+
 .report-container{background:#fff;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);}
 .report-section{margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid #f0f0f0;}
 .report-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
@@ -373,19 +426,7 @@ tr:hover td{background:#fafbfc;}
 .report-row:last-child{border-bottom:none;}
 .report-row .label{color:var(--text-secondary);font-weight:600;}
 .report-row .value{font-weight:800;}
-.empty-state{
-    text-align:center;padding:30px 20px;background:#f8f9fa;border-radius:12px;
-    border:2px dashed #ddd;color:#666;
-}
-.empty-state .es-icon{font-size:44px;margin-bottom:10px;display:block;opacity:0.5;}
-.empty-state .es-title{font-size:15px;font-weight:800;color:#444;margin-bottom:6px;}
-.empty-state .es-desc{font-size:13px;color:#888;line-height:1.7;}
-.empty-state .es-btn{
-    margin-top:12px;padding:9px 18px;background:var(--primary);color:#fff;
-    border:none;border-radius:8px;font-weight:700;font-size:13.5px;
-    cursor:pointer;font-family:'Cairo',sans-serif;
-}
-.empty-state .es-btn:hover{background:var(--primary-dark);}
+
 .toast{
     position:fixed;bottom:25px;left:50%;
     transform:translateX(-50%) translateY(100px);
@@ -399,6 +440,8 @@ tr:hover td{background:#fafbfc;}
 .toast.success{background:var(--success);}
 .toast.error{background:var(--danger);}
 .toast.warning{background:var(--warning);color:#333;}
+.toast.info{background:var(--teal);}
+
 .app-footer{
     background:#1a1a2e;color:#fff;padding:20px 16px;
     text-align:center;margin-top:auto;border-top:4px solid var(--gold);position: relative;
@@ -406,10 +449,27 @@ tr:hover td{background:#fafbfc;}
 .app-footer .footer-name{font-size:19px;font-weight:900;color:var(--gold);margin-bottom:6px;animation:glow 2.5s ease-in-out infinite alternate;}
 .app-footer .footer-title{font-size:13px;color:#bbb;margin-bottom:8px;}
 .app-footer .footer-copyright{font-size:12px;color:#999;border-top:1px solid #333;padding-top:10px;margin-top:10px;}
+
 .confirm-dialog .modal{text-align:center;}
 .confirm-dialog .confirm-icon{font-size:44px;margin-bottom:10px;}
 .confirm-dialog .confirm-message{font-size:15px;font-weight:600;margin-bottom:16px;}
 .confirm-dialog .confirm-input{width:100%;padding:11px;border:2px solid var(--border);border-radius:var(--radius-sm);font-size:15px;text-align:center;font-family:'Cairo',sans-serif;font-weight:700;}
+
+.migration-notice {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    border: 2px solid #4caf50;
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-bottom: 14px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #2e7d32;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.migration-notice .mi { font-size: 22px; }
+
 @media (max-width:768px){
     .action-buttons{flex-direction:column;}
     .action-buttons .btn{justify-content:center;width:100%;}
@@ -430,6 +490,7 @@ tr:hover td{background:#fafbfc;}
 
 <div id="toast" class="toast"></div>
 
+<!-- ========== AUTH SCREEN ========== -->
 <div id="authScreen" class="auth-screen" style="display:none;">
 
     <div id="registerView" class="auth-card" style="display:none;">
@@ -495,6 +556,7 @@ tr:hover td{background:#fafbfc;}
     </div>
 </div>
 
+<!-- ========== MAIN APP ========== -->
 <div id="app" style="display:none; flex-direction:column; flex:1;">
 
     <header class="app-header">
@@ -514,7 +576,8 @@ tr:hover td{background:#fafbfc;}
             <a class="sidebar-link" data-section="cash" onclick="switchSection('cash')"><span class="icon">💵</span> الكاش</a>
             <a class="sidebar-link" data-section="account" onclick="switchSection('account')"><span class="icon">🏦</span> الحساب</a>
             <a class="sidebar-link" data-section="transfer" onclick="switchSection('transfer')"><span class="icon">🔄</span> التحويلات</a>
-            <a class="sidebar-link" data-section="debts" onclick="switchSection('debts')"><span class="icon">📋</span> الديون</a>
+            <a class="sidebar-link" data-section="debts" onclick="switchSection('debts')"><span class="icon">📋</span> الديون (عليّ)</a>
+            <a class="sidebar-link loans" data-section="loans" onclick="switchSection('loans')"><span class="icon">🤝</span> السلف (ليّ)</a>
             <a class="sidebar-link" data-section="incomeLog" onclick="switchSection('incomeLog')"><span class="icon">📈</span> سجل الداخل</a>
             <a class="sidebar-link" data-section="expenseLog" onclick="switchSection('expenseLog')"><span class="icon">📉</span> سجل الخارج</a>
             <a class="sidebar-link" data-section="paidDebtsLog" onclick="switchSection('paidDebtsLog')"><span class="icon">✅</span> سجل المسدد</a>
@@ -527,12 +590,18 @@ tr:hover td{background:#fafbfc;}
 
     <div class="container">
 
+        <div id="migrationNotice" class="migration-notice" style="display:none;">
+            <span class="mi">✅</span>
+            <span id="migrationText">تم ترحيل بياناتك القديمة بنجاح!</span>
+        </div>
+
         <div class="month-selector">
             <label>📅 الشهر:</label>
             <select id="monthSelector" onchange="changeMonth()"></select>
             <button class="btn btn-outline btn-sm" onclick="showStartNewMonth()">🔄 بدء شهر جديد</button>
         </div>
 
+        <!-- DASHBOARD -->
         <div class="section active" id="section-dashboard">
             <div class="balance-grid">
                 <div class="balance-display cash"><div class="balance-label">💵 رصيد الكاش</div><div class="balance-amount" id="dashCashDisplay">0</div><div class="balance-sub">جنيه مصري</div></div>
@@ -543,8 +612,8 @@ tr:hover td{background:#fafbfc;}
                 <div class="dash-card blue"><span class="icon">📈</span><div class="label">دخل الشهر</div><div class="value" id="dashIncome">0</div></div>
                 <div class="dash-card red"><span class="icon">📉</span><div class="label">مصروف الشهر</div><div class="value" id="dashExpense">0</div></div>
                 <div class="dash-card purple"><span class="icon">📊</span><div class="label">صافي الشهر</div><div class="value" id="dashNet">0</div></div>
-                <div class="dash-card yellow"><span class="icon">📋</span><div class="label">ديون مستحقة</div><div class="value" id="dashActiveDebts">0</div></div>
-                <div class="dash-card teal"><span class="icon">✅</span><div class="label">ديون مسددة</div><div class="value" id="dashPaidDebts">0</div></div>
+                <div class="dash-card yellow"><span class="icon">📋</span><div class="label">ديون عليّ</div><div class="value" id="dashActiveDebts">0</div></div>
+                <div class="dash-card teal"><span class="icon">🤝</span><div class="label">سلف ليّ</div><div class="value" id="dashActiveLoans">0</div></div>
             </div>
             <div class="section-title"><span class="emoji">⚡</span> إجراءات سريعة</div>
             <div class="action-buttons">
@@ -552,10 +621,12 @@ tr:hover td{background:#fafbfc;}
                 <button class="btn btn-red" onclick="openRemoveMoneyModal('cash')">➖ إخراج كاش</button>
                 <button class="btn btn-green" onclick="openAddMoneyModal('account')">➕ إضافة حساب</button>
                 <button class="btn btn-red" onclick="openRemoveMoneyModal('account')">➖ إخراج حساب</button>
-                <button class="btn btn-warning" onclick="openAddDebtModal()">📋 إضافة دين</button>
+                <button class="btn btn-warning" onclick="openAddDebtModal()">📋 إضافة دين (عليّ)</button>
+                <button class="btn btn-teal" onclick="openAddLoanModal()">🤝 إضافة سلف (ليّ)</button>
             </div>
         </div>
 
+        <!-- CASH -->
         <div class="section" id="section-cash">
             <div class="balance-display cash" style="margin-bottom:18px;">
                 <div class="balance-label">💵 رصيد الكاش الحالي</div>
@@ -571,6 +642,7 @@ tr:hover td{background:#fafbfc;}
             </div>
         </div>
 
+        <!-- ACCOUNT -->
         <div class="section" id="section-account">
             <div class="balance-display account" style="margin-bottom:18px;">
                 <div class="balance-label">🏦 رصيد الحساب الحالي</div>
@@ -586,6 +658,7 @@ tr:hover td{background:#fafbfc;}
             </div>
         </div>
 
+        <!-- TRANSFER -->
         <div class="section" id="section-transfer">
             <div class="section-title"><span class="emoji">🔄</span> التحويل بين الكاش والحساب</div>
             <div class="action-buttons">
@@ -598,8 +671,9 @@ tr:hover td{background:#fafbfc;}
             </div>
         </div>
 
+        <!-- DEBTS (عليّ) -->
         <div class="section" id="section-debts">
-            <div class="section-title"><span class="emoji">📋</span> الديون الحالية</div>
+            <div class="section-title"><span class="emoji">📋</span> الديون (عليّ) - أنا مدين</div>
             <div class="action-buttons">
                 <button class="btn btn-warning" onclick="openAddDebtModal()">➕ إضافة دين</button>
             </div>
@@ -608,6 +682,18 @@ tr:hover td{background:#fafbfc;}
             <div id="paidDebtsListThisMonth"></div>
         </div>
 
+        <!-- LOANS (ليّ) -->
+        <div class="section" id="section-loans">
+            <div class="section-title"><span class="emoji">🤝</span> السلف (ليّ) - أنا دائن</div>
+            <div class="action-buttons">
+                <button class="btn btn-teal" onclick="openAddLoanModal()">➕ إضافة سلف</button>
+            </div>
+            <div id="activeLoansList"></div>
+            <div class="section-title" style="margin-top:20px;"><span class="emoji">✅</span> السلف المستردة (هذا الشهر)</div>
+            <div id="returnedLoansListThisMonth"></div>
+        </div>
+
+        <!-- INCOME LOG -->
         <div class="section" id="section-incomeLog">
             <div class="section-title"><span class="emoji">📈</span> سجل الأموال الداخلة</div>
             <div class="filter-bar">
@@ -626,6 +712,7 @@ tr:hover td{background:#fafbfc;}
             </div>
         </div>
 
+        <!-- EXPENSE LOG -->
         <div class="section" id="section-expenseLog">
             <div class="section-title"><span class="emoji">📉</span> سجل الأموال الخارجة</div>
             <div class="filter-bar">
@@ -644,6 +731,7 @@ tr:hover td{background:#fafbfc;}
             </div>
         </div>
 
+        <!-- PAID DEBTS LOG -->
         <div class="section" id="section-paidDebtsLog">
             <div class="section-title"><span class="emoji">✅</span> سجل الديون المسددة</div>
             <div class="table-wrapper">
@@ -651,6 +739,7 @@ tr:hover td{background:#fafbfc;}
             </div>
         </div>
 
+        <!-- REPORTS -->
         <div class="section" id="section-reports">
             <div class="section-title"><span class="emoji">📊</span> التقارير المالية</div>
             <div class="action-buttons">
@@ -660,9 +749,11 @@ tr:hover td{background:#fafbfc;}
             <div class="report-container" id="reportContainer"></div>
         </div>
 
+        <!-- SETTINGS -->
         <div class="section" id="section-settings">
             <div class="section-title"><span class="emoji">⚙️</span> الإعدادات</div>
             <div class="settings-container">
+
                 <div class="settings-card">
                     <h3>🖼️ الصورة الشخصية</h3>
                     <div class="avatar-picker">
@@ -675,12 +766,14 @@ tr:hover td{background:#fafbfc;}
                     <button class="save-btn" onclick="document.getElementById('settingsAvatarInput').click()">📷 اختر صورة جديدة</button>
                     <button class="save-btn danger" style="margin-top:8px;" onclick="removeUserAvatar()">🗑️ حذف الصورة</button>
                 </div>
+
                 <div class="settings-card">
                     <h3>👤 تغيير الاسم</h3>
                     <div class="form-group"><label>الاسم الحالي</label><input type="text" id="currentNameDisplay" disabled style="background:#f5f5f5;"></div>
                     <div class="form-group"><label>الاسم الجديد (ثلاثي)</label><input type="text" id="newNameInput" placeholder="أدخل الاسم الثلاثي"></div>
                     <button class="save-btn" onclick="changeUserName()">💾 حفظ الاسم</button>
                 </div>
+
                 <div class="settings-card">
                     <h3>🔒 تغيير كلمة المرور</h3>
                     <div class="form-group"><label>كلمة المرور الحالية</label><input type="password" id="currentPasswordInput" placeholder="أدخل كلمة المرور"></div>
@@ -688,6 +781,22 @@ tr:hover td{background:#fafbfc;}
                     <div class="form-group"><label>تأكيد كلمة المرور</label><input type="password" id="confirmNewPasswordInput" placeholder="أعد الإدخال"></div>
                     <button class="save-btn" onclick="changePassword()">🔐 تغيير كلمة المرور</button>
                 </div>
+
+                <div class="settings-card" style="border:2px solid #4caf50;">
+                    <h3 style="color:var(--success);">🔓 الدخول بدون كلمة مرور</h3>
+                    <div class="toggle-row">
+                        <div class="toggle-info">
+                            <div class="toggle-title">فتح الموقع مباشرة</div>
+                            <div class="toggle-desc">عند التفعيل، سيفتح الموقع تلقائيًا على حسابك بدون طلب كلمة المرور.</div>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="noPasswordToggle" onchange="toggleNoPassword()">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="toggle-status off" id="noPasswordStatus">🔒 معطّل - كلمة المرور مطلوبة</div>
+                </div>
+
                 <div class="settings-card">
                     <h3>🔑 سؤال الأمان</h3>
                     <div class="form-group"><label>السؤال الحالي</label><input type="text" id="currentSQDisplay" disabled style="background:#f5f5f5;"></div>
@@ -696,15 +805,27 @@ tr:hover td{background:#fafbfc;}
                     <div class="form-group"><label>الإجابة الجديدة</label><input type="text" id="settingsNewSA" placeholder="اكتب الإجابة"></div>
                     <button class="save-btn" onclick="changeSecurityQuestion()">💾 حفظ</button>
                 </div>
+
+                <div class="settings-card" style="border:2px solid #2196f3;">
+                    <h3 style="color:#1565c0;">💾 النسخ الاحتياطي</h3>
+                    <p style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;">
+                        احفظ نسخة من بياناتك قبل أي تحديث للموقع.
+                    </p>
+                    <button class="save-btn teal" onclick="exportBackup()">📤 تصدير نسخة احتياطية</button>
+                    <button class="save-btn" style="background:#ff6d00;margin-top:8px;" onclick="document.getElementById('importFile').click()">📥 استيراد نسخة احتياطية</button>
+                    <input type="file" id="importFile" accept=".json" style="display:none;" onchange="importBackup(event)">
+                </div>
+
                 <div class="settings-card" style="border:2px solid #ffd700;">
                     <h3 style="color:#ff8f00;">ℹ️ معلومات النظام</h3>
                     <div style="font-size:13px;color:var(--text-secondary);line-height:2;">
                         <div>👨‍💻 <strong>إعداد:</strong> المهندس يوسف أحمد مصطفى</div>
-                        <div>📋 <strong>الإصدار:</strong> 4.3</div>
+                        <div>📋 <strong>الإصدار:</strong> 6.0</div>
                         <div>📅 <strong>السنة:</strong> 2026</div>
                         <div>©️ <strong>جميع الحقوق محفوظة</strong></div>
                     </div>
                 </div>
+
                 <div class="settings-card" style="border:2px solid #ffcdd2;">
                     <h3 style="color:var(--danger);">⚠️ منطقة الخطر</h3>
                     <div style="display:flex;flex-direction:column;gap:10px;">
@@ -712,6 +833,7 @@ tr:hover td{background:#fafbfc;}
                         <button class="btn btn-danger-outline" onclick="showClearAllData()">🗑️ مسح جميع البيانات</button>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -719,11 +841,12 @@ tr:hover td{background:#fafbfc;}
 
     <footer class="app-footer">
         <div class="footer-name">⚡ المهندس يوسف أحمد مصطفى ⚡</div>
-        <div class="footer-title">النظام المالي الشخصي - الإصدار 4.3</div>
+        <div class="footer-title">النظام المالي الشخصي - الإصدار 6.0</div>
         <div class="footer-copyright">© 2026 جميع الحقوق محفوظة - إعداد المهندس يوسف أحمد مصطفى</div>
     </footer>
 </div>
 
+<!-- ========== MODALS ========== -->
 <div class="modal-overlay" id="addMoneyModal">
     <div class="modal">
         <button class="close-modal" onclick="closeModal('addMoneyModal')">✕</button>
@@ -772,7 +895,7 @@ tr:hover td{background:#fafbfc;}
 <div class="modal-overlay" id="addDebtModal">
     <div class="modal">
         <button class="close-modal" onclick="closeModal('addDebtModal')">✕</button>
-        <h3>📋 إضافة دين</h3>
+        <h3>📋 إضافة دين (عليّ)</h3>
         <div class="form-group"><label>مبلغ الدين (جنيه)</label><input type="number" id="debtAmount" min="0.01" step="0.01" placeholder="0.00"></div>
         <div class="form-group"><label>اسم الشخص</label><input type="text" id="debtPerson" placeholder="اسم الشخص"></div>
         <div class="form-group"><label>سبب الدين</label><input type="text" id="debtReason" placeholder="سبب الدين"></div>
@@ -802,6 +925,58 @@ tr:hover td{background:#fafbfc;}
     </div>
 </div>
 
+<!-- ADD LOAN MODAL -->
+<div class="modal-overlay" id="addLoanModal">
+    <div class="modal">
+        <button class="close-modal" onclick="closeModal('addLoanModal')">✕</button>
+        <h3>🤝 إضافة سلف (ليّ عند شخص)</h3>
+        <div class="loan-info-box">
+            💡 السلف = فلوس أنت أسلفتها لشخص. هو مدين لك، ولما يرجعهالك تتحول إلى "مستردة".
+        </div>
+        <div class="form-group"><label>المبلغ (جنيه)</label><input type="number" id="loanAmount" min="0.01" step="0.01" placeholder="0.00"></div>
+        <div class="form-group"><label>اسم الشخص</label><input type="text" id="loanPerson" placeholder="اسم الشخص الذي أسلفته"></div>
+        <div class="form-group"><label>سبب السلف</label><input type="text" id="loanReason" placeholder="سبب السلف"></div>
+        <div class="form-group">
+            <label>المصدر (من فين خرجت الفلوس؟)</label>
+            <select id="loanSource">
+                <option value="cash">من الكاش 💵</option>
+                <option value="account">من الحساب 🏦</option>
+            </select>
+        </div>
+        <div class="form-group"><label>التاريخ</label><input type="date" id="loanDate"></div>
+        <div class="form-group"><label>الوقت</label><input type="time" id="loanTime"></div>
+        <div class="form-group"><label>ملاحظات (اختياري)</label><textarea id="loanNotes" rows="2" placeholder="ملاحظات..."></textarea></div>
+        <div class="modal-actions">
+            <button class="btn btn-teal" onclick="confirmAddLoan()">حفظ السلف</button>
+            <button class="btn btn-outline" onclick="closeModal('addLoanModal')">إلغاء</button>
+        </div>
+    </div>
+</div>
+
+<!-- PARTIAL RETURN MODAL -->
+<div class="modal-overlay" id="partialReturnModal">
+    <div class="modal">
+        <button class="close-modal" onclick="closeModal('partialReturnModal')">✕</button>
+        <h3>💵 استرداد جزء من السلف</h3>
+        <div class="loan-info-box" id="partialLoanInfo">-</div>
+        <input type="hidden" id="partialLoanId">
+        <div class="form-group"><label>المبلغ المسترد (جنيه)</label><input type="number" id="returnAmount" min="0.01" step="0.01" placeholder="0.00"></div>
+        <div class="form-group">
+            <label>إلى أين يرجع المال؟</label>
+            <select id="returnDestination">
+                <option value="cash">إلى الكاش 💵</option>
+                <option value="account">إلى الحساب 🏦</option>
+            </select>
+        </div>
+        <div class="form-group"><label>التاريخ</label><input type="date" id="returnDate"></div>
+        <div class="form-group"><label>الوقت</label><input type="time" id="returnTime"></div>
+        <div class="modal-actions">
+            <button class="btn btn-green" onclick="confirmPartialReturn()">تأكيد</button>
+            <button class="btn btn-outline" onclick="closeModal('partialReturnModal')">إلغاء</button>
+        </div>
+    </div>
+</div>
+
 <div class="modal-overlay confirm-dialog" id="confirmDialog">
     <div class="modal">
         <button class="close-modal" onclick="closeModal('confirmDialog')">✕</button>
@@ -817,13 +992,97 @@ tr:hover td{background:#fafbfc;}
 </div>
 
 <script>
-// ============ CONSTANTS ============
-const USERS_KEY = 'financeApp_users_v4';
-const DATA_KEY_PREFIX = 'financeApp_data_v4_';
-const LAST_USER_KEY = 'financeApp_lastUser_v4';
-const DEVELOPER_NAME = 'المهندس يوسف أحمد مصطفى';
+// ============================================================
+// ============ FIXED STORAGE KEYS - NEVER CHANGE ============
+// ============================================================
+// ⚠️ مهم جداً: لا تغيّر هذه المفاتيح أبدًا في التحديثات الجاية
+// لأن تغييرها يمسح بيانات المستخدمين الحاليين
+// ============================================================
+const USERS_KEY = 'financeApp_users_v5';       // ⚠️ ثابت
+const DATA_KEY_PREFIX = 'financeApp_data_v5_';  // ⚠️ ثابت
+const LAST_USER_KEY = 'financeApp_lastUser_v5'; // ⚠️ ثابت
+const DATA_VERSION = '6.0';
 
+// ============================================================
+// ============ AUTO MIGRATION ============
+// ============================================================
+// يشتغل مرة واحدة فقط عند التحديث من نسخة قديمة
+// ينسخ الداتا من المفاتيح القديمة للمفاتيح الجديدة
+// ============================================================
+function migrateOldData() {
+    // لو الداتا الحالية موجودة، مفيش حاجة للترحيل
+    if (localStorage.getItem(USERS_KEY)) {
+        console.log('[Migration] Data already at current version');
+        return { migrated: false };
+    }
+
+    // الإصدارات القديمة بالترتيب (الأحدث أولاً)
+    const OLD_CONFIGS = [
+        { users: 'financeApp_users_v4', data: 'financeApp_data_v4_', last: 'financeApp_lastUser_v4' },
+        { users: 'financeApp_users_v3', data: 'financeApp_data_v3_', last: 'financeApp_lastUser_v3' },
+        { users: 'financeApp_users_v2', data: 'financeApp_data_v2_', last: 'financeApp_lastUser_v2' },
+        { users: 'financeApp_users_v1', data: 'financeApp_data_v1_', last: 'financeApp_lastUser_v1' },
+        { users: 'financeApp_users',     data: 'financeApp_data_',     last: 'financeApp_lastUser' }
+    ];
+
+    for (const old of OLD_CONFIGS) {
+        try {
+            const oldUsersStr = localStorage.getItem(old.users);
+            if (!oldUsersStr) continue;
+
+            console.log('[Migration] Found old data at:', old.users);
+
+            const oldUsers = JSON.parse(oldUsersStr);
+            if (!Array.isArray(oldUsers) || !oldUsers.length) continue;
+
+            // 1. انقل قائمة المستخدمين
+            localStorage.setItem(USERS_KEY, oldUsersStr);
+
+            // 2. انقل بيانات كل مستخدم
+            oldUsers.forEach(u => {
+                const oldDataKey = old.data + u.id;
+                const newDataKey = DATA_KEY_PREFIX + u.id;
+                const userData = localStorage.getItem(oldDataKey);
+                if (userData) {
+                    // تأكد من أن بيانات المستخدم سليمة
+                    try {
+                        const parsed = JSON.parse(userData);
+                        if (!parsed.transactions) parsed.transactions = [];
+                        if (!parsed.debts) parsed.debts = [];
+                        if (!parsed.transfers) parsed.transfers = [];
+                        if (!parsed.loans) parsed.loans = []; // ⭐ جديد: السلف
+                        if (!parsed.archivedMonths) parsed.archivedMonths = {};
+                        if (!parsed.startingBalances) parsed.startingBalances = { cash: 0, account: 0 };
+                        localStorage.setItem(newDataKey, JSON.stringify(parsed));
+                        console.log('[Migration] Migrated data for:', u.name);
+                    } catch (e) {
+                        console.warn('[Migration] Invalid data for user:', u.name, e);
+                        localStorage.setItem(newDataKey, userData);
+                    }
+                }
+            });
+
+            // 3. انقل آخر مستخدم
+            const oldLast = localStorage.getItem(old.last);
+            if (oldLast) localStorage.setItem(LAST_USER_KEY, oldLast);
+
+            console.log('[Migration] ✅ Successfully migrated from:', old.users);
+            return { migrated: true, count: oldUsers.length, from: old.users };
+        } catch (e) {
+            console.error('[Migration] Error with:', old.users, e);
+        }
+    }
+
+    console.log('[Migration] No old data found');
+    return { migrated: false };
+}
+
+// شغّل الترحيل فورًا
+const migrationResult = migrateOldData();
+
+// ============================================================
 // ============ STATE ============
+// ============================================================
 let currentUser = null;
 let selectedUser = null;
 let appData = null;
@@ -833,7 +1092,9 @@ let currentTransferTo = 'account';
 let confirmAction = null;
 let toastTimeout = null;
 
+// ============================================================
 // ============ HELPERS ============
+// ============================================================
 function genId() { return 'u_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9); }
 
 function getUsers() {
@@ -853,10 +1114,11 @@ function loadUserData(userId) {
         const s = localStorage.getItem(getDataKey(userId));
         if (!s) return getDefaultData();
         const d = JSON.parse(s);
-        // Ensure structure is intact
+        // التأكد من البنية الكاملة
         if (!d.transactions) d.transactions = [];
         if (!d.debts) d.debts = [];
         if (!d.transfers) d.transfers = [];
+        if (!d.loans) d.loans = []; // ⭐ جديد
         if (!d.archivedMonths) d.archivedMonths = {};
         if (!d.startingBalances) d.startingBalances = { cash: 0, account: 0 };
         if (!d.currentMonth) {
@@ -883,17 +1145,19 @@ function getDefaultData() {
     return {
         startingBalances: { cash: 0, account: 0 },
         currentMonth: cm,
-        transactions: [], debts: [], transfers: [], archivedMonths: {}
+        transactions: [],
+        debts: [],
+        transfers: [],
+        loans: [],   // ⭐ جديد: السلف
+        archivedMonths: {}
     };
 }
 
-// Get today's date in YYYY-MM-DD (local timezone)
 function getTodayLocal() {
     const now = new Date();
-    const y = now.getFullYear();
-    const m = String(now.getMonth() + 1).padStart(2, '0');
-    const d = String(now.getDate()).padStart(2, '0');
-    return y + '-' + m + '-' + d;
+    return now.getFullYear() + '-' +
+           String(now.getMonth() + 1).padStart(2, '0') + '-' +
+           String(now.getDate()).padStart(2, '0');
 }
 
 function getCurrentTimeLocal() {
@@ -901,7 +1165,9 @@ function getCurrentTimeLocal() {
     return String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
 }
 
+// ============================================================
 // ============ AVATAR ============
+// ============================================================
 function handleAvatarUpload(e, previewId, dataInputId) {
     const file = e.target.files[0];
     if (!file) return;
@@ -915,7 +1181,9 @@ function handleAvatarUpload(e, previewId, dataInputId) {
     reader.readAsDataURL(file);
 }
 
+// ============================================================
 // ============ AUTH VIEWS ============
+// ============================================================
 function showAuthScreen() {
     document.getElementById('authScreen').style.display = 'flex';
     document.getElementById('app').style.display = 'none';
@@ -923,19 +1191,36 @@ function showAuthScreen() {
     const users = getUsers();
     if (users.length === 0) {
         showRegisterView(false);
-    } else if (users.length === 1) {
-        selectedUser = users[0];
+        return;
+    }
+
+    const lastId = localStorage.getItem(LAST_USER_KEY);
+    const lastUser = lastId ? users.find(u => u.id === lastId) : null;
+
+    if (users.length === 1) {
+        const u = users[0];
+        if (u.noPassword) { autoLoginUser(u); return; }
+        selectedUser = u;
+        showPasswordView();
+        return;
+    }
+
+    if (lastUser && lastUser.noPassword) { autoLoginUser(lastUser); return; }
+
+    if (lastUser) {
+        selectedUser = lastUser;
         showPasswordView();
     } else {
-        const lastId = localStorage.getItem(LAST_USER_KEY);
-        const lastUser = lastId ? users.find(u => u.id === lastId) : null;
-        if (lastUser) {
-            selectedUser = lastUser;
-            showPasswordView();
-        } else {
-            showUserPickerView();
-        }
+        showUserPickerView();
     }
+}
+
+function autoLoginUser(user) {
+    currentUser = user;
+    appData = loadUserData(user.id);
+    localStorage.setItem(LAST_USER_KEY, user.id);
+    startApp();
+    showToast('مرحبًا ' + user.name + '! 👋 (دخول تلقائي)', 'success');
 }
 
 function hideAllAuthViews() {
@@ -1007,7 +1292,9 @@ function showForgotView() {
 
 function backToAuth() { showAuthScreen(); }
 
+// ============================================================
 // ============ REGISTER ============
+// ============================================================
 function handleRegister() {
     const name = document.getElementById('regName').value.trim().replace(/\s+/g, ' ');
     const password = document.getElementById('regPassword').value;
@@ -1030,7 +1317,9 @@ function handleRegister() {
 
     const newUser = {
         id: genId(), name, password, avatar,
-        securityQuestion: sq, securityAnswer: sa, createdAt: Date.now()
+        securityQuestion: sq, securityAnswer: sa,
+        noPassword: false,
+        createdAt: Date.now()
     };
     users.push(newUser);
     saveUsers(users);
@@ -1045,7 +1334,9 @@ function handleRegister() {
     showToast('مرحبًا ' + name + '! تم إنشاء حسابك 🎉', 'success');
 }
 
+// ============================================================
 // ============ LOGIN ============
+// ============================================================
 function handleLogin() {
     const password = document.getElementById('loginPassword').value;
     const err = document.getElementById('loginError');
@@ -1065,7 +1356,9 @@ function handleLogin() {
     showToast('مرحبًا ' + currentUser.name + '! 👋', 'success');
 }
 
+// ============================================================
 // ============ FORGOT ============
+// ============================================================
 function handleForgotPassword() {
     const answer = document.getElementById('forgotAnswer').value.trim();
     const newPwd = document.getElementById('forgotNewPwd').value;
@@ -1089,9 +1382,11 @@ function handleForgotPassword() {
     showToast('تم تعيين كلمة المرور الجديدة ✓', 'success');
 }
 
+// ============================================================
 // ============ LOGOUT ============
+// ============================================================
 function handleLogout() {
-    saveUserData(); // ✅ Save before logout
+    saveUserData();
     closeSidebar();
     currentUser = null;
     appData = null;
@@ -1099,10 +1394,22 @@ function handleLogout() {
     showAuthScreen();
 }
 
+// ============================================================
 // ============ START APP ============
+// ============================================================
 function startApp() {
     document.getElementById('authScreen').style.display = 'none';
     document.getElementById('app').style.display = 'flex';
+
+    // عرض إشعار الترحيل لو حصل
+    if (migrationResult.migrated) {
+        const notice = document.getElementById('migrationNotice');
+        const text = document.getElementById('migrationText');
+        text.textContent = '✅ تم ترحيل بياناتك القديمة بنجاح (' + migrationResult.count + ' حساب)';
+        notice.style.display = 'flex';
+        setTimeout(() => { notice.style.display = 'none'; }, 8000);
+    }
+
     updateUserInterface();
     populateMonthSelector();
     updateAllUI();
@@ -1123,9 +1430,49 @@ function updateUserInterface() {
     prevEl.innerHTML = currentUser.avatar ? '<img src="' + currentUser.avatar + '" alt="">' : '📷';
     const sq = document.getElementById('currentSQDisplay');
     if (sq) sq.value = currentUser.securityQuestion || '-';
+    updateNoPasswordUI();
 }
 
+// ============================================================
+// ============ NO PASSWORD TOGGLE ============
+// ============================================================
+function toggleNoPassword() {
+    const checkbox = document.getElementById('noPasswordToggle');
+    if (!currentUser) return;
+    const enabled = checkbox.checked;
+
+    if (enabled) {
+        const confirmed = confirm('⚠️ تحذير أمني\n\nعند تفعيل "الدخول بدون كلمة مرور":\n\n• أي شخص يستخدم جهازك سيفتح حسابك مباشرة\n• لن يُطلب منك إدخال كلمة المرور\n• يمكنك تعطيل الخاصية في أي وقت\n\nهل أنت متأكد؟');
+        if (!confirmed) { checkbox.checked = false; return; }
+    }
+
+    const users = getUsers();
+    const idx = users.findIndex(u => u.id === currentUser.id);
+    if (idx >= 0) users[idx].noPassword = enabled;
+    saveUsers(users);
+    currentUser.noPassword = enabled;
+    updateNoPasswordUI();
+    showToast(enabled ? '✅ تم تفعيل الدخول بدون كلمة مرور' : '🔒 تم تعطيل الدخول بدون كلمة مرور', enabled ? 'success' : 'warning');
+}
+
+function updateNoPasswordUI() {
+    const checkbox = document.getElementById('noPasswordToggle');
+    const statusEl = document.getElementById('noPasswordStatus');
+    if (!checkbox || !statusEl) return;
+    const enabled = currentUser && currentUser.noPassword;
+    checkbox.checked = !!enabled;
+    if (enabled) {
+        statusEl.textContent = '🔓 مفعّل - الموقع سيفتح مباشرة بدون كلمة مرور';
+        statusEl.className = 'toggle-status on';
+    } else {
+        statusEl.textContent = '🔒 معطّل - كلمة المرور مطلوبة';
+        statusEl.className = 'toggle-status off';
+    }
+}
+
+// ============================================================
 // ============ SIDEBAR ============
+// ============================================================
 function toggleSidebar() {
     document.getElementById('sidebar').classList.toggle('open');
     document.getElementById('sidebarOverlay').classList.toggle('open');
@@ -1135,7 +1482,9 @@ function closeSidebar() {
     document.getElementById('sidebarOverlay').classList.remove('open');
 }
 
+// ============================================================
 // ============ MONTH ============
+// ============================================================
 function populateMonthSelector() {
     const sel = document.getElementById('monthSelector');
     const months = new Set();
@@ -1143,8 +1492,8 @@ function populateMonthSelector() {
     (appData.transactions || []).forEach(t => { if (t.month) months.add(t.month); });
     (appData.debts || []).forEach(d => { if (d.month) months.add(d.month); });
     (appData.transfers || []).forEach(t => { if (t.month) months.add(t.month); });
+    (appData.loans || []).forEach(l => { if (l.month) months.add(l.month); });
     Object.keys(appData.archivedMonths || {}).forEach(m => months.add(m));
-
     const sorted = Array.from(months).sort().reverse();
     const currentVal = sel.value;
     sel.innerHTML = '';
@@ -1154,13 +1503,8 @@ function populateMonthSelector() {
         o.textContent = formatMonthLabel(m);
         sel.appendChild(o);
     });
-
-    // Restore selection if still valid, else use currentMonth
-    if (currentVal && sorted.includes(currentVal)) {
-        sel.value = currentVal;
-    } else {
-        sel.value = appData.currentMonth;
-    }
+    if (currentVal && sorted.includes(currentVal)) sel.value = currentVal;
+    else sel.value = appData.currentMonth;
 }
 
 function formatMonthLabel(s) {
@@ -1183,7 +1527,9 @@ function getMonthFromDate(d) {
     return appData.currentMonth;
 }
 
+// ============================================================
 // ============ BALANCES ============
+// ============================================================
 function getCashBalance(month) {
     const m = month || getSelectedMonth();
     let bal = Number(appData.startingBalances.cash) || 0;
@@ -1198,6 +1544,15 @@ function getCashBalance(month) {
         const amt = Number(t.amount) || 0;
         if (t.to === 'cash') bal += amt;
         if (t.from === 'cash') bal -= amt;
+    });
+    // السلف: خرجت من الكاش (loan.source = cash) ونقصت وقت السلف، ترجع لما تسترد
+    (appData.loans || []).forEach(l => {
+        if (l.month > m) return;
+        if (l.source === 'cash') bal -= Number(l.amount) || 0;
+        (l.partialReturns || []).forEach(r => {
+            if (r.month > m) return;
+            if (r.destination === 'cash') bal += Number(r.amount) || 0;
+        });
     });
     return bal;
 }
@@ -1216,6 +1571,14 @@ function getAccountBalance(month) {
         if (t.to === 'account') bal += amt;
         if (t.from === 'account') bal -= amt;
     });
+    (appData.loans || []).forEach(l => {
+        if (l.month > m) return;
+        if (l.source === 'account') bal -= Number(l.amount) || 0;
+        (l.partialReturns || []).forEach(r => {
+            if (r.month > m) return;
+            if (r.destination === 'account') bal += Number(r.amount) || 0;
+        });
+    });
     return bal;
 }
 function getMonthIncome(m) {
@@ -1229,7 +1592,9 @@ function getMonthExpense(m) {
         .reduce((s,t)=>s+(Number(t.amount)||0),0);
 }
 
+// ============================================================
 // ============ UI UPDATE ============
+// ============================================================
 function updateAllUI() {
     const m = getSelectedMonth();
     const cash = getCashBalance(m);
@@ -1239,9 +1604,9 @@ function updateAllUI() {
     const expense = getMonthExpense(m);
     const net = income - expense;
     const activeD = (appData.debts || []).filter(d => d.month === m && d.status !== 'paid');
-    const paidD = (appData.debts || []).filter(d => d.status === 'paid' && d.paidMonth === m);
-    const activeAmt = activeD.reduce((s,d)=>s+(Number(d.amount)||0),0);
-    const paidAmt = paidD.reduce((s,d)=>s+(Number(d.originalAmount || d.amount)||0),0);
+    const activeL = (appData.loans || []).filter(l => l.month === m && l.status !== 'returned');
+    const activeDAmt = activeD.reduce((s,d)=>s+(Number(d.amount)||0),0);
+    const activeLAmt = activeL.reduce((s,l)=>s+(Number(l.amount)||0),0);
 
     document.getElementById('dashCashDisplay').textContent = cash.toLocaleString('ar-EG');
     document.getElementById('dashAccountDisplay').textContent = acc.toLocaleString('ar-EG');
@@ -1249,16 +1614,18 @@ function updateAllUI() {
     document.getElementById('dashIncome').textContent = income.toLocaleString('ar-EG') + ' ج.م';
     document.getElementById('dashExpense').textContent = expense.toLocaleString('ar-EG') + ' ج.م';
     document.getElementById('dashNet').textContent = net.toLocaleString('ar-EG') + ' ج.م';
-    document.getElementById('dashActiveDebts').textContent = activeD.length + ' (' + activeAmt.toLocaleString('ar-EG') + ')';
-    document.getElementById('dashPaidDebts').textContent = paidD.length + ' (' + paidAmt.toLocaleString('ar-EG') + ')';
+    document.getElementById('dashActiveDebts').textContent = activeD.length + ' (' + activeDAmt.toLocaleString('ar-EG') + ')';
+    document.getElementById('dashActiveLoans').textContent = activeL.length + ' (' + activeLAmt.toLocaleString('ar-EG') + ')';
 
     document.getElementById('cashBalanceDisplay').textContent = cash.toLocaleString('ar-EG') + ' جنيه';
     document.getElementById('accountBalanceDisplay').textContent = acc.toLocaleString('ar-EG') + ' جنيه';
 }
 
+// ============================================================
 // ============ SECTION SWITCH ============
+// ============================================================
 function switchSection(name) {
-    saveUserData(); // ✅ Save before switching
+    saveUserData();
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
     const sec = document.getElementById('section-' + name);
@@ -1268,16 +1635,20 @@ function switchSection(name) {
     closeSidebar();
     if (name === 'reports') renderReport();
     if (name === 'debts') renderDebts();
+    if (name === 'loans') renderLoans();
     if (name === 'paidDebtsLog') renderPaidDebtsLog();
     if (name === 'settings') updateUserInterface();
 }
 
+// ============================================================
 // ============ RENDER ============
+// ============================================================
 function renderAllSections() {
     renderCashTransactions();
     renderAccountTransactions();
     renderTransfers();
     renderDebts();
+    renderLoans();
     renderIncomeLog();
     renderExpenseLog();
     renderPaidDebtsLog();
@@ -1435,46 +1806,157 @@ function confirmPartialPayment() {
     showToast('تم تسديد ' + amount.toLocaleString('ar-EG') + ' ج.م ' + (d.status==='paid'?'✓ اكتمل':' (متبقي: ' + d.amount.toLocaleString('ar-EG') + ')'), 'success');
 }
 
-// ============ INCOME LOG - FIXED ============
+// ============================================================
+// ============ LOANS (السلف) ============
+// ============================================================
+function renderLoans() {
+    const m = getSelectedMonth();
+    const active = (appData.loans || []).filter(l => l.month === m && l.status !== 'returned');
+    const returned = (appData.loans || []).filter(l => l.status === 'returned' && l.returnedMonth === m);
+    const list = document.getElementById('activeLoansList');
+    if (!active.length) {
+        list.innerHTML = '<p style="text-align:center;color:#999;padding:18px;">لا توجد سلف نشطة في هذا الشهر</p>';
+    } else {
+        list.innerHTML = active.map(l => renderLoanCard(l)).join('');
+    }
+    const rl = document.getElementById('returnedLoansListThisMonth');
+    if (!returned.length) {
+        rl.innerHTML = '<p style="text-align:center;color:#999;padding:12px;">لا توجد سلف مستردة في هذا الشهر</p>';
+    } else {
+        rl.innerHTML = returned.map(l => '<div class="loan-card returned">' +
+            '<div class="loan-header"><span class="loan-person">👤 ' + l.personName + '</span>' +
+            '<span class="loan-amount">' + (Number(l.originalAmount || l.amount)||0).toLocaleString('ar-EG') + ' ج.م</span></div>' +
+            '<div class="loan-details"><span>📝 ' + (l.reason||'-') + '</span>' +
+            '<span>✅ استرداد: ' + (l.returnedDate || '-') + ' - ' + (l.returnedTime || '-') + '</span></div>' +
+            '<span class="badge badge-loan-paid">تم الاسترداد ✓</span></div>').join('');
+    }
+}
+
+function renderLoanCard(l) {
+    const isPartial = l.partialReturns && l.partialReturns.length > 0;
+    const orig = Number(l.originalAmount || l.amount) || 0;
+    const remaining = Number(l.amount) || 0;
+    const returned = orig - remaining;
+    const pct = orig > 0 ? (returned / orig) * 100 : 0;
+    let partialInfo = '';
+    if (isPartial) {
+        partialInfo = '<div class="progress-bar"><div class="progress-fill" style="width:' + pct + '%"></div></div>' +
+            '<div class="partial-info">💰 تم استرداد ' + returned.toLocaleString('ar-EG') + ' ج.م من أصل ' + orig.toLocaleString('ar-EG') + ' ج.م (' + l.partialReturns.length + ' دفعة)</div>';
+    }
+    return '<div class="loan-card ' + (isPartial?'partial':'') + '">' +
+        '<div class="loan-header"><span class="loan-person">👤 ' + l.personName + '</span>' +
+        '<span class="loan-amount">' + remaining.toLocaleString('ar-EG') + ' ج.م ' + (isPartial?'(متبقي)':'') + '</span></div>' +
+        '<div class="loan-details"><span>📝 ' + (l.reason||'-') + '</span>' +
+        '<span>📅 ' + (l.date||'-') + '</span><span>🕐 ' + (l.time||'-') + '</span>' +
+        '<span>💵 من: ' + (l.source === 'cash' ? 'الكاش' : 'الحساب') + '</span>' +
+        (l.notes ? '<span>📌 ' + l.notes + '</span>' : '') + '</div>' + partialInfo +
+        '<div class="loan-actions">' +
+        '<button class="btn btn-orange btn-sm" onclick="openPartialReturnModal(\'' + l.id + '\')">💵 استرداد جزء</button>' +
+        '<button class="btn btn-green btn-sm" onclick="markLoanAsReturned(\'' + l.id + '\')">✓ استرداد كامل</button>' +
+        '</div></div>';
+}
+
+function markLoanAsReturned(id) {
+    const l = (appData.loans || []).find(x => x.id === id);
+    if (!l) return;
+    const today = getTodayLocal();
+    const time = getCurrentTimeLocal();
+    l.status = 'returned';
+    l.returnedDate = today;
+    l.returnedTime = time;
+    l.returnedMonth = today.substring(0,7);
+    // المبلغ المتبقي يرجع للمصدر الأصلي
+    if (!l.partialReturns) l.partialReturns = [];
+    if (l.amount > 0) {
+        l.partialReturns.push({
+            amount: l.amount,
+            date: today,
+            time: time,
+            destination: l.source,
+            month: today.substring(0,7),
+            recordedAt: Date.now()
+        });
+    }
+    l.amount = 0;
+    saveUserData();
+    updateAllUI();
+    renderLoans();
+    showToast('تم استرداد السلف بالكامل ✓', 'success');
+}
+
+function openPartialReturnModal(id) {
+    const l = (appData.loans || []).find(x => x.id === id);
+    if (!l) return;
+    document.getElementById('partialLoanId').value = id;
+    document.getElementById('partialLoanInfo').innerHTML = '👤 ' + l.personName + ' — المتبقي: <strong>' + (Number(l.amount)||0).toLocaleString('ar-EG') + ' ج.م</strong>';
+    document.getElementById('returnAmount').value = '';
+    document.getElementById('returnAmount').max = l.amount;
+    document.getElementById('returnDestination').value = l.source || 'cash';
+    document.getElementById('returnDate').value = getTodayLocal();
+    document.getElementById('returnTime').value = getCurrentTimeLocal();
+    openModal('partialReturnModal');
+}
+
+function confirmPartialReturn() {
+    const id = document.getElementById('partialLoanId').value;
+    const amount = parseFloat(document.getElementById('returnAmount').value);
+    const destination = document.getElementById('returnDestination').value;
+    const date = document.getElementById('returnDate').value;
+    const time = document.getElementById('returnTime').value;
+    if (!amount || amount <= 0) return showToast('مبلغ غير صحيح', 'error');
+    if (!date || !time) return showToast('أدخل التاريخ والوقت', 'error');
+    const l = (appData.loans || []).find(x => x.id === id);
+    if (!l) return;
+    if (amount > l.amount) return showToast('المبلغ أكبر من المتبقي', 'error');
+    if (!l.partialReturns) l.partialReturns = [];
+    if (!l.originalAmount) l.originalAmount = l.amount;
+    l.partialReturns.push({
+        amount,
+        date,
+        time,
+        destination,
+        month: date.substring(0,7),
+        recordedAt: Date.now()
+    });
+    l.amount -= amount;
+    if (l.amount <= 0.001) {
+        l.amount = 0;
+        l.status = 'returned';
+        l.returnedDate = date;
+        l.returnedTime = time;
+        l.returnedMonth = date.substring(0,7);
+    }
+    saveUserData();
+    closeModal('partialReturnModal');
+    updateAllUI();
+    renderLoans();
+    showToast('تم استرداد ' + amount.toLocaleString('ar-EG') + ' ج.م ' + (l.status==='returned'?'✓ اكتمل':' (متبقي: ' + l.amount.toLocaleString('ar-EG') + ')'), 'success');
+}
+
+// ============================================================
+// ============ INCOME LOG ============
+// ============================================================
 function renderIncomeLog() {
     const tbody = document.getElementById('incomeLogTable');
     const info = document.getElementById('incomeLogInfo');
     const search = (document.getElementById('incomeSearch').value || '').trim();
     const type = document.getElementById('incomeTypeFilter').value;
     const monthFilter = document.getElementById('incomeMonthFilter').value;
-
-    // Get all income transactions
     let allIncome = (appData.transactions || []).filter(t => t.type === 'income');
-
-    // Filter by month
     let list;
-    if (monthFilter === 'all') {
-        list = allIncome.slice();
-    } else {
-        const m = getSelectedMonth();
-        list = allIncome.filter(t => t.month === m);
-    }
-
-    // Apply search & type filters
+    if (monthFilter === 'all') list = allIncome.slice();
+    else list = allIncome.filter(t => t.month === getSelectedMonth());
     if (search) list = list.filter(t => (t.reason||'').includes(search));
     if (type !== 'all') list = list.filter(t => t.source === type);
-
-    // Sort
     list.sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));
-
-    // Info message
     const totalAll = allIncome.length;
     const monthLabel = monthFilter === 'all' ? 'جميع الشهور' : formatMonthLabel(getSelectedMonth());
     if (list.length === 0) {
-        if (totalAll === 0) {
-            info.textContent = 'ℹ️ لا توجد أي عمليات دخل مسجلة بعد';
-        } else {
-            info.textContent = 'ℹ️ لا توجد عمليات دخل في ' + monthLabel + ' — لديك ' + totalAll + ' عملية في شهور أخرى (جرب فلتر "كل الشهور")';
-        }
+        if (totalAll === 0) info.textContent = 'ℹ️ لا توجد أي عمليات دخل مسجلة بعد';
+        else info.textContent = 'ℹ️ لا توجد عمليات دخل في ' + monthLabel + ' — لديك ' + totalAll + ' عملية في شهور أخرى';
     } else {
         info.textContent = '✅ يتم عرض ' + list.length + ' عملية (' + monthLabel + ') — الإجمالي: ' + list.reduce((s,t)=>s+(Number(t.amount)||0),0).toLocaleString('ar-EG') + ' ج.م';
     }
-
     if (!list.length) {
         tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#999;padding:18px;">لا توجد عمليات</td></tr>';
         return;
@@ -1486,41 +1968,30 @@ function renderIncomeLog() {
         '<td>' + (t.date || '-') + '</td><td>' + (t.time || '-') + '</td></tr>').join('');
 }
 
-// ============ EXPENSE LOG - FIXED ============
+// ============================================================
+// ============ EXPENSE LOG ============
+// ============================================================
 function renderExpenseLog() {
     const tbody = document.getElementById('expenseLogTable');
     const info = document.getElementById('expenseLogInfo');
     const search = (document.getElementById('expenseSearch').value || '').trim();
     const type = document.getElementById('expenseTypeFilter').value;
     const monthFilter = document.getElementById('expenseMonthFilter').value;
-
     let allExpense = (appData.transactions || []).filter(t => t.type === 'expense');
-
     let list;
-    if (monthFilter === 'all') {
-        list = allExpense.slice();
-    } else {
-        const m = getSelectedMonth();
-        list = allExpense.filter(t => t.month === m);
-    }
-
+    if (monthFilter === 'all') list = allExpense.slice();
+    else list = allExpense.filter(t => t.month === getSelectedMonth());
     if (search) list = list.filter(t => (t.reason||'').includes(search));
     if (type !== 'all') list = list.filter(t => t.source === type);
-
     list.sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));
-
     const totalAll = allExpense.length;
     const monthLabel = monthFilter === 'all' ? 'جميع الشهور' : formatMonthLabel(getSelectedMonth());
     if (list.length === 0) {
-        if (totalAll === 0) {
-            info.textContent = 'ℹ️ لا توجد أي عمليات خروج مسجلة بعد';
-        } else {
-            info.textContent = 'ℹ️ لا توجد عمليات خروج في ' + monthLabel + ' — لديك ' + totalAll + ' عملية في شهور أخرى (جرب فلتر "كل الشهور")';
-        }
+        if (totalAll === 0) info.textContent = 'ℹ️ لا توجد أي عمليات خروج مسجلة بعد';
+        else info.textContent = 'ℹ️ لا توجد عمليات خروج في ' + monthLabel + ' — لديك ' + totalAll + ' عملية في شهور أخرى';
     } else {
         info.textContent = '✅ يتم عرض ' + list.length + ' عملية (' + monthLabel + ') — الإجمالي: ' + list.reduce((s,t)=>s+(Number(t.amount)||0),0).toLocaleString('ar-EG') + ' ج.م';
     }
-
     if (!list.length) {
         tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#999;padding:18px;">لا توجد عمليات</td></tr>';
         return;
@@ -1548,6 +2019,9 @@ function renderPaidDebtsLog() {
         '<td>' + (d.paidDate || '-') + ' ' + (d.paidTime || '') + '</td></tr>').join('');
 }
 
+// ============================================================
+// ============ REPORT ============
+// ============================================================
 function renderReport() {
     const m = getSelectedMonth();
     const cash = getCashBalance(m);
@@ -1558,8 +2032,12 @@ function renderReport() {
     const net = income - expense;
     const active = (appData.debts || []).filter(d => d.month === m && d.status !== 'paid');
     const paid = (appData.debts || []).filter(d => d.status === 'paid' && d.paidMonth === m);
+    const activeL = (appData.loans || []).filter(l => l.month === m && l.status !== 'returned');
+    const returnedL = (appData.loans || []).filter(l => l.status === 'returned' && l.returnedMonth === m);
     const activeAmt = active.reduce((s,d)=>s+(Number(d.amount)||0),0);
     const paidAmt = paid.reduce((s,d)=>s+(Number(d.originalAmount || d.amount)||0),0);
+    const activeLAmt = activeL.reduce((s,l)=>s+(Number(l.amount)||0),0);
+    const returnedLAmt = returnedL.reduce((s,l)=>s+(Number(l.originalAmount || l.amount)||0),0);
     const incomeCount = (appData.transactions||[]).filter(t => t.type==='income' && t.month === m).length;
     const expenseCount = (appData.transactions||[]).filter(t => t.type==='expense' && t.month === m).length;
 
@@ -1569,19 +2047,26 @@ function renderReport() {
         '<div class="report-row"><span class="label">رصيد الكاش</span><span class="value">' + cash.toLocaleString('ar-EG') + ' ج.م</span></div>' +
         '<div class="report-row"><span class="label">رصيد الحساب</span><span class="value">' + acc.toLocaleString('ar-EG') + ' ج.م</span></div>' +
         '<div class="report-row"><span class="label">إجمالي الأموال</span><span class="value">' + total.toLocaleString('ar-EG') + ' ج.م</span></div>' +
-        '<div class="report-row"><span class="label">إجمالي الداخل (' + incomeCount + ' عملية)</span><span class="value" style="color:var(--success);">' + income.toLocaleString('ar-EG') + ' ج.م</span></div>' +
-        '<div class="report-row"><span class="label">إجمالي الخارج (' + expenseCount + ' عملية)</span><span class="value" style="color:var(--danger);">' + expense.toLocaleString('ar-EG') + ' ج.م</span></div>' +
+        '<div class="report-row"><span class="label">إجمالي الداخل (' + incomeCount + ')</span><span class="value" style="color:var(--success);">' + income.toLocaleString('ar-EG') + ' ج.م</span></div>' +
+        '<div class="report-row"><span class="label">إجمالي الخارج (' + expenseCount + ')</span><span class="value" style="color:var(--danger);">' + expense.toLocaleString('ar-EG') + ' ج.م</span></div>' +
         '<div class="report-row"><span class="label">صافي الحركة</span><span class="value" style="color:' + (net>=0?'var(--success)':'var(--danger)') + ';">' + net.toLocaleString('ar-EG') + ' ج.م</span></div>' +
         '</div>' +
         '<div class="report-section">' +
-        '<h4>📋 تقرير الديون</h4>' +
+        '<h4>📋 تقرير الديون (عليّ)</h4>' +
         '<div class="report-row"><span class="label">الديون النشطة</span><span class="value" style="color:var(--danger);">' + activeAmt.toLocaleString('ar-EG') + ' ج.م (' + active.length + ')</span></div>' +
         '<div class="report-row"><span class="label">المسددة هذا الشهر</span><span class="value" style="color:var(--success);">' + paidAmt.toLocaleString('ar-EG') + ' ج.م (' + paid.length + ')</span></div>' +
+        '</div>' +
+        '<div class="report-section">' +
+        '<h4>🤝 تقرير السلف (ليّ)</h4>' +
+        '<div class="report-row"><span class="label">سلف نشطة</span><span class="value" style="color:var(--teal);">' + activeLAmt.toLocaleString('ar-EG') + ' ج.م (' + activeL.length + ')</span></div>' +
+        '<div class="report-row"><span class="label">مستردة هذا الشهر</span><span class="value" style="color:var(--success);">' + returnedLAmt.toLocaleString('ar-EG') + ' ج.م (' + returnedL.length + ')</span></div>' +
         '</div>' +
         '<div style="text-align:center;color:#999;font-size:12px;margin-top:10px;">إعداد: ' + DEVELOPER_NAME + ' - ' + new Date().toLocaleDateString('ar-EG') + '</div>';
 }
 
+// ============================================================
 // ============ SETTINGS ============
+// ============================================================
 function changeUserName() {
     const newName = document.getElementById('newNameInput').value.trim().replace(/\s+/g, ' ');
     const parts = newName.split(' ').filter(p => p.length > 0);
@@ -1665,7 +2150,72 @@ function removeUserAvatar() {
     showToast('تم حذف الصورة', 'warning');
 }
 
+// ============================================================
+// ============ BACKUP & RESTORE ============
+// ============================================================
+function exportBackup() {
+    if (!currentUser || !appData) return;
+    const backup = {
+        version: DATA_VERSION,
+        exportDate: new Date().toISOString(),
+        user: currentUser,
+        data: appData,
+        allUsers: getUsers()
+    };
+    const dataStr = JSON.stringify(backup, null, 2);
+    const blob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    const date = new Date().toISOString().split('T')[0];
+    a.download = 'financial_backup_' + date + '.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast('✅ تم تصدير النسخة الاحتياطية', 'success');
+}
+
+function importBackup(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            const backup = JSON.parse(e.target.result);
+            if (!backup.user || !backup.data) {
+                showToast('❌ ملف غير صالح', 'error');
+                return;
+            }
+            const confirmed = confirm('⚠️ تحذير\n\nسيتم استبدال جميع البيانات الحالية بالبيانات المستوردة.\n\nهل أنت متأكد؟');
+            if (!confirmed) return;
+
+            if (backup.allUsers && Array.isArray(backup.allUsers)) {
+                saveUsers(backup.allUsers);
+            } else {
+                const users = getUsers();
+                const idx = users.findIndex(u => u.id === backup.user.id);
+                if (idx >= 0) users[idx] = backup.user;
+                else users.push(backup.user);
+                saveUsers(users);
+            }
+            currentUser = backup.user;
+            appData = backup.data;
+            saveUserData();
+            showToast('✅ تم استيراد البيانات بنجاح! جاري إعادة التحميل...', 'success');
+            setTimeout(() => location.reload(), 1500);
+        } catch (err) {
+            console.error(err);
+            showToast('❌ خطأ: ' + err.message, 'error');
+        }
+    };
+    reader.readAsText(file);
+    event.target.value = '';
+}
+
+// ============================================================
 // ============ MODALS ============
+// ============================================================
 function openModal(id) { document.getElementById(id).classList.add('active'); }
 function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 
@@ -1712,7 +2262,20 @@ function openAddDebtModal() {
     openModal('addDebtModal');
 }
 
+function openAddLoanModal() {
+    document.getElementById('loanAmount').value = '';
+    document.getElementById('loanPerson').value = '';
+    document.getElementById('loanReason').value = '';
+    document.getElementById('loanSource').value = 'cash';
+    document.getElementById('loanDate').value = getTodayLocal();
+    document.getElementById('loanTime').value = getCurrentTimeLocal();
+    document.getElementById('loanNotes').value = '';
+    openModal('addLoanModal');
+}
+
+// ============================================================
 // ============ CONFIRM ACTIONS ============
+// ============================================================
 function confirmAddMoney() {
     try {
         const amount = parseFloat(document.getElementById('addMoneyAmount').value);
@@ -1722,7 +2285,6 @@ function confirmAddMoney() {
         if (!amount || amount <= 0) return showToast('مبلغ غير صحيح', 'error');
         if (!reason) return showToast('أدخل السبب', 'error');
         if (!date || !time) return showToast('أدخل التاريخ والوقت', 'error');
-
         const month = getMonthFromDate(date);
         appData.transactions.push({
             id: Date.now() + '' + Math.random().toString(36).substr(2,5),
@@ -1731,7 +2293,6 @@ function confirmAddMoney() {
         });
         saveUserData();
         closeModal('addMoneyModal');
-
         const sel = document.getElementById('monthSelector');
         populateMonthSelector();
         if ([...sel.options].some(o => o.value === month)) sel.value = month;
@@ -1753,11 +2314,9 @@ function confirmRemoveMoney() {
         if (!amount || amount <= 0) return showToast('مبلغ غير صحيح', 'error');
         if (!reason) return showToast('أدخل السبب', 'error');
         if (!date || !time) return showToast('أدخل التاريخ والوقت', 'error');
-
         const month = getMonthFromDate(date);
         const bal = currentSource === 'cash' ? getCashBalance(month) : getAccountBalance(month);
         if (amount > bal) return showToast('المبلغ أكبر من الرصيد (' + bal.toLocaleString('ar-EG') + ' ج.م)', 'error');
-
         appData.transactions.push({
             id: Date.now() + '' + Math.random().toString(36).substr(2,5),
             type: 'expense', source: currentSource, amount, reason, date, time,
@@ -1765,7 +2324,6 @@ function confirmRemoveMoney() {
         });
         saveUserData();
         closeModal('removeMoneyModal');
-
         const sel = document.getElementById('monthSelector');
         populateMonthSelector();
         if ([...sel.options].some(o => o.value === month)) sel.value = month;
@@ -1831,7 +2389,44 @@ function confirmAddDebt() {
     showToast('✅ تم تسجيل الدين على ' + personName, 'success');
 }
 
-// ============ START NEW MONTH ============
+function confirmAddLoan() {
+    const amount = parseFloat(document.getElementById('loanAmount').value);
+    const personName = document.getElementById('loanPerson').value.trim();
+    const reason = document.getElementById('loanReason').value.trim();
+    const source = document.getElementById('loanSource').value;
+    const date = document.getElementById('loanDate').value;
+    const time = document.getElementById('loanTime').value;
+    const notes = document.getElementById('loanNotes').value.trim();
+    if (!amount || amount <= 0) return showToast('مبلغ غير صحيح', 'error');
+    if (!personName) return showToast('أدخل اسم الشخص', 'error');
+    if (!reason) return showToast('أدخل السبب', 'error');
+    if (!date || !time) return showToast('أدخل التاريخ والوقت', 'error');
+
+    // تحقق من الرصيد
+    const m = getMonthFromDate(date);
+    const bal = source === 'cash' ? getCashBalance(m) : getAccountBalance(m);
+    if (amount > bal) return showToast('المبلغ أكبر من رصيد ' + (source==='cash'?'الكاش':'الحساب') + ' (' + bal.toLocaleString('ar-EG') + ' ج.م)', 'error');
+
+    appData.loans.push({
+        id: Date.now() + '' + Math.random().toString(36).substr(2,5),
+        amount, originalAmount: amount, personName, reason, source, date, time, notes,
+        status: 'active', month: m,
+        partialReturns: [], returnedDate: null, returnedTime: null, returnedMonth: null,
+        createdAt: Date.now()
+    });
+    saveUserData();
+    closeModal('addLoanModal');
+    const sel = document.getElementById('monthSelector');
+    populateMonthSelector();
+    if ([...sel.options].some(o => o.value === m)) sel.value = m;
+    updateAllUI();
+    renderAllSections();
+    showToast('✅ تم تسجيل السلف لـ ' + personName + ' (' + amount.toLocaleString('ar-EG') + ' ج.م من ' + (source==='cash'?'الكاش':'الحساب') + ')', 'success');
+}
+
+// ============================================================
+// ============ NEW MONTH ============
+// ============================================================
 function showStartNewMonth() {
     confirmAction = 'startNewMonth';
     document.getElementById('confirmIcon').textContent = '🔄';
@@ -1860,12 +2455,14 @@ function executeStartNewMonth() {
     showToast('🎉 تم بدء شهر جديد - الرصيد كما هو', 'success');
 }
 
+// ============================================================
 // ============ CLEAR ALL ============
+// ============================================================
 function showClearAllData() {
     confirmAction = 'clearAll';
     document.getElementById('confirmIcon').textContent = '🗑️';
     document.getElementById('confirmTitle').textContent = 'تحذير: حذف جميع البيانات';
-    document.getElementById('confirmMessage').textContent = 'سيتم حذف جميع العمليات والديون نهائيًا!';
+    document.getElementById('confirmMessage').textContent = 'سيتم حذف جميع العمليات والديون والسلف نهائيًا!';
     document.getElementById('confirmInput').style.display = 'block';
     document.getElementById('confirmInput').value = '';
     document.getElementById('confirmBtn').textContent = 'تأكيد الحذف';
@@ -1889,7 +2486,9 @@ function executeConfirm() {
     else if (confirmAction === 'clearAll') executeClearAllData();
 }
 
-// ============ BUILD REPORT HTML ============
+// ============================================================
+// ============ BUILD REPORT ============
+// ============================================================
 function buildReportHTML(month) {
     const cash = getCashBalance(month);
     const acc = getAccountBalance(month);
@@ -1902,6 +2501,8 @@ function buildReportHTML(month) {
     const expenses = (appData.transactions || []).filter(t => t.type === 'expense' && t.month === month);
     const activeDebts = (appData.debts || []).filter(d => d.month === month && d.status !== 'paid');
     const paidDebts = (appData.debts || []).filter(d => d.status === 'paid');
+    const activeLoans = (appData.loans || []).filter(l => l.month === month && l.status !== 'returned');
+    const returnedLoans = (appData.loans || []).filter(l => l.status === 'returned');
     const userName = currentUser ? currentUser.name : '';
 
     let html = '<div class="header">' +
@@ -1925,9 +2526,8 @@ function buildReportHTML(month) {
             '<table><thead><tr>';
         headers.forEach(x => h += '<th>' + x + '</th>');
         h += '</tr></thead><tbody>';
-        if (!rows.length) {
-            h += '<tr><td colspan="' + headers.length + '" class="empty">لا توجد بيانات</td></tr>';
-        } else {
+        if (!rows.length) h += '<tr><td colspan="' + headers.length + '" class="empty">لا توجد بيانات</td></tr>';
+        else {
             rows.forEach(r => {
                 h += '<tr>';
                 r.forEach(c => h += '<td>' + c + '</td>');
@@ -1950,7 +2550,7 @@ function buildReportHTML(month) {
         transfers.map(t => [(Number(t.amount)||0).toLocaleString('ar-EG') + ' ج.م', t.from==='cash'?'كاش':'حساب', t.to==='cash'?'كاش':'حساب', t.date||'-', t.time||'-']),
         ['المبلغ','من','إلى','التاريخ','الوقت']);
 
-    html += tbl('📋 الديون النشطة',
+    html += tbl('📋 الديون النشطة (عليّ)',
         activeDebts.map(d => [d.personName, (Number(d.amount)||0).toLocaleString('ar-EG') + ' ج.م', d.reason||'-', d.date||'-']),
         ['الشخص','المبلغ','السبب','التاريخ']);
 
@@ -1958,25 +2558,30 @@ function buildReportHTML(month) {
         paidDebts.map(d => [d.personName, (Number(d.originalAmount||d.amount)||0).toLocaleString('ar-EG') + ' ج.م', d.reason||'-', d.paidDate||'-']),
         ['الشخص','المبلغ','السبب','تاريخ التسديد']);
 
+    html += tbl('🤝 السلف النشطة (ليّ)',
+        activeLoans.map(l => [l.personName, (Number(l.amount)||0).toLocaleString('ar-EG') + ' ج.م', l.reason||'-', l.source==='cash'?'كاش':'حساب', l.date||'-']),
+        ['الشخص','المبلغ','السبب','من','التاريخ']);
+
+    html += tbl('✅ السلف المستردة',
+        returnedLoans.map(l => [l.personName, (Number(l.originalAmount||l.amount)||0).toLocaleString('ar-EG') + ' ج.م', l.reason||'-', l.returnedDate||'-']),
+        ['الشخص','المبلغ','السبب','تاريخ الاسترداد']);
+
     return html;
 }
 
-// ============ PRINT VIA IFRAME (SAFE) ============
+// ============================================================
+// ============ PRINT ============
+// ============================================================
 function printReport() {
     try {
         const month = getSelectedMonth();
         const reportHTML = buildReportHTML(month);
-
-        // Remove any previous iframe
         const oldFrame = document.getElementById('printFrame');
         if (oldFrame) oldFrame.remove();
-
-        // Create hidden iframe
         const iframe = document.createElement('iframe');
         iframe.id = 'printFrame';
         iframe.style.cssText = 'position:fixed;right:0;bottom:0;width:0;height:0;border:0;visibility:hidden;';
         document.body.appendChild(iframe);
-
         const doc = iframe.contentWindow.document;
         doc.open();
         doc.write('<!DOCTYPE html><html dir="rtl" lang="ar"><head><meta charset="UTF-8"><title>تقرير مالي</title>' +
@@ -2001,23 +2606,16 @@ function printReport() {
             '@media print{@page{size:A4;margin:15mm;}body{padding:0;}}' +
             '</style></head><body>' + reportHTML + '</body></html>');
         doc.close();
-
-        // Wait for fonts/styles to load, then print
         setTimeout(() => {
             try {
                 iframe.contentWindow.focus();
                 iframe.contentWindow.print();
-            } catch (e) {
-                console.error('Print error:', e);
-                showToast('خطأ في الطباعة', 'error');
-            }
-            // Cleanup after print
+            } catch (e) { console.error('Print error:', e); }
             setTimeout(() => {
                 const f = document.getElementById('printFrame');
                 if (f) f.remove();
             }, 2000);
         }, 700);
-
     } catch (err) {
         console.error(err);
         showToast('خطأ: ' + err.message, 'error');
@@ -2026,43 +2624,38 @@ function printReport() {
 
 function downloadPDF() {
     showToast('📄 جاري تجهيز التقرير...', 'success');
-    setTimeout(() => {
-        printReport();
-        // Toast will auto-hide via setTimeout
-    }, 300);
+    setTimeout(() => { printReport(); }, 300);
 }
 
-// ============ TOAST - AUTO HIDE FIXED ============
+// ============================================================
+// ============ TOAST ============
+// ============================================================
 function showToast(msg, type) {
     type = type || 'success';
     const t = document.getElementById('toast');
     if (!t) return;
-
-    // Clear any existing timeout
     if (toastTimeout) clearTimeout(toastTimeout);
-
     t.textContent = msg;
     t.className = 'toast ' + type + ' show';
-
-    // Auto hide after 3.5 seconds - ALWAYS
     toastTimeout = setTimeout(() => {
         t.classList.remove('show');
         toastTimeout = null;
     }, 3500);
 }
 
-// Force clear toast on page unload
-window.addEventListener('beforeunload', function() {
-    saveUserData();
-    if (toastTimeout) clearTimeout(toastTimeout);
-});
-window.addEventListener('pagehide', function() {
-    saveUserData();
+// ============================================================
+// ============ AUTO SAVE ============
+// ============================================================
+window.addEventListener('beforeunload', function() { saveUserData(); });
+window.addEventListener('pagehide', function() { saveUserData(); });
+document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'hidden' && currentUser) saveUserData();
 });
 
+// ============================================================
 // ============ INIT ============
+// ============================================================
 document.addEventListener('DOMContentLoaded', function() {
-    // ✅ Force clear any stuck toast on load
     const t = document.getElementById('toast');
     if (t) t.classList.remove('show');
     if (toastTimeout) clearTimeout(toastTimeout);
@@ -2077,13 +2670,7 @@ document.addEventListener('DOMContentLoaded', function() {
         o.addEventListener('click', e => { if (e.target === o) o.classList.remove('active'); });
     });
 
-    // Auto-save every 30 seconds while logged in
     setInterval(() => { if (currentUser) saveUserData(); }, 30000);
-});
-
-// Force save on visibility change (mobile)
-document.addEventListener('visibilitychange', function() {
-    if (document.visibilityState === 'hidden' && currentUser) saveUserData();
 });
 </script>
 </body>
