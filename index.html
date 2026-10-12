@@ -7,218 +7,76 @@
 <meta name="author" content="المهندس يوسف أحمد مصطفى">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root {
-    --bg:#f0f2f5;--card:#fff;--primary:#1a73e8;--primary-dark:#1557b0;
-    --success:#34a853;--danger:#ea4335;--warning:#f9ab00;
-    --text:#202124;--text-secondary:#5f6368;--border:#e0e0e0;
-    --shadow:0 2px 8px rgba(0,0,0,0.08);--shadow-lg:0 4px 20px rgba(0,0,0,0.12);
-    --radius:12px;--radius-sm:8px;--transition:0.3s ease;
-    --gold:#ffd700;--gold-dark:#ff8f00;
-    --teal:#00897b;
-}
+:root{--bg:#f0f2f5;--card:#fff;--primary:#1a73e8;--primary-dark:#1557b0;--success:#34a853;--danger:#ea4335;--warning:#f9ab00;--text:#202124;--text-secondary:#5f6368;--border:#e0e0e0;--shadow:0 2px 8px rgba(0,0,0,0.08);--shadow-lg:0 4px 20px rgba(0,0,0,0.12);--radius:12px;--radius-sm:8px;--transition:0.3s ease;--gold:#ffd700;--teal:#00897b;}
 *{margin:0;padding:0;box-sizing:border-box;}
-body{
-    font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);
-    line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased;
-    display:flex;flex-direction:column;
-}
-@keyframes glow {
-    from { text-shadow: 0 0 6px rgba(255,215,0,0.5), 0 0 12px rgba(255,215,0,0.3), 0 2px 4px rgba(0,0,0,0.4); }
-    to { text-shadow: 0 0 14px rgba(255,215,0,0.95), 0 0 28px rgba(255,215,0,0.6), 0 2px 4px rgba(0,0,0,0.4); }
-}
-@keyframes shimmer {
-    0% { background-position: -400px 0; }
-    100% { background-position: 400px 0; }
-}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;}
+@keyframes glow{from{text-shadow:0 0 6px rgba(255,215,0,0.5),0 0 12px rgba(255,215,0,0.3),0 2px 4px rgba(0,0,0,0.4);}to{text-shadow:0 0 14px rgba(255,215,0,0.95),0 0 28px rgba(255,215,0,0.6),0 2px 4px rgba(0,0,0,0.4);}}
+@keyframes shimmer{0%{background-position:-400px 0;}100%{background-position:400px 0;}}
 @keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
-
-.developer-banner {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    color: var(--gold); padding: 12px 16px; border-radius: 12px; text-align: center;
-    margin-bottom: 20px; border: 2px solid var(--gold);
-    box-shadow: 0 4px 15px rgba(255,215,0,0.25), inset 0 0 20px rgba(255,215,0,0.08);
-    position: relative; overflow: hidden;
-}
-.developer-banner::before {
-    content: ''; position: absolute; top: 0; left: -400px;
-    width: 400px; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,215,0,0.15), transparent);
-    animation: shimmer 3s infinite;
-}
-.developer-banner .dev-line {
-    font-size: 15px; font-weight: 900; letter-spacing: 0.5px;
-    animation: glow 2s ease-in-out infinite alternate;
-    position: relative; z-index: 1;
-}
-.developer-banner .dev-icon { font-size: 14px; margin: 0 5px; }
-.auth-footer-credit{
-    position:absolute;bottom:14px;left:50%;transform:translateX(-50%);
-    color:var(--gold);font-size:17px;font-weight:900;
-    text-align:center;width:100%;padding:0 20px;
-    animation:glow 2s ease-in-out infinite alternate; z-index:2;
-}
-.auth-footer-credit .star { color: #fff; margin: 0 8px; font-size: 14px; }
-.auth-footer-credit.hidden { display: none !important; }
-
-.auth-screen{
-    display:flex;align-items:center;justify-content:center;
-    min-height:100vh;padding:20px;
-    background:linear-gradient(135deg,#1a73e8 0%,#0d47a1 100%);
-    position:relative;
-}
-.auth-card{
-    background:#fff;border-radius:20px;padding:30px 26px;
-    max-width:440px;width:100%;
-    box-shadow:0 20px 60px rgba(0,0,0,0.35);text-align:center;
-    position:relative;z-index:1;max-height:93vh;overflow-y:auto;
-    border:3px solid transparent;
-    background-image: linear-gradient(#fff,#fff), linear-gradient(135deg, #ffd700, #1a73e8, #ffd700);
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-}
-.auth-card::-webkit-scrollbar { width: 6px; }
-.auth-card::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+.developer-banner{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);color:var(--gold);padding:12px 16px;border-radius:12px;text-align:center;margin-bottom:20px;border:2px solid var(--gold);box-shadow:0 4px 15px rgba(255,215,0,0.25),inset 0 0 20px rgba(255,215,0,0.08);position:relative;overflow:hidden;}
+.developer-banner::before{content:'';position:absolute;top:0;left:-400px;width:400px;height:100%;background:linear-gradient(90deg,transparent,rgba(255,215,0,0.15),transparent);animation:shimmer 3s infinite;}
+.developer-banner .dev-line{font-size:15px;font-weight:900;letter-spacing:0.5px;animation:glow 2s ease-in-out infinite alternate;position:relative;z-index:1;}
+.developer-banner .dev-icon{font-size:14px;margin:0 5px;}
+.auth-footer-credit{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);color:var(--gold);font-size:17px;font-weight:900;text-align:center;width:100%;padding:0 20px;animation:glow 2s ease-in-out infinite alternate;z-index:2;}
+.auth-footer-credit .star{color:#fff;margin:0 8px;font-size:14px;}
+.auth-footer-credit.hidden{display:none !important;}
+.auth-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;background:linear-gradient(135deg,#1a73e8 0%,#0d47a1 100%);position:relative;}
+.auth-card{background:#fff;border-radius:20px;padding:30px 26px;max-width:440px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.35);text-align:center;position:relative;z-index:1;max-height:93vh;overflow-y:auto;border:3px solid transparent;background-image:linear-gradient(#fff,#fff),linear-gradient(135deg,#ffd700,#1a73e8,#ffd700);background-origin:border-box;background-clip:padding-box,border-box;}
+.auth-card::-webkit-scrollbar{width:6px;}
+.auth-card::-webkit-scrollbar-thumb{background:var(--primary);border-radius:3px;}
 .auth-card .logo-icon{font-size:48px;margin-bottom:4px;}
 .auth-card h1{font-size:22px;font-weight:800;margin-bottom:6px;}
 .auth-card h2{font-size:20px;font-weight:800;margin-bottom:16px;}
 .auth-card .subtitle{color:var(--text-secondary);font-size:13.5px;margin-bottom:18px;}
 .auth-card .form-group{margin-bottom:13px;text-align:right;}
 .auth-card label{display:block;font-weight:700;font-size:13px;margin-bottom:5px;}
-.auth-card input[type=text],.auth-card input[type=password]{
-    width:100%;padding:12px 14px;border:2px solid var(--border);
-    border-radius:var(--radius-sm);font-size:15px;font-family:'Cairo',sans-serif;
-    transition:var(--transition);background:#fafafa;
-}
-.auth-card input:focus{
-    outline:none;border-color:var(--primary);background:#fff;
-    box-shadow:0 0 0 4px rgba(26,115,232,0.1);
-}
+.auth-card input[type=text],.auth-card input[type=password]{width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:'Cairo',sans-serif;transition:var(--transition);background:#fafafa;}
+.auth-card input:focus{outline:none;border-color:var(--primary);background:#fff;box-shadow:0 0 0 4px rgba(26,115,232,0.1);}
 .auth-card .hint{font-size:11px;color:var(--text-secondary);margin-top:4px;}
-.auth-btn{
-    width:100%;padding:13px;background:var(--primary);color:#fff;
-    border:none;border-radius:var(--radius-sm);font-size:16px;
-    font-weight:700;cursor:pointer;font-family:'Cairo',sans-serif;
-    transition:var(--transition);margin-top:6px;
-}
+.auth-btn{width:100%;padding:13px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-sm);font-size:16px;font-weight:700;cursor:pointer;font-family:'Cairo',sans-serif;transition:var(--transition);margin-top:6px;}
 .auth-btn:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(26,115,232,0.3);}
 .auth-btn.secondary{background:transparent;color:var(--primary);border:2px solid var(--primary);}
 .auth-btn.secondary:hover{background:var(--primary);color:#fff;}
-.link-btn{
-    background:none;border:none;color:var(--primary);font-family:'Cairo',sans-serif;
-    font-weight:700;font-size:13.5px;cursor:pointer;padding:8px;margin-top:6px;
-    text-decoration:underline;
-}
+.link-btn{background:none;border:none;color:var(--primary);font-family:'Cairo',sans-serif;font-weight:700;font-size:13.5px;cursor:pointer;padding:8px;margin-top:6px;text-decoration:underline;}
 .link-btn:hover{color:var(--primary-dark);}
-.auth-error{
-    color:var(--danger);font-size:13px;font-weight:600;
-    margin-top:10px;display:none;padding:10px;background:#ffebee;border-radius:8px;
-}
+.auth-error{color:var(--danger);font-size:13px;font-weight:600;margin-top:10px;display:none;padding:10px;background:#ffebee;border-radius:8px;}
 .auth-error.show{display:block;}
-.security-q{
-    background:#e3f2fd;color:#0d47a1;padding:12px;border-radius:8px;
-    font-weight:700;font-size:14px;margin-bottom:14px;border-right:4px solid var(--primary);
-    text-align:right;
-}
+.security-q{background:#e3f2fd;color:#0d47a1;padding:12px;border-radius:8px;font-weight:700;font-size:14px;margin-bottom:14px;border-right:4px solid var(--primary);text-align:right;}
 .avatar-picker{display:flex;justify-content:center;margin-bottom:16px;}
 .avatar-picker label{cursor:pointer;position:relative;display:block;}
-.avatar-picker .preview{
-    width:100px;height:100px;border-radius:50%;object-fit:cover;
-    border:4px solid var(--border);background:#f0f4f8;
-    display:flex;align-items:center;justify-content:center;
-    font-size:36px;color:var(--text-secondary);transition:var(--transition);
-}
+.avatar-picker .preview{width:100px;height:100px;border-radius:50%;object-fit:cover;border:4px solid var(--border);background:#f0f4f8;display:flex;align-items:center;justify-content:center;font-size:36px;color:var(--text-secondary);transition:var(--transition);}
 .avatar-picker .preview img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
 .avatar-picker label:hover .preview{border-color:var(--primary);}
-.avatar-picker .camera-badge{
-    position:absolute;bottom:0;left:0;
-    width:32px;height:32px;border-radius:50%;background:var(--primary);
-    color:#fff;display:flex;align-items:center;justify-content:center;
-    font-size:15px;border:3px solid #fff;
-}
+.avatar-picker .camera-badge{position:absolute;bottom:0;left:0;width:32px;height:32px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;border:3px solid #fff;}
 .user-picker-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px;}
-.user-picker-item{
-    background:#f8f9fa;border:2px solid var(--border);border-radius:12px;
-    padding:14px 10px;cursor:pointer;transition:var(--transition);text-align:center;
-}
+.user-picker-item{background:#f8f9fa;border:2px solid var(--border);border-radius:12px;padding:14px 10px;cursor:pointer;transition:var(--transition);text-align:center;}
 .user-picker-item:hover{border-color:var(--primary);background:#e8f0fe;transform:translateY(-2px);box-shadow:var(--shadow);}
-.user-picker-item .up-avatar{
-    width:60px;height:60px;border-radius:50%;margin:0 auto 8px;
-    background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff;
-    display:flex;align-items:center;justify-content:center;
-    font-size:22px;font-weight:800;overflow:hidden;
-}
+.user-picker-item .up-avatar{width:60px;height:60px;border-radius:50%;margin:0 auto 8px;background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;overflow:hidden;}
 .user-picker-item .up-avatar img{width:100%;height:100%;object-fit:cover;}
 .user-picker-item .up-name{font-size:13px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.avatar-display{
-    width:110px;height:110px;border-radius:50%;margin:0 auto 14px;
-    background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff;
-    display:flex;align-items:center;justify-content:center;
-    font-size:42px;font-weight:800;overflow:hidden;
-    border:4px solid #ffd700;
-    box-shadow:0 8px 24px rgba(26,115,232,0.35), 0 0 30px rgba(255,215,0,0.25);
-}
+.avatar-display{width:110px;height:110px;border-radius:50%;margin:0 auto 14px;background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff;display:flex;align-items:center;justify-content:center;font-size:42px;font-weight:800;overflow:hidden;border:4px solid #ffd700;box-shadow:0 8px 24px rgba(26,115,232,0.35),0 0 30px rgba(255,215,0,0.25);}
 .avatar-display img{width:100%;height:100%;object-fit:cover;}
-#pwdUserName {
-    font-size: 26px !important; font-weight: 900 !important;
-    color: #0d47a1; margin: 14px 0 6px !important;
-    letter-spacing: 0.5px; line-height: 1.3; padding: 8px 12px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, rgba(26,115,232,0.08), rgba(255,215,0,0.08));
-}
-
-.app-header{
-    background:#fff;padding:12px 16px;box-shadow:var(--shadow);
-    display:flex;align-items:center;justify-content:space-between;
-    gap:12px;position:sticky;top:0;z-index:100;
-}
-.menu-btn{
-    width:44px;height:44px;border-radius:10px;background:#f0f4f8;border:none;
-    display:flex;flex-direction:column;justify-content:center;align-items:center;
-    gap:5px;cursor:pointer;transition:0.3s;
-}
+#pwdUserName{font-size:26px !important;font-weight:900 !important;color:#0d47a1;margin:14px 0 6px !important;letter-spacing:0.5px;line-height:1.3;padding:8px 12px;border-radius:10px;background:linear-gradient(135deg,rgba(26,115,232,0.08),rgba(255,215,0,0.08));}
+.app-header{background:#fff;padding:12px 16px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:0;z-index:100;}
+.menu-btn{width:44px;height:44px;border-radius:10px;background:#f0f4f8;border:none;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;transition:0.3s;}
 .menu-btn span{width:22px;height:3px;background:var(--text);border-radius:2px;transition:0.3s;}
 .menu-btn:hover{background:var(--primary);}
 .menu-btn:hover span{background:#fff;}
 .header-title{font-weight:800;font-size:16px;flex:1;text-align:center;}
 .header-title small{display:block;font-size:11px;color:var(--text-secondary);font-weight:600;}
-.user-avatar-sm{
-    width:44px;height:44px;border-radius:50%;background:var(--primary);color:#fff;
-    display:flex;align-items:center;justify-content:center;
-    font-weight:800;font-size:17px;overflow:hidden;border:2px solid var(--gold);
-}
+.user-avatar-sm{width:44px;height:44px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px;overflow:hidden;border:2px solid var(--gold);}
 .user-avatar-sm img{width:100%;height:100%;object-fit:cover;}
-
-.sidebar{
-    position:fixed;top:0;right:-340px;width:300px;height:100vh;
-    background:#fff;box-shadow:-4px 0 20px rgba(0,0,0,0.15);
-    z-index:250;transition:right 0.3s ease;overflow-y:auto;
-    display:flex;flex-direction:column;
-}
+.sidebar{position:fixed;top:0;right:-340px;width:300px;height:100vh;background:#fff;box-shadow:-4px 0 20px rgba(0,0,0,0.15);z-index:250;transition:right 0.3s ease;overflow-y:auto;display:flex;flex-direction:column;}
 .sidebar.open{right:0;}
-.sidebar-overlay{
-    position:fixed;inset:0;background:rgba(0,0,0,0.5);
-    z-index:240;display:none;opacity:0;transition:opacity 0.3s;
-}
+.sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:240;display:none;opacity:0;transition:opacity 0.3s;}
 .sidebar-overlay.open{display:block;opacity:1;}
-.sidebar-header{
-    padding:26px 20px 20px;background:linear-gradient(135deg,#1a73e8,#0d47a1);
-    color:#fff;text-align:center;
-}
-.sidebar-avatar{
-    width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,0.2);
-    display:flex;align-items:center;justify-content:center;
-    font-size:30px;font-weight:800;margin:0 auto 12px;
-    border:3px solid rgba(255,255,255,0.6);overflow:hidden;
-}
+.sidebar-header{padding:26px 20px 20px;background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff;text-align:center;}
+.sidebar-avatar{width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;margin:0 auto 12px;border:3px solid rgba(255,255,255,0.6);overflow:hidden;}
 .sidebar-avatar img{width:100%;height:100%;object-fit:cover;}
 .sidebar-name{font-size:17px;font-weight:900;margin-bottom:4px;}
 .sidebar-role{font-size:12px;opacity:0.85;}
 .sidebar-nav{flex:1;padding:8px 0;}
-.sidebar-link{
-    display:flex;align-items:center;gap:12px;padding:13px 20px;
-    color:var(--text);text-decoration:none;font-weight:700;font-size:14.5px;
-    cursor:pointer;transition:0.2s;border-right:4px solid transparent;
-}
+.sidebar-link{display:flex;align-items:center;gap:12px;padding:13px 20px;color:var(--text);text-decoration:none;font-weight:700;font-size:14.5px;cursor:pointer;transition:0.2s;border-right:4px solid transparent;}
 .sidebar-link:hover{background:#f0f4f8;border-right-color:var(--primary);}
 .sidebar-link.active{background:#e8f0fe;color:var(--primary);border-right-color:var(--primary);}
 .sidebar-link .icon{font-size:19px;width:24px;text-align:center;}
@@ -226,29 +84,16 @@ body{
 .sidebar-link.logout:hover{background:#ffebee;border-right-color:var(--danger);}
 .sidebar-link.loans{color:#00897b;}
 .sidebar-link.loans.active{background:#e0f2f1;color:#00897b;border-right-color:#00897b;}
-
 .container{max-width:1200px;margin:0 auto;padding:16px;flex:1;width:100%;}
-
 .balance-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;}
-.balance-display{
-    border-radius:var(--radius);padding:20px 16px;color:#fff;
-    text-align:center;box-shadow:var(--shadow-lg);
-}
+.balance-display{border-radius:var(--radius);padding:20px 16px;color:#fff;text-align:center;box-shadow:var(--shadow-lg);}
 .balance-display.cash{background:linear-gradient(135deg,#1a73e8,#0d47a1);}
 .balance-display.account{background:linear-gradient(135deg,#6a1b9a,#4a148c);}
 .balance-display .balance-label{font-size:12.5px;font-weight:700;opacity:0.9;margin-bottom:6px;}
 .balance-display .balance-amount{font-size:28px;font-weight:900;margin:4px 0;}
 .balance-display .balance-sub{font-size:11.5px;opacity:0.8;}
-
-.dashboard-cards{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-    gap:12px;margin-bottom:20px;
-}
-.dash-card{
-    background:var(--card);border-radius:var(--radius);padding:16px;
-    box-shadow:var(--shadow);text-align:center;
-    transition:var(--transition);border-top:4px solid var(--primary);
-}
+.dashboard-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:20px;}
+.dash-card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);text-align:center;transition:var(--transition);border-top:4px solid var(--primary);}
 .dash-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
 .dash-card .icon{font-size:26px;margin-bottom:6px;display:block;}
 .dash-card .label{font-size:12px;font-weight:600;color:var(--text-secondary);margin-bottom:4px;}
@@ -259,18 +104,12 @@ body{
 .dash-card.blue{border-top-color:var(--primary);}
 .dash-card.purple{border-top-color:#9c27b0;}
 .dash-card.teal{border-top-color:var(--teal);}
-
 .section{display:none;animation:fadeIn 0.3s ease;}
 .section.active{display:block;}
 .section-title{font-size:19px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
 .section-title .emoji{font-size:22px;}
 .action-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;}
-.btn{
-    padding:11px 18px;border-radius:var(--radius-sm);border:none;
-    font-weight:700;font-size:14px;cursor:pointer;
-    font-family:'Cairo',sans-serif;transition:var(--transition);
-    display:inline-flex;align-items:center;gap:8px;
-}
+.btn{padding:11px 18px;border-radius:var(--radius-sm);border:none;font-weight:700;font-size:14px;cursor:pointer;font-family:'Cairo',sans-serif;transition:var(--transition);display:inline-flex;align-items:center;gap:8px;}
 .btn:hover{transform:translateY(-2px);}
 .btn-green{background:var(--success);color:#fff;}
 .btn-green:hover{background:#2d8e47;}
@@ -288,47 +127,32 @@ body{
 .btn-orange:hover{background:#e65100;}
 .btn-teal{background:var(--teal);color:#fff;}
 .btn-teal:hover{background:#00695c;}
-
 .settings-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px;}
 .settings-card{background:#fff;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);}
 .settings-card h3{font-size:16.5px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:10px;color:var(--primary);}
 .settings-card .form-group{margin-bottom:12px;}
 .settings-card label{display:block;font-weight:700;font-size:13px;margin-bottom:5px;}
-.settings-card input,.settings-card textarea{
-    width:100%;padding:11px 13px;border:2px solid var(--border);
-    border-radius:var(--radius-sm);font-size:14.5px;font-family:'Cairo',sans-serif;
-    background:#fafafa;transition:var(--transition);
-}
-.settings-card input:focus,.settings-card textarea:focus{
-    outline:none;border-color:var(--primary);background:#fff;
-    box-shadow:0 0 0 4px rgba(26,115,232,0.1);
-}
-.settings-card .save-btn{
-    width:100%;padding:12px;background:var(--primary);color:#fff;
-    border:none;border-radius:var(--radius-sm);font-size:14.5px;
-    font-weight:700;cursor:pointer;font-family:'Cairo',sans-serif;
-    transition:var(--transition);margin-top:6px;
-}
+.settings-card input,.settings-card textarea{width:100%;padding:11px 13px;border:2px solid var(--border);border-radius:var(--radius-sm);font-size:14.5px;font-family:'Cairo',sans-serif;background:#fafafa;transition:var(--transition);}
+.settings-card input:focus,.settings-card textarea:focus{outline:none;border-color:var(--primary);background:#fff;box-shadow:0 0 0 4px rgba(26,115,232,0.1);}
+.settings-card .save-btn{width:100%;padding:12px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-sm);font-size:14.5px;font-weight:700;cursor:pointer;font-family:'Cairo',sans-serif;transition:var(--transition);margin-top:6px;}
 .settings-card .save-btn:hover{background:var(--primary-dark);transform:translateY(-2px);}
 .settings-card .save-btn.danger{background:var(--danger);}
 .settings-card .save-btn.danger:hover{background:#c62828;}
 .settings-card .save-btn.teal{background:var(--teal);}
 .settings-card .save-btn.teal:hover{background:#00695c;}
-
-.toggle-row {display: flex; align-items: center;justify-content: space-between;padding: 12px 0;gap: 12px;}
-.toggle-info { flex: 1; }
-.toggle-info .toggle-title {font-weight: 800;font-size: 14px;color: var(--text);margin-bottom: 3px;}
-.toggle-info .toggle-desc {font-size: 12px;color: var(--text-secondary);line-height: 1.5;}
-.toggle-switch {position: relative;display: inline-block;width: 52px;height: 28px;flex-shrink: 0;}
-.toggle-switch input { opacity: 0; width: 0; height: 0; }
-.toggle-slider {position: absolute;cursor: pointer;top: 0; left: 0; right: 0; bottom: 0;background-color: #ccc;transition: 0.3s;border-radius: 34px;}
-.toggle-slider:before {position: absolute;content: "";height: 20px;width: 20px;left: 4px;bottom: 4px;background-color: #fff;transition: 0.3s;border-radius: 50%;box-shadow: 0 2px 4px rgba(0,0,0,0.2);}
-.toggle-switch input:checked + .toggle-slider {background-color: var(--success);}
-.toggle-switch input:checked + .toggle-slider:before {transform: translateX(24px);}
-.toggle-status {text-align: center;font-size: 12.5px;font-weight: 700;margin-top: 8px;padding: 6px;border-radius: 6px;transition: 0.3s;}
-.toggle-status.on {background: #e8f5e9;color: #2e7d32;}
-.toggle-status.off {background: #ffebee;color: #c62828;}
-
+.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px;}
+.toggle-info{flex:1;}
+.toggle-info .toggle-title{font-weight:800;font-size:14px;color:var(--text);margin-bottom:3px;}
+.toggle-info .toggle-desc{font-size:12px;color:var(--text-secondary);line-height:1.5;}
+.toggle-switch{position:relative;display:inline-block;width:52px;height:28px;flex-shrink:0;}
+.toggle-switch input{opacity:0;width:0;height:0;}
+.toggle-slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:#ccc;transition:0.3s;border-radius:34px;}
+.toggle-slider:before{position:absolute;content:"";height:20px;width:20px;left:4px;bottom:4px;background-color:#fff;transition:0.3s;border-radius:50%;box-shadow:0 2px 4px rgba(0,0,0,0.2);}
+.toggle-switch input:checked + .toggle-slider{background-color:var(--success);}
+.toggle-switch input:checked + .toggle-slider:before{transform:translateX(24px);}
+.toggle-status{text-align:center;font-size:12.5px;font-weight:700;margin-top:8px;padding:6px;border-radius:6px;transition:0.3s;}
+.toggle-status.on{background:#e8f5e9;color:#2e7d32;}
+.toggle-status.off{background:#ffebee;color:#c62828;}
 .table-wrapper{overflow-x:auto;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:14px;}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:600px;}
 th{background:#f8f9fa;padding:12px 14px;text-align:right;font-weight:800;font-size:12.5px;color:var(--text-secondary);border-bottom:2px solid var(--border);white-space:nowrap;}
@@ -341,51 +165,27 @@ tr:hover td{background:#fafbfc;}
 .badge-account{background:#e3f2fd;color:#1565c0;}
 .badge-paid{background:#e8f5e9;color:#2e7d32;}
 .badge-loan-paid{background:#e8f5e9;color:#2e7d32;}
-
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:300;align-items:center;justify-content:center;padding:16px;}
 .modal-overlay.active{display:flex;animation:fadeIn 0.2s ease;}
 .modal{background:#fff;border-radius:var(--radius);padding:22px 20px;max-width:460px;width:100%;box-shadow:var(--shadow-lg);max-height:90vh;overflow-y:auto;position:relative;}
 .modal h3{font-size:18px;font-weight:800;margin-bottom:16px;text-align:center;}
 .modal .form-group{margin-bottom:13px;}
 .modal label{display:block;font-weight:700;font-size:13px;margin-bottom:5px;}
-.modal input,.modal select,.modal textarea{
-    width:100%;padding:11px 13px;border:2px solid var(--border);
-    border-radius:var(--radius-sm);font-size:14.5px;font-family:'Cairo',sans-serif;
-    background:#fafafa;transition:var(--transition);
-}
-.modal input:focus,.modal select:focus,.modal textarea:focus{
-    outline:none;border-color:var(--primary);background:#fff;
-    box-shadow:0 0 0 4px rgba(26,115,232,0.1);
-}
+.modal input,.modal select,.modal textarea{width:100%;padding:11px 13px;border:2px solid var(--border);border-radius:var(--radius-sm);font-size:14.5px;font-family:'Cairo',sans-serif;background:#fafafa;transition:var(--transition);}
+.modal input:focus,.modal select:focus,.modal textarea:focus{outline:none;border-color:var(--primary);background:#fff;box-shadow:0 0 0 4px rgba(26,115,232,0.1);}
 .modal .modal-actions{display:flex;gap:10px;margin-top:16px;justify-content:center;flex-wrap:wrap;}
 .modal .close-modal{position:absolute;top:10px;left:10px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-secondary);}
 .modal .close-modal:hover{color:var(--danger);}
 .modal .info-box{background:#e3f2fd;border-right:4px solid var(--primary);padding:10px 12px;border-radius:6px;margin-bottom:13px;font-size:13.5px;font-weight:700;color:#0d47a1;}
 .modal .balance-hint{background:#fff8e1;border-right:4px solid var(--warning);padding:10px 12px;border-radius:6px;margin-bottom:13px;font-size:13.5px;font-weight:700;color:#b8860b;text-align:center;}
 .modal .loan-info-box{background:#e0f2f1;border-right:4px solid var(--teal);padding:10px 12px;border-radius:6px;margin-bottom:13px;font-size:13.5px;font-weight:700;color:#00695c;}
-
 .filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
-.filter-bar input,.filter-bar select{
-    padding:9px 13px;border:2px solid var(--border);border-radius:var(--radius-sm);
-    font-size:13.5px;font-family:'Cairo',sans-serif;background:#fff;flex:1;min-width:120px;
-}
+.filter-bar input,.filter-bar select{padding:9px 13px;border:2px solid var(--border);border-radius:var(--radius-sm);font-size:13.5px;font-family:'Cairo',sans-serif;background:#fff;flex:1;min-width:120px;}
 .filter-bar input:focus,.filter-bar select:focus{outline:none;border-color:var(--primary);}
-
-.month-selector{
-    display:flex;gap:10px;align-items:center;flex-wrap:wrap;
-    margin-bottom:16px;background:#fff;padding:10px 14px;
-    border-radius:var(--radius);box-shadow:var(--shadow);
-}
+.month-selector{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px;background:#fff;padding:10px 14px;border-radius:var(--radius);box-shadow:var(--shadow);}
 .month-selector label{font-weight:700;font-size:13.5px;}
-.month-selector select{
-    padding:8px 12px;border:2px solid var(--border);border-radius:var(--radius-sm);
-    font-size:14px;font-family:'Cairo',sans-serif;background:#fff;font-weight:700;cursor:pointer;
-}
-
-.debt-card{
-    background:#fff;border-radius:var(--radius);padding:15px;box-shadow:var(--shadow);
-    margin-bottom:12px;border-right:5px solid var(--warning);transition:var(--transition);
-}
+.month-selector select{padding:8px 12px;border:2px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-family:'Cairo',sans-serif;background:#fff;font-weight:700;cursor:pointer;}
+.debt-card{background:#fff;border-radius:var(--radius);padding:15px;box-shadow:var(--shadow);margin-bottom:12px;border-right:5px solid var(--warning);transition:var(--transition);}
 .debt-card.partial{border-right-color:#0288d1;}
 .debt-card.paid{border-right-color:var(--success);background:#f9fff9;}
 .debt-card .debt-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px;}
@@ -398,11 +198,7 @@ tr:hover td{background:#fafbfc;}
 .debt-card .progress-bar{height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden;margin:8px 0;}
 .debt-card .progress-fill{height:100%;background:linear-gradient(90deg,#34a853,#66bb6a);border-radius:3px;transition:width 0.3s;}
 .debt-card .partial-info{font-size:12px;color:#0277bd;font-weight:600;background:#e1f5fe;padding:5px 10px;border-radius:6px;margin-top:6px;}
-
-.loan-card{
-    background:#fff;border-radius:var(--radius);padding:15px;box-shadow:var(--shadow);
-    margin-bottom:12px;border-right:5px solid var(--teal);transition:var(--transition);
-}
+.loan-card{background:#fff;border-radius:var(--radius);padding:15px;box-shadow:var(--shadow);margin-bottom:12px;border-right:5px solid var(--teal);transition:var(--transition);}
 .loan-card.partial{border-right-color:#0288d1;}
 .loan-card.returned{border-right-color:var(--success);background:#f9fff9;}
 .loan-card .loan-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px;}
@@ -415,7 +211,6 @@ tr:hover td{background:#fafbfc;}
 .loan-card .progress-bar{height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden;margin:8px 0;}
 .loan-card .progress-fill{height:100%;background:linear-gradient(90deg,#00897b,#4db6ac);border-radius:3px;transition:width 0.3s;}
 .loan-card .partial-info{font-size:12px;color:#00695c;font-weight:600;background:#e0f2f1;padding:5px 10px;border-radius:6px;margin-top:6px;}
-
 .report-container{background:#fff;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);}
 .report-section{margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid #f0f0f0;}
 .report-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
@@ -424,63 +219,35 @@ tr:hover td{background:#fafbfc;}
 .report-row:last-child{border-bottom:none;}
 .report-row .label{color:var(--text-secondary);font-weight:600;}
 .report-row .value{font-weight:800;}
-
-.toast{
-    position:fixed;bottom:25px;left:50%;
-    transform:translateX(-50%) translateY(100px);
-    background:#333;color:#fff;padding:14px 26px;
-    border-radius:var(--radius-sm);font-weight:700;font-size:15px;
-    z-index:500;transition:var(--transition);opacity:0;
-    pointer-events:none;box-shadow:0 8px 30px rgba(0,0,0,0.4);
-    text-align:center;max-width:90vw;
-}
+.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%) translateY(100px);background:#333;color:#fff;padding:14px 26px;border-radius:var(--radius-sm);font-weight:700;font-size:15px;z-index:500;transition:var(--transition);opacity:0;pointer-events:none;box-shadow:0 8px 30px rgba(0,0,0,0.4);text-align:center;max-width:90vw;}
 .toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
 .toast.success{background:var(--success);}
 .toast.error{background:var(--danger);}
 .toast.warning{background:var(--warning);color:#333;}
 .toast.info{background:var(--teal);}
-
-.app-footer{
-    background:#1a1a2e;color:#fff;padding:20px 16px;
-    text-align:center;margin-top:auto;border-top:4px solid var(--gold);position: relative;
-}
+.app-footer{background:#1a1a2e;color:#fff;padding:20px 16px;text-align:center;margin-top:auto;border-top:4px solid var(--gold);position:relative;}
 .app-footer .footer-name{font-size:19px;font-weight:900;color:var(--gold);margin-bottom:6px;animation:glow 2.5s ease-in-out infinite alternate;}
 .app-footer .footer-title{font-size:13px;color:#bbb;margin-bottom:8px;}
 .app-footer .footer-copyright{font-size:12px;color:#999;border-top:1px solid #333;padding-top:10px;margin-top:10px;}
-
 .confirm-dialog .modal{text-align:center;}
 .confirm-dialog .confirm-icon{font-size:44px;margin-bottom:10px;}
 .confirm-dialog .confirm-message{font-size:15px;font-weight:600;margin-bottom:16px;}
 .confirm-dialog .confirm-input{width:100%;padding:11px;border:2px solid var(--border);border-radius:var(--radius-sm);font-size:15px;text-align:center;font-family:'Cairo',sans-serif;font-weight:700;}
-
-.migration-notice {
-    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
-    border: 2px solid #4caf50;
-    padding: 12px 16px;
-    border-radius: 10px;
-    margin-bottom: 14px;
-    font-size: 13.5px;
-    font-weight: 700;
-    color: #2e7d32;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.migration-notice .mi { font-size: 22px; }
-
+.migration-notice{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #4caf50;padding:12px 16px;border-radius:10px;margin-bottom:14px;font-size:13.5px;font-weight:700;color:#2e7d32;display:flex;align-items:center;gap:10px;}
+.migration-notice .mi{font-size:22px;}
 @media (max-width:768px){
-    .action-buttons{flex-direction:column;}
-    .action-buttons .btn{justify-content:center;width:100%;}
-    .settings-container{grid-template-columns:1fr;}
-    .dashboard-cards{grid-template-columns:repeat(2,1fr);gap:8px;}
-    .dash-card .value{font-size:15px;}
-    .dash-card .icon{font-size:20px;}
-    .dash-card .label{font-size:11px;}
-    .container{padding:12px 10px;}
-    .balance-display .balance-amount{font-size:22px;}
-    .auth-footer-credit{font-size:14px;}
-    .developer-banner .dev-line{font-size:13px;}
-    #pwdUserName{font-size:22px !important;}
+.action-buttons{flex-direction:column;}
+.action-buttons .btn{justify-content:center;width:100%;}
+.settings-container{grid-template-columns:1fr;}
+.dashboard-cards{grid-template-columns:repeat(2,1fr);gap:8px;}
+.dash-card .value{font-size:15px;}
+.dash-card .icon{font-size:20px;}
+.dash-card .label{font-size:11px;}
+.container{padding:12px 10px;}
+.balance-display .balance-amount{font-size:22px;}
+.auth-footer-credit{font-size:14px;}
+.developer-banner .dev-line{font-size:13px;}
+#pwdUserName{font-size:22px !important;}
 }
 </style>
 </head>
@@ -489,7 +256,6 @@ tr:hover td{background:#fafbfc;}
 <div id="toast" class="toast"></div>
 
 <div id="authScreen" class="auth-screen" style="display:none;">
-
     <div id="registerView" class="auth-card" style="display:none;">
         <div class="developer-banner"><div class="dev-line"><span class="dev-icon">⚡</span>إعداد المهندس يوسف أحمد مصطفى<span class="dev-icon">⚡</span></div></div>
         <div class="logo-icon">💼</div>
@@ -506,7 +272,7 @@ tr:hover td{background:#fafbfc;}
         <div class="form-group"><label>الاسم الثلاثي</label><input type="text" id="regName" placeholder="مثال: أحمد محمد علي" autocomplete="off"><div class="hint">يُكتب مرة واحدة فقط</div></div>
         <div class="form-group"><label>كلمة المرور</label><input type="password" id="regPassword" placeholder="أدخل كلمة المرور" autocomplete="off"></div>
         <div class="form-group"><label>تأكيد كلمة المرور</label><input type="password" id="regConfirm" placeholder="أعد إدخال كلمة المرور" autocomplete="off"></div>
-        <div class="form-group"><label>سؤال الأمان (للنسيان)</label><input type="text" id="regSecurityQ" placeholder="مثال: ما اسم مدرستي الابتدائية؟"></div>
+        <div class="form-group"><label>سؤال الأمان</label><input type="text" id="regSecurityQ" placeholder="مثال: ما اسم مدرستي الابتدائية؟"></div>
         <div class="form-group"><label>إجابة سؤال الأمان</label><input type="text" id="regSecurityA" placeholder="اكتب الإجابة"></div>
         <button class="auth-btn" onclick="handleRegister()">✅ إنشاء الحساب</button>
         <button class="link-btn" onclick="backToAuth()" id="regBackBtn" style="display:none;">← رجوع</button>
@@ -553,8 +319,7 @@ tr:hover td{background:#fafbfc;}
     </div>
 </div>
 
-<div id="app" style="display:none; flex-direction:column; flex:1;">
-
+<div id="app" style="display:none;flex-direction:column;flex:1;">
     <header class="app-header">
         <button class="menu-btn" onclick="toggleSidebar()" title="القائمة"><span></span><span></span><span></span></button>
         <div class="header-title">النظام المالي<small id="headerUserName">-</small></div>
@@ -585,7 +350,6 @@ tr:hover td{background:#fafbfc;}
     <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
 
     <div class="container">
-
         <div id="migrationNotice" class="migration-notice" style="display:none;">
             <span class="mi">✅</span>
             <span id="migrationText">تم ترحيل بياناتك القديمة بنجاح!</span>
@@ -631,9 +395,7 @@ tr:hover td{background:#fafbfc;}
                 <button class="btn btn-red" onclick="openRemoveMoneyModal('cash')">➖ إخراج أموال</button>
             </div>
             <div class="section-title"><span class="emoji">📋</span> آخر عمليات الكاش</div>
-            <div class="table-wrapper">
-                <table><thead><tr><th>المبلغ</th><th>السبب</th><th>النوع</th><th>التاريخ</th><th>الوقت</th></tr></thead><tbody id="cashTransactionsTable"></tbody></table>
-            </div>
+            <div class="table-wrapper"><table><thead><tr><th>المبلغ</th><th>السبب</th><th>النوع</th><th>التاريخ</th><th>الوقت</th></tr></thead><tbody id="cashTransactionsTable"></tbody></table></div>
         </div>
 
         <div class="section" id="section-account">
@@ -646,9 +408,7 @@ tr:hover td{background:#fafbfc;}
                 <button class="btn btn-red" onclick="openRemoveMoneyModal('account')">➖ إخراج أموال</button>
             </div>
             <div class="section-title"><span class="emoji">📋</span> آخر عمليات الحساب</div>
-            <div class="table-wrapper">
-                <table><thead><tr><th>المبلغ</th><th>السبب</th><th>النوع</th><th>التاريخ</th><th>الوقت</th></tr></thead><tbody id="accountTransactionsTable"></tbody></table>
-            </div>
+            <div class="table-wrapper"><table><thead><tr><th>المبلغ</th><th>السبب</th><th>النوع</th><th>التاريخ</th><th>الوقت</th></tr></thead><tbody id="accountTransactionsTable"></tbody></table></div>
         </div>
 
         <div class="section" id="section-transfer">
@@ -658,9 +418,7 @@ tr:hover td{background:#fafbfc;}
                 <button class="btn btn-blue" onclick="openTransferModal('account','cash')">من الحساب ➜ إلى الكاش</button>
             </div>
             <div class="section-title"><span class="emoji">📋</span> سجل التحويلات</div>
-            <div class="table-wrapper">
-                <table><thead><tr><th>المبلغ</th><th>من</th><th>إلى</th><th>التاريخ</th><th>الوقت</th></tr></thead><tbody id="transfersTable"></tbody></table>
-            </div>
+            <div class="table-wrapper"><table><thead><tr><th>المبلغ</th><th>من</th><th>إلى</th><th>التاريخ</th><th>الوقت</th></tr></thead><tbody id="transfersTable"></tbody></table></div>
         </div>
 
         <div class="section" id="section-debts">
@@ -687,43 +445,27 @@ tr:hover td{background:#fafbfc;}
             <div class="section-title"><span class="emoji">📈</span> سجل الأموال الداخلة</div>
             <div class="filter-bar">
                 <input type="text" id="incomeSearch" placeholder="🔍 بحث بالسبب..." oninput="renderIncomeLog()">
-                <select id="incomeTypeFilter" onchange="renderIncomeLog()">
-                    <option value="all">كل الأنواع</option><option value="cash">كاش</option><option value="account">حساب</option>
-                </select>
-                <select id="incomeMonthFilter" onchange="renderIncomeLog()">
-                    <option value="current">الشهر المختار</option>
-                    <option value="all">كل الشهور</option>
-                </select>
+                <select id="incomeTypeFilter" onchange="renderIncomeLog()"><option value="all">كل الأنواع</option><option value="cash">كاش</option><option value="account">حساب</option></select>
+                <select id="incomeMonthFilter" onchange="renderIncomeLog()"><option value="current">الشهر المختار</option><option value="all">كل الشهور</option></select>
             </div>
             <div id="incomeLogInfo" style="margin-bottom:10px;font-size:13px;color:var(--text-secondary);font-weight:600;"></div>
-            <div class="table-wrapper">
-                <table><thead><tr><th>المبلغ</th><th>السبب</th><th>النوع</th><th>التاريخ</th><th>الوقت</th></tr></thead><tbody id="incomeLogTable"></tbody></table>
-            </div>
+            <div class="table-wrapper"><table><thead><tr><th>المبلغ</th><th>السبب</th><th>النوع</th><th>التاريخ</th><th>الوقت</th></tr></thead><tbody id="incomeLogTable"></tbody></table></div>
         </div>
 
         <div class="section" id="section-expenseLog">
             <div class="section-title"><span class="emoji">📉</span> سجل الأموال الخارجة</div>
             <div class="filter-bar">
                 <input type="text" id="expenseSearch" placeholder="🔍 بحث بالسبب..." oninput="renderExpenseLog()">
-                <select id="expenseTypeFilter" onchange="renderExpenseLog()">
-                    <option value="all">كل الأنواع</option><option value="cash">كاش</option><option value="account">حساب</option>
-                </select>
-                <select id="expenseMonthFilter" onchange="renderExpenseLog()">
-                    <option value="current">الشهر المختار</option>
-                    <option value="all">كل الشهور</option>
-                </select>
+                <select id="expenseTypeFilter" onchange="renderExpenseLog()"><option value="all">كل الأنواع</option><option value="cash">كاش</option><option value="account">حساب</option></select>
+                <select id="expenseMonthFilter" onchange="renderExpenseLog()"><option value="current">الشهر المختار</option><option value="all">كل الشهور</option></select>
             </div>
             <div id="expenseLogInfo" style="margin-bottom:10px;font-size:13px;color:var(--text-secondary);font-weight:600;"></div>
-            <div class="table-wrapper">
-                <table><thead><tr><th>المبلغ</th><th>السبب</th><th>النوع</th><th>التاريخ</th><th>الوقت</th></tr></thead><tbody id="expenseLogTable"></tbody></table>
-            </div>
+            <div class="table-wrapper"><table><thead><tr><th>المبلغ</th><th>السبب</th><th>النوع</th><th>التاريخ</th><th>الوقت</th></tr></thead><tbody id="expenseLogTable"></tbody></table></div>
         </div>
 
         <div class="section" id="section-paidDebtsLog">
             <div class="section-title"><span class="emoji">✅</span> سجل الديون المسددة</div>
-            <div class="table-wrapper">
-                <table><thead><tr><th>الشخص</th><th>المبلغ</th><th>السبب</th><th>تاريخ الدين</th><th>تاريخ التسديد</th></tr></thead><tbody id="paidDebtsTable"></tbody></table>
-            </div>
+            <div class="table-wrapper"><table><thead><tr><th>الشخص</th><th>المبلغ</th><th>السبب</th><th>تاريخ الدين</th><th>تاريخ التسديد</th></tr></thead><tbody id="paidDebtsTable"></tbody></table></div>
         </div>
 
         <div class="section" id="section-reports">
@@ -738,7 +480,6 @@ tr:hover td{background:#fafbfc;}
         <div class="section" id="section-settings">
             <div class="section-title"><span class="emoji">⚙️</span> الإعدادات</div>
             <div class="settings-container">
-
                 <div class="settings-card">
                     <h3>🖼️ الصورة الشخصية</h3>
                     <div class="avatar-picker">
@@ -793,9 +534,7 @@ tr:hover td{background:#fafbfc;}
 
                 <div class="settings-card" style="border:2px solid #2196f3;">
                     <h3 style="color:#1565c0;">💾 النسخ الاحتياطي</h3>
-                    <p style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;">
-                        احفظ نسخة من بياناتك قبل أي تحديث للموقع.
-                    </p>
+                    <p style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;">احفظ نسخة من بياناتك قبل أي تحديث للموقع.</p>
                     <button class="save-btn teal" onclick="exportBackup()">📤 تصدير نسخة احتياطية</button>
                     <button class="save-btn" style="background:#ff6d00;margin-top:8px;" onclick="document.getElementById('importFile').click()">📥 استيراد نسخة احتياطية</button>
                     <input type="file" id="importFile" accept=".json" style="display:none;" onchange="importBackup(event)">
@@ -804,8 +543,8 @@ tr:hover td{background:#fafbfc;}
                 <div class="settings-card" style="border:2px solid #ffd700;">
                     <h3 style="color:#ff8f00;">ℹ️ معلومات النظام</h3>
                     <div style="font-size:13px;color:var(--text-secondary);line-height:2;">
-                        <div>👨‍💻 <strong>إعداد:</strong> <span id="infoDevName">المهندس يوسف أحمد مصطفى</span></div>
-                        <div>📋 <strong>الإصدار:</strong> <span id="infoVersion">6.2</span></div>
+                        <div>👨‍💻 <strong>إعداد:</strong> المهندس يوسف أحمد مصطفى</div>
+                        <div>📋 <strong>الإصدار:</strong> 6.2</div>
                         <div>📅 <strong>السنة:</strong> 2026</div>
                         <div>©️ <strong>جميع الحقوق محفوظة</strong></div>
                     </div>
@@ -818,10 +557,8 @@ tr:hover td{background:#fafbfc;}
                         <button class="btn btn-danger-outline" onclick="showClearAllData()">🗑️ مسح جميع البيانات</button>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
 
     <footer class="app-footer">
@@ -831,6 +568,7 @@ tr:hover td{background:#fafbfc;}
     </footer>
 </div>
 
+<!-- MODALS -->
 <div class="modal-overlay" id="addMoneyModal">
     <div class="modal">
         <button class="close-modal" onclick="closeModal('addMoneyModal')">✕</button>
@@ -913,19 +651,11 @@ tr:hover td{background:#fafbfc;}
     <div class="modal">
         <button class="close-modal" onclick="closeModal('addLoanModal')">✕</button>
         <h3>🤝 إضافة سلف (ليّ عند شخص)</h3>
-        <div class="loan-info-box">
-            💡 السلف = فلوس أنت أسلفتها لشخص. هو مدين لك، ولما يرجعهالك تتحول إلى "مستردة".
-        </div>
+        <div class="loan-info-box">💡 السلف = فلوس أنت أسلفتها لشخص. هو مدين لك، ولما يرجعهالك تتحول إلى "مستردة".</div>
         <div class="form-group"><label>المبلغ (جنيه)</label><input type="number" id="loanAmount" min="0.01" step="0.01" placeholder="0.00"></div>
-        <div class="form-group"><label>اسم الشخص</label><input type="text" id="loanPerson" placeholder="اسم الشخص الذي أسلفته"></div>
+        <div class="form-group"><label>اسم الشخص</label><input type="text" id="loanPerson" placeholder="اسم الشخص"></div>
         <div class="form-group"><label>سبب السلف</label><input type="text" id="loanReason" placeholder="سبب السلف"></div>
-        <div class="form-group">
-            <label>المصدر (من فين خرجت الفلوس؟)</label>
-            <select id="loanSource">
-                <option value="cash">من الكاش 💵</option>
-                <option value="account">من الحساب 🏦</option>
-            </select>
-        </div>
+        <div class="form-group"><label>المصدر</label><select id="loanSource"><option value="cash">من الكاش 💵</option><option value="account">من الحساب 🏦</option></select></div>
         <div class="form-group"><label>التاريخ</label><input type="date" id="loanDate"></div>
         <div class="form-group"><label>الوقت</label><input type="time" id="loanTime"></div>
         <div class="form-group"><label>ملاحظات (اختياري)</label><textarea id="loanNotes" rows="2" placeholder="ملاحظات..."></textarea></div>
@@ -943,13 +673,7 @@ tr:hover td{background:#fafbfc;}
         <div class="loan-info-box" id="partialLoanInfo">-</div>
         <input type="hidden" id="partialLoanId">
         <div class="form-group"><label>المبلغ المسترد (جنيه)</label><input type="number" id="returnAmount" min="0.01" step="0.01" placeholder="0.00"></div>
-        <div class="form-group">
-            <label>إلى أين يرجع المال؟</label>
-            <select id="returnDestination">
-                <option value="cash">إلى الكاش 💵</option>
-                <option value="account">إلى الحساب 🏦</option>
-            </select>
-        </div>
+        <div class="form-group"><label>إلى أين يرجع المال؟</label><select id="returnDestination"><option value="cash">إلى الكاش 💵</option><option value="account">إلى الحساب 🏦</option></select></div>
         <div class="form-group"><label>التاريخ</label><input type="date" id="returnDate"></div>
         <div class="form-group"><label>الوقت</label><input type="time" id="returnTime"></div>
         <div class="modal-actions">
@@ -975,62 +699,39 @@ tr:hover td{background:#fafbfc;}
 
 <script>
 // ============================================================
+// ⚠️ المفاتيح ثابتة - لا تغيّرها أبداً
 // ============================================================
-// ⚠️⚠️⚠️  تحذير هام جداً - لا تغيّر هذه المفاتيح أبداً  ⚠️⚠️⚠️
-// ============================================================
-// هذه المفاتيح ثابتة في كل التحديثات لضمان عدم ضياع بيانات المستخدمين
-// لو غيّرت هذه المفاتيح، بيانات المستخدمين القديمة "ستختفي"
-// ============================================================
-const USERS_KEY = 'financeApp_users_v5';
-const DATA_KEY_PREFIX = 'financeApp_data_v5_';
-const LAST_USER_KEY = 'financeApp_lastUser_v5';
-// ============================================================
+var USERS_KEY = 'financeApp_users_v5';
+var DATA_KEY_PREFIX = 'financeApp_data_v5_';
+var LAST_USER_KEY = 'financeApp_lastUser_v5';
+var DATA_VERSION = '6.2';
+var DEVELOPER_NAME = 'المهندس يوسف أحمد مصطفى';
 
-// الإصدار قابل للتغيير في كل تحديث
-const DATA_VERSION = '6.2';
-
-// ⚠️⚠️⚠️ المتغير المهم اللي كان ناقص - لا تحذفه أبداً ⚠️⚠️⚠️
-const DEVELOPER_NAME = 'المهندس يوسف أحمد مصطفى';
-
-// ============================================================
-// ============ AUTO MIGRATION (حماية البيانات القديمة) ============
-// ============================================================
+// ============ MIGRATION ============
 function migrateOldData() {
     try {
-        // لو البيانات الحالية موجودة، مفيش ترحيل
-        if (localStorage.getItem(USERS_KEY)) {
-            console.log('[Migration] ✅ Data at current version');
-            return { migrated: false };
-        }
-
-        // ابحث عن الإصدارات القديمة بالترتيب (الأحدث أولاً)
-        const OLD_CONFIGS = [
+        if (localStorage.getItem(USERS_KEY)) return { migrated: false };
+        var OLD_CONFIGS = [
             { users: 'financeApp_users_v4', data: 'financeApp_data_v4_', last: 'financeApp_lastUser_v4' },
             { users: 'financeApp_users_v3', data: 'financeApp_data_v3_', last: 'financeApp_lastUser_v3' },
             { users: 'financeApp_users_v2', data: 'financeApp_data_v2_', last: 'financeApp_lastUser_v2' },
             { users: 'financeApp_users_v1', data: 'financeApp_data_v1_', last: 'financeApp_lastUser_v1' },
             { users: 'financeApp_users',     data: 'financeApp_data_',     last: 'financeApp_lastUser' }
         ];
-
-        for (const old of OLD_CONFIGS) {
-            const oldUsersStr = localStorage.getItem(old.users);
+        for (var i = 0; i < OLD_CONFIGS.length; i++) {
+            var old = OLD_CONFIGS[i];
+            var oldUsersStr = localStorage.getItem(old.users);
             if (!oldUsersStr) continue;
-
-            console.log('[Migration] 🔄 Found old data at:', old.users);
-            const oldUsers = JSON.parse(oldUsersStr);
+            var oldUsers = JSON.parse(oldUsersStr);
             if (!Array.isArray(oldUsers) || !oldUsers.length) continue;
-
-            // 1. انقل قائمة المستخدمين
             localStorage.setItem(USERS_KEY, oldUsersStr);
-
-            // 2. انقل بيانات كل مستخدم
-            oldUsers.forEach(u => {
-                const oldDataKey = old.data + u.id;
-                const newDataKey = DATA_KEY_PREFIX + u.id;
-                const userData = localStorage.getItem(oldDataKey);
+            oldUsers.forEach(function(u) {
+                var oldDataKey = old.data + u.id;
+                var newDataKey = DATA_KEY_PREFIX + u.id;
+                var userData = localStorage.getItem(oldDataKey);
                 if (userData) {
                     try {
-                        const parsed = JSON.parse(userData);
+                        var parsed = JSON.parse(userData);
                         if (!parsed.transactions) parsed.transactions = [];
                         if (!parsed.debts) parsed.debts = [];
                         if (!parsed.transfers) parsed.transfers = [];
@@ -1038,77 +739,43 @@ function migrateOldData() {
                         if (!parsed.archivedMonths) parsed.archivedMonths = {};
                         if (!parsed.startingBalances) parsed.startingBalances = { cash: 0, account: 0 };
                         localStorage.setItem(newDataKey, JSON.stringify(parsed));
-                    } catch (e) {
+                    } catch(e) {
                         localStorage.setItem(newDataKey, userData);
                     }
                 }
             });
-
-            // 3. انقل آخر مستخدم
-            const oldLast = localStorage.getItem(old.last);
+            var oldLast = localStorage.getItem(old.last);
             if (oldLast) localStorage.setItem(LAST_USER_KEY, oldLast);
-
-            console.log('[Migration] ✅ Successfully migrated', oldUsers.length, 'users from', old.users);
+            console.log('[Migration] Migrated from:', old.users);
             return { migrated: true, count: oldUsers.length };
         }
-
-        console.log('[Migration] ℹ️ No old data found');
         return { migrated: false };
-    } catch (e) {
-        console.error('[Migration] ❌ Error:', e);
-        return { migrated: false, error: e.message };
-    }
+    } catch(e) { console.error('[Migration] Error:', e); return { migrated: false }; }
 }
 
-// شغّل الترحيل تلقائيًا عند فتح الموقع
-const migrationResult = migrateOldData();
+var migrationResult = migrateOldData();
 
-// ============================================================
-// ============ GLOBAL ERROR HANDLER ============
-// ============================================================
-window.addEventListener('error', function(e) {
-    console.error('[Global Error]', e.error);
-});
-
-// ============================================================
 // ============ STATE ============
-// ============================================================
-let currentUser = null;
-let selectedUser = null;
-let appData = null;
-let currentSource = 'cash';
-let currentTransferFrom = 'cash';
-let currentTransferTo = 'account';
-let confirmAction = null;
-let toastTimeout = null;
+var currentUser = null;
+var selectedUser = null;
+var appData = null;
+var currentSource = 'cash';
+var currentTransferFrom = 'cash';
+var currentTransferTo = 'account';
+var confirmAction = null;
+var toastTimeout = null;
 
-// ============================================================
 // ============ HELPERS ============
-// ============================================================
-function genId() {
-    return 'u_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-}
-
-function getUsers() {
-    try {
-        const s = localStorage.getItem(USERS_KEY);
-        return s ? JSON.parse(s) : [];
-    } catch (e) { return []; }
-}
-
-function saveUsers(u) {
-    try { localStorage.setItem(USERS_KEY, JSON.stringify(u)); }
-    catch (e) { console.error('Save users error:', e); }
-}
-
+function genId() { return 'u_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9); }
+function getUsers() { try { var s = localStorage.getItem(USERS_KEY); return s ? JSON.parse(s) : []; } catch(e) { return []; } }
+function saveUsers(u) { try { localStorage.setItem(USERS_KEY, JSON.stringify(u)); } catch(e) { console.error(e); } }
 function getDataKey(userId) { return DATA_KEY_PREFIX + userId; }
 
 function loadUserData(userId) {
     try {
-        const s = localStorage.getItem(getDataKey(userId));
+        var s = localStorage.getItem(getDataKey(userId));
         if (!s) return getDefaultData();
-        const d = JSON.parse(s);
-        // ضمان وجود كل الحقول
+        var d = JSON.parse(s);
         if (!d.transactions) d.transactions = [];
         if (!d.debts) d.debts = [];
         if (!d.transfers) d.transfers = [];
@@ -1116,89 +783,65 @@ function loadUserData(userId) {
         if (!d.archivedMonths) d.archivedMonths = {};
         if (!d.startingBalances) d.startingBalances = { cash: 0, account: 0 };
         if (!d.currentMonth) {
-            const now = new Date();
+            var now = new Date();
             d.currentMonth = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
         }
         return d;
-    } catch (e) {
-        console.error('Load data error:', e);
-        return getDefaultData();
-    }
+    } catch(e) { return getDefaultData(); }
 }
 
 function saveUserData() {
     if (!currentUser || !appData) return;
-    try {
-        localStorage.setItem(getDataKey(currentUser.id), JSON.stringify(appData));
-    } catch (e) { console.error('Save error:', e); }
+    try { localStorage.setItem(getDataKey(currentUser.id), JSON.stringify(appData)); } catch(e) { console.error(e); }
 }
 
 function getDefaultData() {
-    const now = new Date();
-    const cm = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
-    return {
-        startingBalances: { cash: 0, account: 0 },
-        currentMonth: cm,
-        transactions: [],
-        debts: [],
-        transfers: [],
-        loans: [],
-        archivedMonths: {}
-    };
+    var now = new Date();
+    var cm = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
+    return { startingBalances: { cash: 0, account: 0 }, currentMonth: cm, transactions: [], debts: [], transfers: [], loans: [], archivedMonths: {} };
 }
 
 function getTodayLocal() {
-    const now = new Date();
-    return now.getFullYear() + '-' +
-           String(now.getMonth() + 1).padStart(2, '0') + '-' +
-           String(now.getDate()).padStart(2, '0');
+    var n = new Date();
+    return n.getFullYear() + '-' + String(n.getMonth() + 1).padStart(2, '0') + '-' + String(n.getDate()).padStart(2, '0');
 }
-
 function getCurrentTimeLocal() {
-    const now = new Date();
-    return String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+    var n = new Date();
+    return String(n.getHours()).padStart(2, '0') + ':' + String(n.getMinutes()).padStart(2, '0');
 }
 
-// ============================================================
 // ============ AVATAR ============
-// ============================================================
 function handleAvatarUpload(e, previewId, dataInputId) {
-    const file = e.target.files[0];
+    var file = e.target.files[0];
     if (!file) return;
-    if (file.size > 2 * 1024 * 1024) return showToast('حجم الصورة أكبر من 2 ميجا', 'error');
-    const reader = new FileReader();
+    if (file.size > 2 * 1024 * 1024) { showToast('حجم الصورة أكبر من 2 ميجا', 'error'); return; }
+    var reader = new FileReader();
     reader.onload = function(ev) {
-        const p = document.getElementById(previewId);
+        var p = document.getElementById(previewId);
         if (p) p.innerHTML = '<img src="' + ev.target.result + '" alt="">';
         if (dataInputId) document.getElementById(dataInputId).value = ev.target.result;
     };
     reader.readAsDataURL(file);
 }
 
-// ============================================================
 // ============ AUTH VIEWS ============
-// ============================================================
 function showAuthScreen() {
     document.getElementById('authScreen').style.display = 'flex';
     document.getElementById('app').style.display = 'none';
-    const users = getUsers();
+    var users = getUsers();
     if (users.length === 0) { showRegisterView(false); return; }
-    const lastId = localStorage.getItem(LAST_USER_KEY);
-    const lastUser = lastId ? users.find(u => u.id === lastId) : null;
+    var lastId = localStorage.getItem(LAST_USER_KEY);
+    var lastUser = lastId ? users.find(function(u){ return u.id === lastId; }) : null;
     if (users.length === 1) {
-        const u = users[0];
+        var u = users[0];
         if (u.noPassword) { autoLoginUser(u); return; }
         selectedUser = u;
         showPasswordView();
         return;
     }
     if (lastUser && lastUser.noPassword) { autoLoginUser(lastUser); return; }
-    if (lastUser) {
-        selectedUser = lastUser;
-        showPasswordView();
-    } else {
-        showUserPickerView();
-    }
+    if (lastUser) { selectedUser = lastUser; showPasswordView(); }
+    else { showUserPickerView(); }
 }
 
 function autoLoginUser(user) {
@@ -1210,8 +853,8 @@ function autoLoginUser(user) {
 }
 
 function hideAllAuthViews() {
-    ['registerView','userPickerView','passwordView','forgotView'].forEach(id => {
-        const el = document.getElementById(id);
+    ['registerView','userPickerView','passwordView','forgotView'].forEach(function(id) {
+        var el = document.getElementById(id);
         if (el) el.style.display = 'none';
     });
 }
@@ -1234,10 +877,10 @@ function showRegisterView(showBack) {
 
 function showUserPickerView() {
     hideAllAuthViews();
-    const users = getUsers();
-    const grid = document.getElementById('userPickerGrid');
-    grid.innerHTML = users.map(u => {
-        const av = u.avatar ? '<img src="' + u.avatar + '" alt="">' : u.name.charAt(0);
+    var users = getUsers();
+    var grid = document.getElementById('userPickerGrid');
+    grid.innerHTML = users.map(function(u) {
+        var av = u.avatar ? '<img src="' + u.avatar + '" alt="">' : u.name.charAt(0);
         return '<div class="user-picker-item" onclick="selectUser(\'' + u.id + '\')">' +
             '<div class="up-avatar">' + av + '</div>' +
             '<div class="up-name">' + u.name + '</div></div>';
@@ -1247,8 +890,8 @@ function showUserPickerView() {
 }
 
 function selectUser(userId) {
-    const users = getUsers();
-    selectedUser = users.find(u => u.id === userId);
+    var users = getUsers();
+    selectedUser = users.find(function(u){ return u.id === userId; });
     if (selectedUser) showPasswordView();
 }
 
@@ -1256,7 +899,7 @@ function showPasswordView() {
     hideAllAuthViews();
     if (!selectedUser) return;
     document.getElementById('pwdUserName').textContent = selectedUser.name;
-    const av = document.getElementById('pwdAvatar');
+    var av = document.getElementById('pwdAvatar');
     av.innerHTML = selectedUser.avatar ? '<img src="' + selectedUser.avatar + '" alt="">' : selectedUser.name.charAt(0);
     document.getElementById('loginPassword').value = '';
     document.getElementById('loginError').classList.remove('show');
@@ -1278,35 +921,28 @@ function showForgotView() {
 
 function backToAuth() { showAuthScreen(); }
 
-// ============================================================
 // ============ REGISTER ============
-// ============================================================
 function handleRegister() {
-    const name = document.getElementById('regName').value.trim().replace(/\s+/g, ' ');
-    const password = document.getElementById('regPassword').value;
-    const confirm = document.getElementById('regConfirm').value;
-    const sq = document.getElementById('regSecurityQ').value.trim();
-    const sa = document.getElementById('regSecurityA').value.trim();
-    const avatar = document.getElementById('regAvatarData').value || null;
-    const err = document.getElementById('registerError');
-    const showErr = m => { err.textContent = m; err.classList.add('show'); };
+    var name = document.getElementById('regName').value.trim().replace(/\s+/g, ' ');
+    var password = document.getElementById('regPassword').value;
+    var confirm = document.getElementById('regConfirm').value;
+    var sq = document.getElementById('regSecurityQ').value.trim();
+    var sa = document.getElementById('regSecurityA').value.trim();
+    var avatar = document.getElementById('regAvatarData').value || null;
+    var err = document.getElementById('registerError');
+    var showErr = function(m){ err.textContent = m; err.classList.add('show'); };
 
-    const parts = name.split(' ').filter(p => p.length > 0);
+    var parts = name.split(' ').filter(function(p){ return p.length > 0; });
     if (parts.length < 3) return showErr('يجب إدخال الاسم الثلاثي (3 كلمات على الأقل)');
     if (!password || password.length < 4) return showErr('كلمة المرور يجب أن تكون 4 أحرف على الأقل');
     if (password !== confirm) return showErr('كلمتا المرور غير متطابقتين');
     if (!sq) return showErr('يرجى إدخال سؤال الأمان');
     if (!sa) return showErr('يرجى إدخال إجابة سؤال الأمان');
 
-    const users = getUsers();
-    if (users.find(u => u.name === name)) return showErr('هذا الاسم مسجل بالفعل');
+    var users = getUsers();
+    if (users.find(function(u){ return u.name === name; })) return showErr('هذا الاسم مسجل بالفعل');
 
-    const newUser = {
-        id: genId(), name, password, avatar,
-        securityQuestion: sq, securityAnswer: sa,
-        noPassword: false,
-        createdAt: Date.now()
-    };
+    var newUser = { id: genId(), name: name, password: password, avatar: avatar, securityQuestion: sq, securityAnswer: sa, noPassword: false, createdAt: Date.now() };
     users.push(newUser);
     saveUsers(users);
     currentUser = newUser;
@@ -1318,20 +954,12 @@ function handleRegister() {
     showToast('مرحبًا ' + name + '! تم إنشاء حسابك 🎉', 'success');
 }
 
-// ============================================================
 // ============ LOGIN ============
-// ============================================================
 function handleLogin() {
-    const password = document.getElementById('loginPassword').value;
-    const err = document.getElementById('loginError');
-    if (!password) {
-        err.textContent = 'يرجى إدخال كلمة المرور';
-        err.classList.add('show'); return;
-    }
-    if (password !== selectedUser.password) {
-        err.textContent = 'كلمة المرور غير صحيحة';
-        err.classList.add('show'); return;
-    }
+    var password = document.getElementById('loginPassword').value;
+    var err = document.getElementById('loginError');
+    if (!password) { err.textContent = 'يرجى إدخال كلمة المرور'; err.classList.add('show'); return; }
+    if (password !== selectedUser.password) { err.textContent = 'كلمة المرور غير صحيحة'; err.classList.add('show'); return; }
     currentUser = selectedUser;
     appData = loadUserData(currentUser.id);
     localStorage.setItem(LAST_USER_KEY, currentUser.id);
@@ -1340,23 +968,21 @@ function handleLogin() {
     showToast('مرحبًا ' + currentUser.name + '! 👋', 'success');
 }
 
-// ============================================================
 // ============ FORGOT ============
-// ============================================================
 function handleForgotPassword() {
-    const answer = document.getElementById('forgotAnswer').value.trim();
-    const newPwd = document.getElementById('forgotNewPwd').value;
-    const confirmPwd = document.getElementById('forgotNewPwdConfirm').value;
-    const err = document.getElementById('forgotError');
-    const showErr = m => { err.textContent = m; err.classList.add('show'); };
+    var answer = document.getElementById('forgotAnswer').value.trim();
+    var newPwd = document.getElementById('forgotNewPwd').value;
+    var confirmPwd = document.getElementById('forgotNewPwdConfirm').value;
+    var err = document.getElementById('forgotError');
+    var showErr = function(m){ err.textContent = m; err.classList.add('show'); };
 
     if (!answer) return showErr('يرجى إدخال الإجابة');
     if (answer.toLowerCase() !== selectedUser.securityAnswer.toLowerCase()) return showErr('الإجابة غير صحيحة');
     if (!newPwd || newPwd.length < 4) return showErr('كلمة المرور يجب أن تكون 4 أحرف على الأقل');
     if (newPwd !== confirmPwd) return showErr('كلمتا المرور غير متطابقتين');
 
-    const users = getUsers();
-    const idx = users.findIndex(u => u.id === selectedUser.id);
+    var users = getUsers();
+    var idx = users.findIndex(function(u){ return u.id === selectedUser.id; });
     if (idx >= 0) users[idx].password = newPwd;
     saveUsers(users);
     selectedUser.password = newPwd;
@@ -1365,9 +991,7 @@ function handleForgotPassword() {
     showToast('تم تعيين كلمة المرور الجديدة ✓', 'success');
 }
 
-// ============================================================
 // ============ LOGOUT ============
-// ============================================================
 function handleLogout() {
     saveUserData();
     closeSidebar();
@@ -1377,18 +1001,16 @@ function handleLogout() {
     showAuthScreen();
 }
 
-// ============================================================
 // ============ START APP ============
-// ============================================================
 function startApp() {
     document.getElementById('authScreen').style.display = 'none';
     document.getElementById('app').style.display = 'flex';
     if (migrationResult.migrated) {
-        const notice = document.getElementById('migrationNotice');
-        const text = document.getElementById('migrationText');
+        var notice = document.getElementById('migrationNotice');
+        var text = document.getElementById('migrationText');
         text.textContent = '✅ تم ترحيل بياناتك القديمة بنجاح (' + migrationResult.count + ' حساب)';
         notice.style.display = 'flex';
-        setTimeout(() => { notice.style.display = 'none'; }, 8000);
+        setTimeout(function(){ notice.style.display = 'none'; }, 8000);
     }
     updateUserInterface();
     populateMonthSelector();
@@ -1399,33 +1021,30 @@ function startApp() {
 
 function updateUserInterface() {
     if (!currentUser) return;
-    const name = currentUser.name;
+    var name = currentUser.name;
     document.getElementById('headerUserName').textContent = name;
     document.getElementById('sidebarUserName').textContent = name;
     document.getElementById('currentNameDisplay').value = name;
-    const avHtml = currentUser.avatar ? '<img src="' + currentUser.avatar + '" alt="">' : name.charAt(0);
+    var avHtml = currentUser.avatar ? '<img src="' + currentUser.avatar + '" alt="">' : name.charAt(0);
     document.getElementById('headerAvatar').innerHTML = avHtml;
     document.getElementById('sidebarAvatar').innerHTML = avHtml;
-    const prevEl = document.getElementById('settingsAvatarPreview');
-    prevEl.innerHTML = currentUser.avatar ? '<img src="' + currentUser.avatar + '" alt="">' : '📷';
-    const sq = document.getElementById('currentSQDisplay');
+    document.getElementById('settingsAvatarPreview').innerHTML = currentUser.avatar ? '<img src="' + currentUser.avatar + '" alt="">' : '📷';
+    var sq = document.getElementById('currentSQDisplay');
     if (sq) sq.value = currentUser.securityQuestion || '-';
     updateNoPasswordUI();
 }
 
-// ============================================================
-// ============ NO PASSWORD TOGGLE ============
-// ============================================================
+// ============ NO PASSWORD ============
 function toggleNoPassword() {
-    const checkbox = document.getElementById('noPasswordToggle');
+    var checkbox = document.getElementById('noPasswordToggle');
     if (!currentUser) return;
-    const enabled = checkbox.checked;
+    var enabled = checkbox.checked;
     if (enabled) {
-        const confirmed = confirm('⚠️ تحذير أمني\n\nعند تفعيل "الدخول بدون كلمة مرور":\n\n• أي شخص يستخدم جهازك سيفتح حسابك مباشرة\n• لن يُطلب منك إدخال كلمة المرور\n• يمكنك تعطيل الخاصية في أي وقت\n\nهل أنت متأكد؟');
+        var confirmed = confirm('⚠️ تحذير أمني\n\nعند تفعيل "الدخول بدون كلمة مرور":\n\n• أي شخص يستخدم جهازك سيفتح حسابك مباشرة\n• لن يُطلب منك إدخال كلمة المرور\n• يمكنك تعطيل الخاصية في أي وقت\n\nهل أنت متأكد؟');
         if (!confirmed) { checkbox.checked = false; return; }
     }
-    const users = getUsers();
-    const idx = users.findIndex(u => u.id === currentUser.id);
+    var users = getUsers();
+    var idx = users.findIndex(function(u){ return u.id === currentUser.id; });
     if (idx >= 0) users[idx].noPassword = enabled;
     saveUsers(users);
     currentUser.noPassword = enabled;
@@ -1434,13 +1053,13 @@ function toggleNoPassword() {
 }
 
 function updateNoPasswordUI() {
-    const checkbox = document.getElementById('noPasswordToggle');
-    const statusEl = document.getElementById('noPasswordStatus');
+    var checkbox = document.getElementById('noPasswordToggle');
+    var statusEl = document.getElementById('noPasswordStatus');
     if (!checkbox || !statusEl) return;
-    const enabled = currentUser && currentUser.noPassword;
+    var enabled = currentUser && currentUser.noPassword;
     checkbox.checked = !!enabled;
     if (enabled) {
-        statusEl.textContent = '🔓 مفعّل - الموقع سيفتح مباشرة بدون كلمة مرور';
+        statusEl.textContent = '🔓 مفعّل - الموقع سيفتح مباشرة';
         statusEl.className = 'toggle-status on';
     } else {
         statusEl.textContent = '🔒 معطّل - كلمة المرور مطلوبة';
@@ -1448,9 +1067,7 @@ function updateNoPasswordUI() {
     }
 }
 
-// ============================================================
 // ============ SIDEBAR ============
-// ============================================================
 function toggleSidebar() {
     document.getElementById('sidebar').classList.toggle('open');
     document.getElementById('sidebarOverlay').classList.toggle('open');
@@ -1460,73 +1077,67 @@ function closeSidebar() {
     document.getElementById('sidebarOverlay').classList.remove('open');
 }
 
-// ============================================================
 // ============ MONTH ============
-// ============================================================
 function populateMonthSelector() {
-    const sel = document.getElementById('monthSelector');
-    const months = new Set();
-    months.add(appData.currentMonth);
-    (appData.transactions || []).forEach(t => { if (t.month) months.add(t.month); });
-    (appData.debts || []).forEach(d => { if (d.month) months.add(d.month); });
-    (appData.transfers || []).forEach(t => { if (t.month) months.add(t.month); });
-    (appData.loans || []).forEach(l => { if (l.month) months.add(l.month); });
-    Object.keys(appData.archivedMonths || {}).forEach(m => months.add(m));
-    const sorted = Array.from(months).sort().reverse();
-    const currentVal = sel.value;
+    var sel = document.getElementById('monthSelector');
+    var months = {};
+    months[appData.currentMonth] = true;
+    (appData.transactions || []).forEach(function(t){ if (t.month) months[t.month] = true; });
+    (appData.debts || []).forEach(function(d){ if (d.month) months[d.month] = true; });
+    (appData.transfers || []).forEach(function(t){ if (t.month) months[t.month] = true; });
+    (appData.loans || []).forEach(function(l){ if (l.month) months[l.month] = true; });
+    Object.keys(appData.archivedMonths || {}).forEach(function(m){ months[m] = true; });
+    var sorted = Object.keys(months).sort().reverse();
+    var currentVal = sel.value;
     sel.innerHTML = '';
-    sorted.forEach(m => {
-        const o = document.createElement('option');
+    sorted.forEach(function(m) {
+        var o = document.createElement('option');
         o.value = m;
         o.textContent = formatMonthLabel(m);
         sel.appendChild(o);
     });
-    if (currentVal && sorted.includes(currentVal)) sel.value = currentVal;
+    if (currentVal && sorted.indexOf(currentVal) >= 0) sel.value = currentVal;
     else sel.value = appData.currentMonth;
 }
 
 function formatMonthLabel(s) {
-    if (!s || !s.includes('-')) return s;
-    const [y, mo] = s.split('-');
-    const n = ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
-    return n[parseInt(mo) - 1] + ' ' + y;
+    if (!s || s.indexOf('-') < 0) return s;
+    var parts = s.split('-');
+    var n = ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+    return n[parseInt(parts[1]) - 1] + ' ' + parts[0];
 }
 function getSelectedMonth() {
-    const v = document.getElementById('monthSelector').value;
+    var v = document.getElementById('monthSelector').value;
     return v || appData.currentMonth;
 }
 function changeMonth() { updateAllUI(); renderAllSections(); }
 function getMonthFromDate(d) {
     if (!d || typeof d !== 'string') return appData.currentMonth;
-    const parts = d.split('-');
-    if (parts.length >= 2 && parts[0].length === 4) {
-        return parts[0] + '-' + parts[1].padStart(2, '0');
-    }
+    var parts = d.split('-');
+    if (parts.length >= 2 && parts[0].length === 4) return parts[0] + '-' + parts[1].padStart(2, '0');
     return appData.currentMonth;
 }
 
-// ============================================================
 // ============ BALANCES ============
-// ============================================================
 function getCashBalance(month) {
-    const m = month || getSelectedMonth();
-    let bal = Number(appData.startingBalances.cash) || 0;
-    (appData.transactions || []).forEach(t => {
+    var m = month || getSelectedMonth();
+    var bal = Number(appData.startingBalances.cash) || 0;
+    (appData.transactions || []).forEach(function(t) {
         if (t.source !== 'cash') return;
         if (t.month > m) return;
-        const amt = Number(t.amount) || 0;
+        var amt = Number(t.amount) || 0;
         bal += (t.type === 'income' ? amt : -amt);
     });
-    (appData.transfers || []).forEach(t => {
+    (appData.transfers || []).forEach(function(t) {
         if (t.month > m) return;
-        const amt = Number(t.amount) || 0;
+        var amt = Number(t.amount) || 0;
         if (t.to === 'cash') bal += amt;
         if (t.from === 'cash') bal -= amt;
     });
-    (appData.loans || []).forEach(l => {
+    (appData.loans || []).forEach(function(l) {
         if (l.month > m) return;
         if (l.source === 'cash') bal -= Number(l.amount) || 0;
-        (l.partialReturns || []).forEach(r => {
+        (l.partialReturns || []).forEach(function(r) {
             if (r.month > m) return;
             if (r.destination === 'cash') bal += Number(r.amount) || 0;
         });
@@ -1534,24 +1145,24 @@ function getCashBalance(month) {
     return bal;
 }
 function getAccountBalance(month) {
-    const m = month || getSelectedMonth();
-    let bal = Number(appData.startingBalances.account) || 0;
-    (appData.transactions || []).forEach(t => {
+    var m = month || getSelectedMonth();
+    var bal = Number(appData.startingBalances.account) || 0;
+    (appData.transactions || []).forEach(function(t) {
         if (t.source !== 'account') return;
         if (t.month > m) return;
-        const amt = Number(t.amount) || 0;
+        var amt = Number(t.amount) || 0;
         bal += (t.type === 'income' ? amt : -amt);
     });
-    (appData.transfers || []).forEach(t => {
+    (appData.transfers || []).forEach(function(t) {
         if (t.month > m) return;
-        const amt = Number(t.amount) || 0;
+        var amt = Number(t.amount) || 0;
         if (t.to === 'account') bal += amt;
         if (t.from === 'account') bal -= amt;
     });
-    (appData.loans || []).forEach(l => {
+    (appData.loans || []).forEach(function(l) {
         if (l.month > m) return;
         if (l.source === 'account') bal -= Number(l.amount) || 0;
-        (l.partialReturns || []).forEach(r => {
+        (l.partialReturns || []).forEach(function(r) {
             if (r.month > m) return;
             if (r.destination === 'account') bal += Number(r.amount) || 0;
         });
@@ -1560,30 +1171,26 @@ function getAccountBalance(month) {
 }
 function getMonthIncome(m) {
     m = m || getSelectedMonth();
-    return (appData.transactions || []).filter(t => t.type === 'income' && t.month === m)
-        .reduce((s,t)=>s+(Number(t.amount)||0),0);
+    return (appData.transactions || []).filter(function(t){ return t.type === 'income' && t.month === m; }).reduce(function(s,t){ return s + (Number(t.amount)||0); }, 0);
 }
 function getMonthExpense(m) {
     m = m || getSelectedMonth();
-    return (appData.transactions || []).filter(t => t.type === 'expense' && t.month === m)
-        .reduce((s,t)=>s+(Number(t.amount)||0),0);
+    return (appData.transactions || []).filter(function(t){ return t.type === 'expense' && t.month === m; }).reduce(function(s,t){ return s + (Number(t.amount)||0); }, 0);
 }
 
-// ============================================================
 // ============ UI UPDATE ============
-// ============================================================
 function updateAllUI() {
-    const m = getSelectedMonth();
-    const cash = getCashBalance(m);
-    const acc = getAccountBalance(m);
-    const total = cash + acc;
-    const income = getMonthIncome(m);
-    const expense = getMonthExpense(m);
-    const net = income - expense;
-    const activeD = (appData.debts || []).filter(d => d.month === m && d.status !== 'paid');
-    const activeL = (appData.loans || []).filter(l => l.month === m && l.status !== 'returned');
-    const activeDAmt = activeD.reduce((s,d)=>s+(Number(d.amount)||0),0);
-    const activeLAmt = activeL.reduce((s,l)=>s+(Number(l.amount)||0),0);
+    var m = getSelectedMonth();
+    var cash = getCashBalance(m);
+    var acc = getAccountBalance(m);
+    var total = cash + acc;
+    var income = getMonthIncome(m);
+    var expense = getMonthExpense(m);
+    var net = income - expense;
+    var activeD = (appData.debts || []).filter(function(d){ return d.month === m && d.status !== 'paid'; });
+    var activeL = (appData.loans || []).filter(function(l){ return l.month === m && l.status !== 'returned'; });
+    var activeDAmt = activeD.reduce(function(s,d){ return s + (Number(d.amount)||0); }, 0);
+    var activeLAmt = activeL.reduce(function(s,l){ return s + (Number(l.amount)||0); }, 0);
 
     document.getElementById('dashCashDisplay').textContent = cash.toLocaleString('ar-EG');
     document.getElementById('dashAccountDisplay').textContent = acc.toLocaleString('ar-EG');
@@ -1597,16 +1204,14 @@ function updateAllUI() {
     document.getElementById('accountBalanceDisplay').textContent = acc.toLocaleString('ar-EG') + ' جنيه';
 }
 
-// ============================================================
 // ============ SECTION SWITCH ============
-// ============================================================
 function switchSection(name) {
     saveUserData();
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
-    const sec = document.getElementById('section-' + name);
+    document.querySelectorAll('.section').forEach(function(s){ s.classList.remove('active'); });
+    document.querySelectorAll('.sidebar-link').forEach(function(l){ l.classList.remove('active'); });
+    var sec = document.getElementById('section-' + name);
     if (sec) sec.classList.add('active');
-    const link = document.querySelector('.sidebar-link[data-section="' + name + '"]');
+    var link = document.querySelector('.sidebar-link[data-section="' + name + '"]');
     if (link) link.classList.add('active');
     closeSidebar();
     try {
@@ -1615,12 +1220,10 @@ function switchSection(name) {
         if (name === 'loans') renderLoans();
         if (name === 'paidDebtsLog') renderPaidDebtsLog();
         if (name === 'settings') updateUserInterface();
-    } catch (e) { console.error('Switch section error:', e); }
+    } catch(e) { console.error(e); }
 }
 
-// ============================================================
 // ============ RENDER ============
-// ============================================================
 function renderAllSections() {
     try {
         renderCashTransactions();
@@ -1632,111 +1235,77 @@ function renderAllSections() {
         renderExpenseLog();
         renderPaidDebtsLog();
         renderReport();
-    } catch (e) { console.error('Render error:', e); }
+    } catch(e) { console.error(e); }
 }
 
 function renderCashTransactions() {
-    const m = getSelectedMonth();
-    const tbody = document.getElementById('cashTransactionsTable');
-    const list = (appData.transactions || []).filter(t => t.source === 'cash' && t.month === m)
-        .sort((a,b)=>(b.createdAt||0)-(a.createdAt||0)).slice(0,20);
-    if (!list.length) {
-        tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#999;padding:18px;">لا توجد عمليات في هذا الشهر</td></tr>';
-        return;
-    }
-    tbody.innerHTML = list.map(t => '<tr>' +
-        '<td class="' + (t.type==='income'?'amount-positive':'amount-negative') + '">' + (t.type==='income'?'+':'-') + (Number(t.amount)||0).toLocaleString('ar-EG') + ' ج.م</td>' +
-        '<td>' + (t.reason || '-') + '</td>' +
-        '<td><span class="badge badge-cash">كاش</span></td>' +
-        '<td>' + (t.date || '-') + '</td><td>' + (t.time || '-') + '</td></tr>').join('');
+    var m = getSelectedMonth();
+    var tbody = document.getElementById('cashTransactionsTable');
+    var list = (appData.transactions || []).filter(function(t){ return t.source === 'cash' && t.month === m; })
+        .sort(function(a,b){ return (b.createdAt||0)-(a.createdAt||0); }).slice(0,20);
+    if (!list.length) { tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#999;padding:18px;">لا توجد عمليات</td></tr>'; return; }
+    tbody.innerHTML = list.map(function(t) {
+        return '<tr><td class="' + (t.type==='income'?'amount-positive':'amount-negative') + '">' + (t.type==='income'?'+':'-') + (Number(t.amount)||0).toLocaleString('ar-EG') + ' ج.م</td><td>' + (t.reason||'-') + '</td><td><span class="badge badge-cash">كاش</span></td><td>' + (t.date||'-') + '</td><td>' + (t.time||'-') + '</td></tr>';
+    }).join('');
 }
 
 function renderAccountTransactions() {
-    const m = getSelectedMonth();
-    const tbody = document.getElementById('accountTransactionsTable');
-    const list = (appData.transactions || []).filter(t => t.source === 'account' && t.month === m)
-        .sort((a,b)=>(b.createdAt||0)-(a.createdAt||0)).slice(0,20);
-    if (!list.length) {
-        tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#999;padding:18px;">لا توجد عمليات في هذا الشهر</td></tr>';
-        return;
-    }
-    tbody.innerHTML = list.map(t => '<tr>' +
-        '<td class="' + (t.type==='income'?'amount-positive':'amount-negative') + '">' + (t.type==='income'?'+':'-') + (Number(t.amount)||0).toLocaleString('ar-EG') + ' ج.م</td>' +
-        '<td>' + (t.reason || '-') + '</td>' +
-        '<td><span class="badge badge-account">حساب</span></td>' +
-        '<td>' + (t.date || '-') + '</td><td>' + (t.time || '-') + '</td></tr>').join('');
+    var m = getSelectedMonth();
+    var tbody = document.getElementById('accountTransactionsTable');
+    var list = (appData.transactions || []).filter(function(t){ return t.source === 'account' && t.month === m; })
+        .sort(function(a,b){ return (b.createdAt||0)-(a.createdAt||0); }).slice(0,20);
+    if (!list.length) { tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#999;padding:18px;">لا توجد عمليات</td></tr>'; return; }
+    tbody.innerHTML = list.map(function(t) {
+        return '<tr><td class="' + (t.type==='income'?'amount-positive':'amount-negative') + '">' + (t.type==='income'?'+':'-') + (Number(t.amount)||0).toLocaleString('ar-EG') + ' ج.م</td><td>' + (t.reason||'-') + '</td><td><span class="badge badge-account">حساب</span></td><td>' + (t.date||'-') + '</td><td>' + (t.time||'-') + '</td></tr>';
+    }).join('');
 }
 
 function renderTransfers() {
-    const m = getSelectedMonth();
-    const tbody = document.getElementById('transfersTable');
-    const list = (appData.transfers || []).filter(t => t.month === m).sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));
-    if (!list.length) {
-        tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#999;padding:18px;">لا توجد تحويلات في هذا الشهر</td></tr>';
-        return;
-    }
-    tbody.innerHTML = list.map(t => '<tr>' +
-        '<td style="font-weight:800;">' + (Number(t.amount)||0).toLocaleString('ar-EG') + ' ج.م</td>' +
-        '<td><span class="badge ' + (t.from==='cash'?'badge-cash':'badge-account') + '">' + (t.from==='cash'?'كاش':'حساب') + '</span></td>' +
-        '<td><span class="badge ' + (t.to==='cash'?'badge-cash':'badge-account') + '">' + (t.to==='cash'?'كاش':'حساب') + '</span></td>' +
-        '<td>' + (t.date || '-') + '</td><td>' + (t.time || '-') + '</td></tr>').join('');
+    var m = getSelectedMonth();
+    var tbody = document.getElementById('transfersTable');
+    var list = (appData.transfers || []).filter(function(t){ return t.month === m; }).sort(function(a,b){ return (b.createdAt||0)-(a.createdAt||0); });
+    if (!list.length) { tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#999;padding:18px;">لا توجد تحويلات</td></tr>'; return; }
+    tbody.innerHTML = list.map(function(t) {
+        return '<tr><td style="font-weight:800;">' + (Number(t.amount)||0).toLocaleString('ar-EG') + ' ج.م</td><td><span class="badge ' + (t.from==='cash'?'badge-cash':'badge-account') + '">' + (t.from==='cash'?'كاش':'حساب') + '</span></td><td><span class="badge ' + (t.to==='cash'?'badge-cash':'badge-account') + '">' + (t.to==='cash'?'كاش':'حساب') + '</span></td><td>' + (t.date||'-') + '</td><td>' + (t.time||'-') + '</td></tr>';
+    }).join('');
 }
 
 function renderDebts() {
-    const m = getSelectedMonth();
-    const active = (appData.debts || []).filter(d => d.month === m && d.status !== 'paid');
-    const paid = (appData.debts || []).filter(d => d.status === 'paid' && d.paidMonth === m);
-    const list = document.getElementById('activeDebtsList');
-    if (!active.length) {
-        list.innerHTML = '<p style="text-align:center;color:#999;padding:18px;">لا توجد ديون نشطة في هذا الشهر</p>';
-    } else {
-        list.innerHTML = active.map(d => renderDebtCard(d)).join('');
-    }
-    const pl = document.getElementById('paidDebtsListThisMonth');
-    if (!paid.length) {
-        pl.innerHTML = '<p style="text-align:center;color:#999;padding:12px;">لا توجد ديون مسددة في هذا الشهر</p>';
-    } else {
-        pl.innerHTML = paid.map(d => '<div class="debt-card paid">' +
-            '<div class="debt-header"><span class="debt-person">👤 ' + d.personName + '</span>' +
-            '<span class="debt-amount">' + (Number(d.originalAmount || d.amount)||0).toLocaleString('ar-EG') + ' ج.م</span></div>' +
-            '<div class="debt-details"><span>📝 ' + (d.reason||'-') + '</span>' +
-            '<span>✅ تسديد: ' + (d.paidDate || '-') + ' - ' + (d.paidTime || '-') + '</span></div>' +
-            '<span class="badge badge-paid">تم التسديد ✓</span></div>').join('');
+    var m = getSelectedMonth();
+    var active = (appData.debts || []).filter(function(d){ return d.month === m && d.status !== 'paid'; });
+    var paid = (appData.debts || []).filter(function(d){ return d.status === 'paid' && d.paidMonth === m; });
+    var list = document.getElementById('activeDebtsList');
+    if (!active.length) { list.innerHTML = '<p style="text-align:center;color:#999;padding:18px;">لا توجد ديون نشطة</p>'; }
+    else { list.innerHTML = active.map(function(d){ return renderDebtCard(d); }).join(''); }
+    var pl = document.getElementById('paidDebtsListThisMonth');
+    if (!paid.length) { pl.innerHTML = '<p style="text-align:center;color:#999;padding:12px;">لا توجد ديون مسددة</p>'; }
+    else {
+        pl.innerHTML = paid.map(function(d) {
+            return '<div class="debt-card paid"><div class="debt-header"><span class="debt-person">👤 ' + d.personName + '</span><span class="debt-amount">' + (Number(d.originalAmount || d.amount)||0).toLocaleString('ar-EG') + ' ج.م</span></div><div class="debt-details"><span>📝 ' + (d.reason||'-') + '</span><span>✅ تسديد: ' + (d.paidDate||'-') + '</span></div><span class="badge badge-paid">تم التسديد ✓</span></div>';
+        }).join('');
     }
 }
 
 function renderDebtCard(d) {
-    const isPartial = d.partialPayments && d.partialPayments.length > 0;
-    const orig = Number(d.originalAmount || d.amount) || 0;
-    const remaining = Number(d.amount) || 0;
-    const paid = orig - remaining;
-    const pct = orig > 0 ? (paid / orig) * 100 : 0;
-    let partialInfo = '';
+    var isPartial = d.partialPayments && d.partialPayments.length > 0;
+    var orig = Number(d.originalAmount || d.amount) || 0;
+    var remaining = Number(d.amount) || 0;
+    var paid = orig - remaining;
+    var pct = orig > 0 ? (paid / orig) * 100 : 0;
+    var partialInfo = '';
     if (isPartial) {
-        partialInfo = '<div class="progress-bar"><div class="progress-fill" style="width:' + pct + '%"></div></div>' +
-            '<div class="partial-info">💰 تم تسديد ' + paid.toLocaleString('ar-EG') + ' ج.م من أصل ' + orig.toLocaleString('ar-EG') + ' ج.م (' + d.partialPayments.length + ' دفعة)</div>';
+        partialInfo = '<div class="progress-bar"><div class="progress-fill" style="width:' + pct + '%"></div></div><div class="partial-info">💰 تم تسديد ' + paid.toLocaleString('ar-EG') + ' ج.م من أصل ' + orig.toLocaleString('ar-EG') + ' ج.م</div>';
     }
-    return '<div class="debt-card ' + (isPartial?'partial':'') + '">' +
-        '<div class="debt-header"><span class="debt-person">👤 ' + d.personName + '</span>' +
-        '<span class="debt-amount">' + remaining.toLocaleString('ar-EG') + ' ج.م ' + (isPartial?'(متبقي)':'') + '</span></div>' +
-        '<div class="debt-details"><span>📝 ' + (d.reason||'-') + '</span>' +
-        '<span>📅 ' + (d.date||'-') + '</span><span>🕐 ' + (d.time||'-') + '</span>' +
-        (d.notes ? '<span>📌 ' + d.notes + '</span>' : '') + '</div>' + partialInfo +
-        '<div class="debt-actions">' +
-        '<button class="btn btn-orange btn-sm" onclick="openPartialPaymentModal(\'' + d.id + '\')">💵 تسديد جزء</button>' +
-        '<button class="btn btn-green btn-sm" onclick="markDebtAsPaid(\'' + d.id + '\')">✓ تسديد كامل</button>' +
-        '</div></div>';
+    return '<div class="debt-card ' + (isPartial?'partial':'') + '"><div class="debt-header"><span class="debt-person">👤 ' + d.personName + '</span><span class="debt-amount">' + remaining.toLocaleString('ar-EG') + ' ج.م ' + (isPartial?'(متبقي)':'') + '</span></div><div class="debt-details"><span>📝 ' + (d.reason||'-') + '</span><span>📅 ' + (d.date||'-') + '</span>' + (d.notes ? '<span>📌 ' + d.notes + '</span>' : '') + '</div>' + partialInfo + '<div class="debt-actions"><button class="btn btn-orange btn-sm" onclick="openPartialPaymentModal(\'' + d.id + '\')">💵 تسديد جزء</button><button class="btn btn-green btn-sm" onclick="markDebtAsPaid(\'' + d.id + '\')">✓ تسديد كامل</button></div></div>';
 }
 
 function markDebtAsPaid(id) {
-    const d = (appData.debts || []).find(x => x.id === id);
+    var d = (appData.debts || []).find(function(x){ return x.id === id; });
     if (!d) return;
-    const today = getTodayLocal();
-    const time = getCurrentTimeLocal();
     d.status = 'paid';
-    d.paidDate = today;
-    d.paidTime = time;
-    d.paidMonth = today.substring(0,7);
+    d.paidDate = getTodayLocal();
+    d.paidTime = getCurrentTimeLocal();
+    d.paidMonth = d.paidDate.substring(0,7);
     d.amount = 0;
     saveUserData();
     updateAllUI();
@@ -1746,7 +1315,7 @@ function markDebtAsPaid(id) {
 }
 
 function openPartialPaymentModal(id) {
-    const d = (appData.debts || []).find(x => x.id === id);
+    var d = (appData.debts || []).find(function(x){ return x.id === id; });
     if (!d) return;
     document.getElementById('partialDebtId').value = id;
     document.getElementById('partialDebtInfo').innerHTML = '👤 ' + d.personName + ' — المتبقي: <strong>' + (Number(d.amount)||0).toLocaleString('ar-EG') + ' ج.م</strong>';
@@ -1758,18 +1327,18 @@ function openPartialPaymentModal(id) {
 }
 
 function confirmPartialPayment() {
-    const id = document.getElementById('partialDebtId').value;
-    const amount = parseFloat(document.getElementById('partialAmount').value);
-    const date = document.getElementById('partialDate').value;
-    const time = document.getElementById('partialTime').value;
-    if (!amount || amount <= 0) return showToast('مبلغ غير صحيح', 'error');
-    if (!date || !time) return showToast('أدخل التاريخ والوقت', 'error');
-    const d = (appData.debts || []).find(x => x.id === id);
+    var id = document.getElementById('partialDebtId').value;
+    var amount = parseFloat(document.getElementById('partialAmount').value);
+    var date = document.getElementById('partialDate').value;
+    var time = document.getElementById('partialTime').value;
+    if (!amount || amount <= 0) { showToast('مبلغ غير صحيح', 'error'); return; }
+    if (!date || !time) { showToast('أدخل التاريخ والوقت', 'error'); return; }
+    var d = (appData.debts || []).find(function(x){ return x.id === id; });
     if (!d) return;
-    if (amount > d.amount) return showToast('المبلغ أكبر من المتبقي', 'error');
+    if (amount > d.amount) { showToast('المبلغ أكبر من المتبقي', 'error'); return; }
     if (!d.partialPayments) d.partialPayments = [];
     if (!d.originalAmount) d.originalAmount = d.amount;
-    d.partialPayments.push({ amount, date, time, recordedAt: Date.now() });
+    d.partialPayments.push({ amount: amount, date: date, time: time, recordedAt: Date.now() });
     d.amount -= amount;
     if (d.amount <= 0.001) {
         d.amount = 0;
@@ -1786,76 +1355,50 @@ function confirmPartialPayment() {
     showToast('تم تسديد ' + amount.toLocaleString('ar-EG') + ' ج.م', 'success');
 }
 
-// ============================================================
 // ============ LOANS ============
-// ============================================================
 function renderLoans() {
-    const m = getSelectedMonth();
-    const active = (appData.loans || []).filter(l => l.month === m && l.status !== 'returned');
-    const returned = (appData.loans || []).filter(l => l.status === 'returned' && l.returnedMonth === m);
-    const list = document.getElementById('activeLoansList');
+    var m = getSelectedMonth();
+    var active = (appData.loans || []).filter(function(l){ return l.month === m && l.status !== 'returned'; });
+    var returned = (appData.loans || []).filter(function(l){ return l.status === 'returned' && l.returnedMonth === m; });
+    var list = document.getElementById('activeLoansList');
     if (!list) return;
-    if (!active.length) {
-        list.innerHTML = '<p style="text-align:center;color:#999;padding:18px;">لا توجد سلف نشطة في هذا الشهر</p>';
-    } else {
-        list.innerHTML = active.map(l => renderLoanCard(l)).join('');
-    }
-    const rl = document.getElementById('returnedLoansListThisMonth');
+    if (!active.length) { list.innerHTML = '<p style="text-align:center;color:#999;padding:18px;">لا توجد سلف نشطة</p>'; }
+    else { list.innerHTML = active.map(function(l){ return renderLoanCard(l); }).join(''); }
+    var rl = document.getElementById('returnedLoansListThisMonth');
     if (!rl) return;
-    if (!returned.length) {
-        rl.innerHTML = '<p style="text-align:center;color:#999;padding:12px;">لا توجد سلف مستردة في هذا الشهر</p>';
-    } else {
-        rl.innerHTML = returned.map(l => '<div class="loan-card returned">' +
-            '<div class="loan-header"><span class="loan-person">👤 ' + l.personName + '</span>' +
-            '<span class="loan-amount">' + (Number(l.originalAmount || l.amount)||0).toLocaleString('ar-EG') + ' ج.م</span></div>' +
-            '<div class="loan-details"><span>📝 ' + (l.reason||'-') + '</span>' +
-            '<span>✅ استرداد: ' + (l.returnedDate || '-') + ' - ' + (l.returnedTime || '-') + '</span></div>' +
-            '<span class="badge badge-loan-paid">تم الاسترداد ✓</span></div>').join('');
+    if (!returned.length) { rl.innerHTML = '<p style="text-align:center;color:#999;padding:12px;">لا توجد سلف مستردة</p>'; }
+    else {
+        rl.innerHTML = returned.map(function(l) {
+            return '<div class="loan-card returned"><div class="loan-header"><span class="loan-person">👤 ' + l.personName + '</span><span class="loan-amount">' + (Number(l.originalAmount || l.amount)||0).toLocaleString('ar-EG') + ' ج.م</span></div><div class="loan-details"><span>📝 ' + (l.reason||'-') + '</span><span>✅ استرداد: ' + (l.returnedDate||'-') + '</span></div><span class="badge badge-loan-paid">تم الاسترداد ✓</span></div>';
+        }).join('');
     }
 }
 
 function renderLoanCard(l) {
-    const isPartial = l.partialReturns && l.partialReturns.length > 0;
-    const orig = Number(l.originalAmount || l.amount) || 0;
-    const remaining = Number(l.amount) || 0;
-    const returned = orig - remaining;
-    const pct = orig > 0 ? (returned / orig) * 100 : 0;
-    let partialInfo = '';
+    var isPartial = l.partialReturns && l.partialReturns.length > 0;
+    var orig = Number(l.originalAmount || l.amount) || 0;
+    var remaining = Number(l.amount) || 0;
+    var returned = orig - remaining;
+    var pct = orig > 0 ? (returned / orig) * 100 : 0;
+    var partialInfo = '';
     if (isPartial) {
-        partialInfo = '<div class="progress-bar"><div class="progress-fill" style="width:' + pct + '%"></div></div>' +
-            '<div class="partial-info">💰 تم استرداد ' + returned.toLocaleString('ar-EG') + ' ج.م من أصل ' + orig.toLocaleString('ar-EG') + ' ج.م</div>';
+        partialInfo = '<div class="progress-bar"><div class="progress-fill" style="width:' + pct + '%"></div></div><div class="partial-info">💰 تم استرداد ' + returned.toLocaleString('ar-EG') + ' ج.م من أصل ' + orig.toLocaleString('ar-EG') + ' ج.م</div>';
     }
-    return '<div class="loan-card ' + (isPartial?'partial':'') + '">' +
-        '<div class="loan-header"><span class="loan-person">👤 ' + l.personName + '</span>' +
-        '<span class="loan-amount">' + remaining.toLocaleString('ar-EG') + ' ج.م ' + (isPartial?'(متبقي)':'') + '</span></div>' +
-        '<div class="loan-details"><span>📝 ' + (l.reason||'-') + '</span>' +
-        '<span>📅 ' + (l.date||'-') + '</span><span>🕐 ' + (l.time||'-') + '</span>' +
-        '<span>💵 من: ' + (l.source === 'cash' ? 'الكاش' : 'الحساب') + '</span>' +
-        (l.notes ? '<span>📌 ' + l.notes + '</span>' : '') + '</div>' + partialInfo +
-        '<div class="loan-actions">' +
-        '<button class="btn btn-orange btn-sm" onclick="openPartialReturnModal(\'' + l.id + '\')">💵 استرداد جزء</button>' +
-        '<button class="btn btn-green btn-sm" onclick="markLoanAsReturned(\'' + l.id + '\')">✓ استرداد كامل</button>' +
-        '</div></div>';
+    return '<div class="loan-card ' + (isPartial?'partial':'') + '"><div class="loan-header"><span class="loan-person">👤 ' + l.personName + '</span><span class="loan-amount">' + remaining.toLocaleString('ar-EG') + ' ج.م ' + (isPartial?'(متبقي)':'') + '</span></div><div class="loan-details"><span>📝 ' + (l.reason||'-') + '</span><span>📅 ' + (l.date||'-') + '</span><span>💵 من: ' + (l.source === 'cash' ? 'الكاش' : 'الحساب') + '</span></div>' + partialInfo + '<div class="loan-actions"><button class="btn btn-orange btn-sm" onclick="openPartialReturnModal(\'' + l.id + '\')">💵 استرداد جزء</button><button class="btn btn-green btn-sm" onclick="markLoanAsReturned(\'' + l.id + '\')">✓ استرداد كامل</button></div></div>';
 }
 
 function markLoanAsReturned(id) {
-    const l = (appData.loans || []).find(x => x.id === id);
+    var l = (appData.loans || []).find(function(x){ return x.id === id; });
     if (!l) return;
-    const today = getTodayLocal();
-    const time = getCurrentTimeLocal();
+    var today = getTodayLocal();
+    var time = getCurrentTimeLocal();
     l.status = 'returned';
     l.returnedDate = today;
     l.returnedTime = time;
     l.returnedMonth = today.substring(0,7);
     if (!l.partialReturns) l.partialReturns = [];
     if (l.amount > 0) {
-        l.partialReturns.push({
-            amount: l.amount,
-            date: today, time: time,
-            destination: l.source,
-            month: today.substring(0,7),
-            recordedAt: Date.now()
-        });
+        l.partialReturns.push({ amount: l.amount, date: today, time: time, destination: l.source, month: today.substring(0,7), recordedAt: Date.now() });
     }
     l.amount = 0;
     saveUserData();
@@ -1865,7 +1408,7 @@ function markLoanAsReturned(id) {
 }
 
 function openPartialReturnModal(id) {
-    const l = (appData.loans || []).find(x => x.id === id);
+    var l = (appData.loans || []).find(function(x){ return x.id === id; });
     if (!l) return;
     document.getElementById('partialLoanId').value = id;
     document.getElementById('partialLoanInfo').innerHTML = '👤 ' + l.personName + ' — المتبقي: <strong>' + (Number(l.amount)||0).toLocaleString('ar-EG') + ' ج.م</strong>';
@@ -1878,19 +1421,19 @@ function openPartialReturnModal(id) {
 }
 
 function confirmPartialReturn() {
-    const id = document.getElementById('partialLoanId').value;
-    const amount = parseFloat(document.getElementById('returnAmount').value);
-    const destination = document.getElementById('returnDestination').value;
-    const date = document.getElementById('returnDate').value;
-    const time = document.getElementById('returnTime').value;
-    if (!amount || amount <= 0) return showToast('مبلغ غير صحيح', 'error');
-    if (!date || !time) return showToast('أدخل التاريخ والوقت', 'error');
-    const l = (appData.loans || []).find(x => x.id === id);
+    var id = document.getElementById('partialLoanId').value;
+    var amount = parseFloat(document.getElementById('returnAmount').value);
+    var destination = document.getElementById('returnDestination').value;
+    var date = document.getElementById('returnDate').value;
+    var time = document.getElementById('returnTime').value;
+    if (!amount || amount <= 0) { showToast('مبلغ غير صحيح', 'error'); return; }
+    if (!date || !time) { showToast('أدخل التاريخ والوقت', 'error'); return; }
+    var l = (appData.loans || []).find(function(x){ return x.id === id; });
     if (!l) return;
-    if (amount > l.amount) return showToast('المبلغ أكبر من المتبقي', 'error');
+    if (amount > l.amount) { showToast('المبلغ أكبر من المتبقي', 'error'); return; }
     if (!l.partialReturns) l.partialReturns = [];
     if (!l.originalAmount) l.originalAmount = l.amount;
-    l.partialReturns.push({ amount, date, time, destination, month: date.substring(0,7), recordedAt: Date.now() });
+    l.partialReturns.push({ amount: amount, date: date, time: time, destination: destination, month: date.substring(0,7), recordedAt: Date.now() });
     l.amount -= amount;
     if (l.amount <= 0.001) {
         l.amount = 0;
@@ -1906,147 +1449,109 @@ function confirmPartialReturn() {
     showToast('تم استرداد ' + amount.toLocaleString('ar-EG') + ' ج.م', 'success');
 }
 
-// ============================================================
 // ============ LOGS ============
-// ============================================================
 function renderIncomeLog() {
-    const tbody = document.getElementById('incomeLogTable');
-    const info = document.getElementById('incomeLogInfo');
-    const search = (document.getElementById('incomeSearch').value || '').trim();
-    const type = document.getElementById('incomeTypeFilter').value;
-    const monthFilter = document.getElementById('incomeMonthFilter').value;
-    let allIncome = (appData.transactions || []).filter(t => t.type === 'income');
-    let list;
-    if (monthFilter === 'all') list = allIncome.slice();
-    else list = allIncome.filter(t => t.month === getSelectedMonth());
-    if (search) list = list.filter(t => (t.reason||'').includes(search));
-    if (type !== 'all') list = list.filter(t => t.source === type);
-    list.sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));
-    const totalAll = allIncome.length;
-    const monthLabel = monthFilter === 'all' ? 'جميع الشهور' : formatMonthLabel(getSelectedMonth());
-    if (list.length === 0) {
-        if (totalAll === 0) info.textContent = 'ℹ️ لا توجد أي عمليات دخل مسجلة بعد';
-        else info.textContent = 'ℹ️ لا توجد عمليات دخل في ' + monthLabel + ' — لديك ' + totalAll + ' عملية في شهور أخرى';
-    } else {
-        info.textContent = '✅ يتم عرض ' + list.length + ' عملية (' + monthLabel + ')';
-    }
+    var tbody = document.getElementById('incomeLogTable');
+    var info = document.getElementById('incomeLogInfo');
+    var search = (document.getElementById('incomeSearch').value || '').trim();
+    var type = document.getElementById('incomeTypeFilter').value;
+    var monthFilter = document.getElementById('incomeMonthFilter').value;
+    var allIncome = (appData.transactions || []).filter(function(t){ return t.type === 'income'; });
+    var list = monthFilter === 'all' ? allIncome.slice() : allIncome.filter(function(t){ return t.month === getSelectedMonth(); });
+    if (search) list = list.filter(function(t){ return (t.reason||'').indexOf(search) >= 0; });
+    if (type !== 'all') list = list.filter(function(t){ return t.source === type; });
+    list.sort(function(a,b){ return (b.createdAt||0)-(a.createdAt||0); });
+    var monthLabel = monthFilter === 'all' ? 'جميع الشهور' : formatMonthLabel(getSelectedMonth());
     if (!list.length) {
+        info.textContent = allIncome.length === 0 ? 'ℹ️ لا توجد أي عمليات دخل' : 'ℹ️ لا توجد عمليات في ' + monthLabel;
         tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#999;padding:18px;">لا توجد عمليات</td></tr>';
         return;
     }
-    tbody.innerHTML = list.map(t => '<tr>' +
-        '<td class="amount-positive">+' + (Number(t.amount)||0).toLocaleString('ar-EG') + ' ج.م</td>' +
-        '<td>' + (t.reason || '-') + '</td>' +
-        '<td><span class="badge ' + (t.source==='cash'?'badge-cash':'badge-account') + '">' + (t.source==='cash'?'كاش':'حساب') + '</span></td>' +
-        '<td>' + (t.date || '-') + '</td><td>' + (t.time || '-') + '</td></tr>').join('');
+    info.textContent = '✅ يتم عرض ' + list.length + ' عملية (' + monthLabel + ')';
+    tbody.innerHTML = list.map(function(t) {
+        return '<tr><td class="amount-positive">+' + (Number(t.amount)||0).toLocaleString('ar-EG') + ' ج.م</td><td>' + (t.reason||'-') + '</td><td><span class="badge ' + (t.source==='cash'?'badge-cash':'badge-account') + '">' + (t.source==='cash'?'كاش':'حساب') + '</span></td><td>' + (t.date||'-') + '</td><td>' + (t.time||'-') + '</td></tr>';
+    }).join('');
 }
 
 function renderExpenseLog() {
-    const tbody = document.getElementById('expenseLogTable');
-    const info = document.getElementById('expenseLogInfo');
-    const search = (document.getElementById('expenseSearch').value || '').trim();
-    const type = document.getElementById('expenseTypeFilter').value;
-    const monthFilter = document.getElementById('expenseMonthFilter').value;
-    let allExpense = (appData.transactions || []).filter(t => t.type === 'expense');
-    let list;
-    if (monthFilter === 'all') list = allExpense.slice();
-    else list = allExpense.filter(t => t.month === getSelectedMonth());
-    if (search) list = list.filter(t => (t.reason||'').includes(search));
-    if (type !== 'all') list = list.filter(t => t.source === type);
-    list.sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));
-    const totalAll = allExpense.length;
-    const monthLabel = monthFilter === 'all' ? 'جميع الشهور' : formatMonthLabel(getSelectedMonth());
-    if (list.length === 0) {
-        if (totalAll === 0) info.textContent = 'ℹ️ لا توجد أي عمليات خروج مسجلة بعد';
-        else info.textContent = 'ℹ️ لا توجد عمليات خروج في ' + monthLabel + ' — لديك ' + totalAll + ' عملية في شهور أخرى';
-    } else {
-        info.textContent = '✅ يتم عرض ' + list.length + ' عملية (' + monthLabel + ')';
-    }
+    var tbody = document.getElementById('expenseLogTable');
+    var info = document.getElementById('expenseLogInfo');
+    var search = (document.getElementById('expenseSearch').value || '').trim();
+    var type = document.getElementById('expenseTypeFilter').value;
+    var monthFilter = document.getElementById('expenseMonthFilter').value;
+    var allExpense = (appData.transactions || []).filter(function(t){ return t.type === 'expense'; });
+    var list = monthFilter === 'all' ? allExpense.slice() : allExpense.filter(function(t){ return t.month === getSelectedMonth(); });
+    if (search) list = list.filter(function(t){ return (t.reason||'').indexOf(search) >= 0; });
+    if (type !== 'all') list = list.filter(function(t){ return t.source === type; });
+    list.sort(function(a,b){ return (b.createdAt||0)-(a.createdAt||0); });
+    var monthLabel = monthFilter === 'all' ? 'جميع الشهور' : formatMonthLabel(getSelectedMonth());
     if (!list.length) {
+        info.textContent = allExpense.length === 0 ? 'ℹ️ لا توجد أي عمليات خروج' : 'ℹ️ لا توجد عمليات في ' + monthLabel;
         tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#999;padding:18px;">لا توجد عمليات</td></tr>';
         return;
     }
-    tbody.innerHTML = list.map(t => '<tr>' +
-        '<td class="amount-negative">-' + (Number(t.amount)||0).toLocaleString('ar-EG') + ' ج.م</td>' +
-        '<td>' + (t.reason || '-') + '</td>' +
-        '<td><span class="badge ' + (t.source==='cash'?'badge-cash':'badge-account') + '">' + (t.source==='cash'?'كاش':'حساب') + '</span></td>' +
-        '<td>' + (t.date || '-') + '</td><td>' + (t.time || '-') + '</td></tr>').join('');
+    info.textContent = '✅ يتم عرض ' + list.length + ' عملية (' + monthLabel + ')';
+    tbody.innerHTML = list.map(function(t) {
+        return '<tr><td class="amount-negative">-' + (Number(t.amount)||0).toLocaleString('ar-EG') + ' ج.م</td><td>' + (t.reason||'-') + '</td><td><span class="badge ' + (t.source==='cash'?'badge-cash':'badge-account') + '">' + (t.source==='cash'?'كاش':'حساب') + '</span></td><td>' + (t.date||'-') + '</td><td>' + (t.time||'-') + '</td></tr>';
+    }).join('');
 }
 
 function renderPaidDebtsLog() {
-    const tbody = document.getElementById('paidDebtsTable');
-    const list = (appData.debts || []).filter(d => d.status === 'paid')
-        .sort((a,b)=>(b.paidDate||'').localeCompare(a.paidDate||''));
-    if (!list.length) {
-        tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#999;padding:18px;">لا توجد ديون مسددة</td></tr>';
-        return;
-    }
-    tbody.innerHTML = list.map(d => '<tr>' +
-        '<td><strong>' + d.personName + '</strong></td>' +
-        '<td class="amount-positive">' + (Number(d.originalAmount || d.amount)||0).toLocaleString('ar-EG') + ' ج.م</td>' +
-        '<td>' + (d.reason||'-') + '</td>' +
-        '<td>' + (d.date || '-') + ' ' + (d.time || '') + '</td>' +
-        '<td>' + (d.paidDate || '-') + ' ' + (d.paidTime || '') + '</td></tr>').join('');
+    var tbody = document.getElementById('paidDebtsTable');
+    var list = (appData.debts || []).filter(function(d){ return d.status === 'paid'; })
+        .sort(function(a,b){ return (b.paidDate||'').localeCompare(a.paidDate||''); });
+    if (!list.length) { tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#999;padding:18px;">لا توجد ديون مسددة</td></tr>'; return; }
+    tbody.innerHTML = list.map(function(d) {
+        return '<tr><td><strong>' + d.personName + '</strong></td><td class="amount-positive">' + (Number(d.originalAmount || d.amount)||0).toLocaleString('ar-EG') + ' ج.م</td><td>' + (d.reason||'-') + '</td><td>' + (d.date||'-') + '</td><td>' + (d.paidDate||'-') + '</td></tr>';
+    }).join('');
 }
 
-// ============================================================
 // ============ REPORT ============
-// ============================================================
 function renderReport() {
-    const m = getSelectedMonth();
-    const cash = getCashBalance(m);
-    const acc = getAccountBalance(m);
-    const total = cash + acc;
-    const income = getMonthIncome(m);
-    const expense = getMonthExpense(m);
-    const net = income - expense;
-    const active = (appData.debts || []).filter(d => d.month === m && d.status !== 'paid');
-    const paid = (appData.debts || []).filter(d => d.status === 'paid' && d.paidMonth === m);
-    const activeL = (appData.loans || []).filter(l => l.month === m && l.status !== 'returned');
-    const returnedL = (appData.loans || []).filter(l => l.status === 'returned' && l.returnedMonth === m);
-    const activeAmt = active.reduce((s,d)=>s+(Number(d.amount)||0),0);
-    const paidAmt = paid.reduce((s,d)=>s+(Number(d.originalAmount || d.amount)||0),0);
-    const activeLAmt = activeL.reduce((s,l)=>s+(Number(l.amount)||0),0);
-    const returnedLAmt = returnedL.reduce((s,l)=>s+(Number(l.originalAmount || l.amount)||0),0);
-    const incomeCount = (appData.transactions||[]).filter(t => t.type==='income' && t.month === m).length;
-    const expenseCount = (appData.transactions||[]).filter(t => t.type==='expense' && t.month === m).length;
-
-    // استخدام DEVELOPER_NAME بأمان
-    const devName = (typeof DEVELOPER_NAME !== 'undefined') ? DEVELOPER_NAME : 'المهندس يوسف أحمد مصطفى';
+    var m = getSelectedMonth();
+    var cash = getCashBalance(m);
+    var acc = getAccountBalance(m);
+    var total = cash + acc;
+    var income = getMonthIncome(m);
+    var expense = getMonthExpense(m);
+    var net = income - expense;
+    var active = (appData.debts || []).filter(function(d){ return d.month === m && d.status !== 'paid'; });
+    var paid = (appData.debts || []).filter(function(d){ return d.status === 'paid' && d.paidMonth === m; });
+    var activeL = (appData.loans || []).filter(function(l){ return l.month === m && l.status !== 'returned'; });
+    var returnedL = (appData.loans || []).filter(function(l){ return l.status === 'returned' && l.returnedMonth === m; });
+    var activeAmt = active.reduce(function(s,d){ return s + (Number(d.amount)||0); }, 0);
+    var paidAmt = paid.reduce(function(s,d){ return s + (Number(d.originalAmount || d.amount)||0); }, 0);
+    var activeLAmt = activeL.reduce(function(s,l){ return s + (Number(l.amount)||0); }, 0);
+    var returnedLAmt = returnedL.reduce(function(s,l){ return s + (Number(l.originalAmount || l.amount)||0); }, 0);
+    var incomeCount = (appData.transactions||[]).filter(function(t){ return t.type==='income' && t.month === m; }).length;
+    var expenseCount = (appData.transactions||[]).filter(function(t){ return t.type==='expense' && t.month === m; }).length;
+    var devName = (typeof DEVELOPER_NAME !== 'undefined') ? DEVELOPER_NAME : 'المهندس يوسف أحمد مصطفى';
 
     document.getElementById('reportContainer').innerHTML =
-        '<div class="report-section">' +
-        '<h4>📋 ملخص الأموال - ' + formatMonthLabel(m) + '</h4>' +
+        '<div class="report-section"><h4>📋 ملخص الأموال - ' + formatMonthLabel(m) + '</h4>' +
         '<div class="report-row"><span class="label">رصيد الكاش</span><span class="value">' + cash.toLocaleString('ar-EG') + ' ج.م</span></div>' +
         '<div class="report-row"><span class="label">رصيد الحساب</span><span class="value">' + acc.toLocaleString('ar-EG') + ' ج.م</span></div>' +
         '<div class="report-row"><span class="label">إجمالي الأموال</span><span class="value">' + total.toLocaleString('ar-EG') + ' ج.م</span></div>' +
         '<div class="report-row"><span class="label">إجمالي الداخل (' + incomeCount + ')</span><span class="value" style="color:var(--success);">' + income.toLocaleString('ar-EG') + ' ج.م</span></div>' +
         '<div class="report-row"><span class="label">إجمالي الخارج (' + expenseCount + ')</span><span class="value" style="color:var(--danger);">' + expense.toLocaleString('ar-EG') + ' ج.م</span></div>' +
-        '<div class="report-row"><span class="label">صافي الحركة</span><span class="value" style="color:' + (net>=0?'var(--success)':'var(--danger)') + ';">' + net.toLocaleString('ar-EG') + ' ج.م</span></div>' +
-        '</div>' +
-        '<div class="report-section">' +
-        '<h4>📋 تقرير الديون (عليّ)</h4>' +
+        '<div class="report-row"><span class="label">صافي الحركة</span><span class="value" style="color:' + (net>=0?'var(--success)':'var(--danger)') + ';">' + net.toLocaleString('ar-EG') + ' ج.م</span></div></div>' +
+        '<div class="report-section"><h4>📋 تقرير الديون (عليّ)</h4>' +
         '<div class="report-row"><span class="label">الديون النشطة</span><span class="value" style="color:var(--danger);">' + activeAmt.toLocaleString('ar-EG') + ' ج.م (' + active.length + ')</span></div>' +
-        '<div class="report-row"><span class="label">المسددة هذا الشهر</span><span class="value" style="color:var(--success);">' + paidAmt.toLocaleString('ar-EG') + ' ج.م (' + paid.length + ')</span></div>' +
-        '</div>' +
-        '<div class="report-section">' +
-        '<h4>🤝 تقرير السلف (ليّ)</h4>' +
+        '<div class="report-row"><span class="label">المسددة هذا الشهر</span><span class="value" style="color:var(--success);">' + paidAmt.toLocaleString('ar-EG') + ' ج.م (' + paid.length + ')</span></div></div>' +
+        '<div class="report-section"><h4>🤝 تقرير السلف (ليّ)</h4>' +
         '<div class="report-row"><span class="label">سلف نشطة</span><span class="value" style="color:var(--teal);">' + activeLAmt.toLocaleString('ar-EG') + ' ج.م (' + activeL.length + ')</span></div>' +
-        '<div class="report-row"><span class="label">مستردة هذا الشهر</span><span class="value" style="color:var(--success);">' + returnedLAmt.toLocaleString('ar-EG') + ' ج.م (' + returnedL.length + ')</span></div>' +
-        '</div>' +
+        '<div class="report-row"><span class="label">مستردة هذا الشهر</span><span class="value" style="color:var(--success);">' + returnedLAmt.toLocaleString('ar-EG') + ' ج.م (' + returnedL.length + ')</span></div></div>' +
         '<div style="text-align:center;color:#999;font-size:12px;margin-top:10px;">إعداد: ' + devName + ' - ' + new Date().toLocaleDateString('ar-EG') + '</div>';
 }
 
-// ============================================================
 // ============ SETTINGS ============
-// ============================================================
 function changeUserName() {
-    const newName = document.getElementById('newNameInput').value.trim().replace(/\s+/g, ' ');
-    const parts = newName.split(' ').filter(p => p.length > 0);
-    if (parts.length < 3) return showToast('الاسم يجب أن يكون ثلاثي', 'error');
-    const users = getUsers();
-    if (users.find(u => u.name === newName && u.id !== currentUser.id)) return showToast('الاسم مستخدم', 'error');
-    const idx = users.findIndex(u => u.id === currentUser.id);
+    var newName = document.getElementById('newNameInput').value.trim().replace(/\s+/g, ' ');
+    var parts = newName.split(' ').filter(function(p){ return p.length > 0; });
+    if (parts.length < 3) { showToast('الاسم يجب أن يكون ثلاثي', 'error'); return; }
+    var users = getUsers();
+    if (users.find(function(u){ return u.name === newName && u.id !== currentUser.id; })) { showToast('الاسم مستخدم', 'error'); return; }
+    var idx = users.findIndex(function(u){ return u.id === currentUser.id; });
     if (idx >= 0) users[idx].name = newName;
     saveUsers(users);
     currentUser.name = newName;
@@ -2056,14 +1561,14 @@ function changeUserName() {
 }
 
 function changePassword() {
-    const cur = document.getElementById('currentPasswordInput').value;
-    const nw = document.getElementById('newPasswordInput').value;
-    const conf = document.getElementById('confirmNewPasswordInput').value;
-    if (cur !== currentUser.password) return showToast('كلمة المرور الحالية غير صحيحة', 'error');
-    if (!nw || nw.length < 4) return showToast('كلمة المرور الجديدة قصيرة', 'error');
-    if (nw !== conf) return showToast('كلمتا المرور غير متطابقتين', 'error');
-    const users = getUsers();
-    const idx = users.findIndex(u => u.id === currentUser.id);
+    var cur = document.getElementById('currentPasswordInput').value;
+    var nw = document.getElementById('newPasswordInput').value;
+    var conf = document.getElementById('confirmNewPasswordInput').value;
+    if (cur !== currentUser.password) { showToast('كلمة المرور الحالية غير صحيحة', 'error'); return; }
+    if (!nw || nw.length < 4) { showToast('كلمة المرور قصيرة', 'error'); return; }
+    if (nw !== conf) { showToast('كلمتا المرور غير متطابقتين', 'error'); return; }
+    var users = getUsers();
+    var idx = users.findIndex(function(u){ return u.id === currentUser.id; });
     if (idx >= 0) users[idx].password = nw;
     saveUsers(users);
     currentUser.password = nw;
@@ -2074,14 +1579,14 @@ function changePassword() {
 }
 
 function changeSecurityQuestion() {
-    const pwd = document.getElementById('settingsPwdForSQ').value;
-    const sq = document.getElementById('settingsNewSQ').value.trim();
-    const sa = document.getElementById('settingsNewSA').value.trim();
-    if (pwd !== currentUser.password) return showToast('كلمة المرور غير صحيحة', 'error');
-    if (!sq) return showToast('أدخل السؤال', 'error');
-    if (!sa) return showToast('أدخل الإجابة', 'error');
-    const users = getUsers();
-    const idx = users.findIndex(u => u.id === currentUser.id);
+    var pwd = document.getElementById('settingsPwdForSQ').value;
+    var sq = document.getElementById('settingsNewSQ').value.trim();
+    var sa = document.getElementById('settingsNewSA').value.trim();
+    if (pwd !== currentUser.password) { showToast('كلمة المرور غير صحيحة', 'error'); return; }
+    if (!sq) { showToast('أدخل السؤال', 'error'); return; }
+    if (!sa) { showToast('أدخل الإجابة', 'error'); return; }
+    var users = getUsers();
+    var idx = users.findIndex(function(u){ return u.id === currentUser.id; });
     if (idx >= 0) { users[idx].securityQuestion = sq; users[idx].securityAnswer = sa; }
     saveUsers(users);
     currentUser.securityQuestion = sq;
@@ -2094,14 +1599,14 @@ function changeSecurityQuestion() {
 }
 
 function handleSettingsAvatarUpload(e) {
-    const file = e.target.files[0];
+    var file = e.target.files[0];
     if (!file) return;
-    if (file.size > 2 * 1024 * 1024) return showToast('حجم الصورة كبير', 'error');
-    const reader = new FileReader();
+    if (file.size > 2 * 1024 * 1024) { showToast('حجم الصورة كبير', 'error'); return; }
+    var reader = new FileReader();
     reader.onload = function(ev) {
         currentUser.avatar = ev.target.result;
-        const users = getUsers();
-        const idx = users.findIndex(u => u.id === currentUser.id);
+        var users = getUsers();
+        var idx = users.findIndex(function(u){ return u.id === currentUser.id; });
         if (idx >= 0) users[idx].avatar = currentUser.avatar;
         saveUsers(users);
         updateUserInterface();
@@ -2112,30 +1617,22 @@ function handleSettingsAvatarUpload(e) {
 
 function removeUserAvatar() {
     currentUser.avatar = null;
-    const users = getUsers();
-    const idx = users.findIndex(u => u.id === currentUser.id);
+    var users = getUsers();
+    var idx = users.findIndex(function(u){ return u.id === currentUser.id; });
     if (idx >= 0) users[idx].avatar = null;
     saveUsers(users);
     updateUserInterface();
     showToast('تم حذف الصورة', 'warning');
 }
 
-// ============================================================
-// ============ BACKUP & RESTORE ============
-// ============================================================
+// ============ BACKUP ============
 function exportBackup() {
     if (!currentUser || !appData) return;
-    const backup = {
-        version: DATA_VERSION,
-        exportDate: new Date().toISOString(),
-        user: currentUser,
-        data: appData,
-        allUsers: getUsers()
-    };
-    const dataStr = JSON.stringify(backup, null, 2);
-    const blob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
+    var backup = { version: DATA_VERSION, exportDate: new Date().toISOString(), user: currentUser, data: appData, allUsers: getUsers() };
+    var dataStr = JSON.stringify(backup, null, 2);
+    var blob = new Blob([dataStr], { type: 'application/json' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
     a.href = url;
     a.download = 'financial_backup_' + new Date().toISOString().split('T')[0] + '.json';
     document.body.appendChild(a);
@@ -2146,31 +1643,27 @@ function exportBackup() {
 }
 
 function importBackup(event) {
-    const file = event.target.files[0];
+    var file = event.target.files[0];
     if (!file) return;
-    const reader = new FileReader();
+    var reader = new FileReader();
     reader.onload = function(e) {
         try {
-            const backup = JSON.parse(e.target.result);
-            if (!backup.user || !backup.data) return showToast('❌ ملف غير صالح', 'error');
-            if (!confirm('⚠️ سيتم استبدال جميع البيانات الحالية. هل أنت متأكد؟')) return;
+            var backup = JSON.parse(e.target.result);
+            if (!backup.user || !backup.data) { showToast('❌ ملف غير صالح', 'error'); return; }
+            if (!confirm('⚠️ سيتم استبدال جميع البيانات. هل أنت متأكد؟')) return;
             if (backup.allUsers && Array.isArray(backup.allUsers)) saveUsers(backup.allUsers);
             currentUser = backup.user;
             appData = backup.data;
             saveUserData();
-            showToast('✅ تم استيراد البيانات! جاري إعادة التحميل...', 'success');
-            setTimeout(() => location.reload(), 1500);
-        } catch (err) {
-            showToast('❌ خطأ: ' + err.message, 'error');
-        }
+            showToast('✅ تم استيراد البيانات!', 'success');
+            setTimeout(function(){ location.reload(); }, 1500);
+        } catch(err) { showToast('❌ خطأ: ' + err.message, 'error'); }
     };
     reader.readAsText(file);
     event.target.value = '';
 }
 
-// ============================================================
 // ============ MODALS ============
-// ============================================================
 function openModal(id) { document.getElementById(id).classList.add('active'); }
 function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 
@@ -2191,5 +1684,323 @@ function openRemoveMoneyModal(source) {
     document.getElementById('removeMoneyReason').value = '';
     document.getElementById('removeMoneyDate').value = getTodayLocal();
     document.getElementById('removeMoneyTime').value = getCurrentTimeLocal();
-    const m = getSelectedMonth();
-    const bal = source ===
+    var m = getSelectedMonth();
+    var bal = source === 'cash' ? getCashBalance(m) : getAccountBalance(m);
+    document.getElementById('removeMoneyBalanceHint').textContent = '💰 الرصيد المتاح: ' + bal.toLocaleString('ar-EG') + ' ج.م';
+    openModal('removeMoneyModal');
+}
+
+function openTransferModal(from, to) {
+    currentTransferFrom = from;
+    currentTransferTo = to;
+    document.getElementById('transferModalTitle').textContent = '🔄 تحويل من ' + (from==='cash'?'الكاش':'الحساب') + ' إلى ' + (to==='cash'?'الكاش':'الحساب');
+    document.getElementById('transferAmount').value = '';
+    document.getElementById('transferDate').value = getTodayLocal();
+    document.getElementById('transferTime').value = getCurrentTimeLocal();
+    openModal('transferModal');
+}
+
+function openAddDebtModal() {
+    document.getElementById('debtAmount').value = '';
+    document.getElementById('debtPerson').value = '';
+    document.getElementById('debtReason').value = '';
+    document.getElementById('debtDate').value = getTodayLocal();
+    document.getElementById('debtTime').value = getCurrentTimeLocal();
+    document.getElementById('debtNotes').value = '';
+    openModal('addDebtModal');
+}
+
+function openAddLoanModal() {
+    document.getElementById('loanAmount').value = '';
+    document.getElementById('loanPerson').value = '';
+    document.getElementById('loanReason').value = '';
+    document.getElementById('loanSource').value = 'cash';
+    document.getElementById('loanDate').value = getTodayLocal();
+    document.getElementById('loanTime').value = getCurrentTimeLocal();
+    document.getElementById('loanNotes').value = '';
+    openModal('addLoanModal');
+}
+
+// ============ CONFIRM ACTIONS ============
+function confirmAddMoney() {
+    try {
+        var amount = parseFloat(document.getElementById('addMoneyAmount').value);
+        var reason = document.getElementById('addMoneyReason').value.trim();
+        var date = document.getElementById('addMoneyDate').value;
+        var time = document.getElementById('addMoneyTime').value;
+        if (!amount || amount <= 0) { showToast('مبلغ غير صحيح', 'error'); return; }
+        if (!reason) { showToast('أدخل السبب', 'error'); return; }
+        if (!date || !time) { showToast('أدخل التاريخ والوقت', 'error'); return; }
+        var month = getMonthFromDate(date);
+        appData.transactions.push({ id: Date.now() + '' + Math.random().toString(36).substr(2,5), type: 'income', source: currentSource, amount: amount, reason: reason, date: date, time: time, month: month, createdAt: Date.now() });
+        saveUserData();
+        closeModal('addMoneyModal');
+        var sel = document.getElementById('monthSelector');
+        populateMonthSelector();
+        var opts = Array.prototype.slice.call(sel.options);
+        if (opts.some(function(o){ return o.value === month; })) sel.value = month;
+        updateAllUI();
+        renderAllSections();
+        showToast('✅ تمت إضافة ' + amount.toLocaleString('ar-EG') + ' ج.م', 'success');
+    } catch(err) { console.error(err); showToast('خطأ: ' + err.message, 'error'); }
+}
+
+function confirmRemoveMoney() {
+    try {
+        var amount = parseFloat(document.getElementById('removeMoneyAmount').value);
+        var reason = document.getElementById('removeMoneyReason').value.trim();
+        var date = document.getElementById('removeMoneyDate').value;
+        var time = document.getElementById('removeMoneyTime').value;
+        if (!amount || amount <= 0) { showToast('مبلغ غير صحيح', 'error'); return; }
+        if (!reason) { showToast('أدخل السبب', 'error'); return; }
+        if (!date || !time) { showToast('أدخل التاريخ والوقت', 'error'); return; }
+        var month = getMonthFromDate(date);
+        var bal = currentSource === 'cash' ? getCashBalance(month) : getAccountBalance(month);
+        if (amount > bal) { showToast('المبلغ أكبر من الرصيد (' + bal.toLocaleString('ar-EG') + ')', 'error'); return; }
+        appData.transactions.push({ id: Date.now() + '' + Math.random().toString(36).substr(2,5), type: 'expense', source: currentSource, amount: amount, reason: reason, date: date, time: time, month: month, createdAt: Date.now() });
+        saveUserData();
+        closeModal('removeMoneyModal');
+        var sel = document.getElementById('monthSelector');
+        populateMonthSelector();
+        var opts = Array.prototype.slice.call(sel.options);
+        if (opts.some(function(o){ return o.value === month; })) sel.value = month;
+        updateAllUI();
+        renderAllSections();
+        showToast('✅ تم إخراج ' + amount.toLocaleString('ar-EG') + ' ج.م', 'success');
+    } catch(err) { console.error(err); showToast('خطأ: ' + err.message, 'error'); }
+}
+
+function confirmTransfer() {
+    var amount = parseFloat(document.getElementById('transferAmount').value);
+    var date = document.getElementById('transferDate').value;
+    var time = document.getElementById('transferTime').value;
+    if (!amount || amount <= 0) { showToast('مبلغ غير صحيح', 'error'); return; }
+    if (!date || !time) { showToast('أدخل التاريخ والوقت', 'error'); return; }
+    var m = getMonthFromDate(date);
+    var bal = currentTransferFrom === 'cash' ? getCashBalance(m) : getAccountBalance(m);
+    if (amount > bal) { showToast('المبلغ أكبر من الرصيد', 'error'); return; }
+    appData.transfers.push({ id: Date.now() + '' + Math.random().toString(36).substr(2,5), from: currentTransferFrom, to: currentTransferTo, amount: amount, date: date, time: time, month: m, createdAt: Date.now() });
+    saveUserData();
+    closeModal('transferModal');
+    var sel = document.getElementById('monthSelector');
+    populateMonthSelector();
+    var opts = Array.prototype.slice.call(sel.options);
+    if (opts.some(function(o){ return o.value === m; })) sel.value = m;
+    updateAllUI();
+    renderAllSections();
+    showToast('✅ تم التحويل', 'success');
+}
+
+function confirmAddDebt() {
+    var amount = parseFloat(document.getElementById('debtAmount').value);
+    var personName = document.getElementById('debtPerson').value.trim();
+    var reason = document.getElementById('debtReason').value.trim();
+    var date = document.getElementById('debtDate').value;
+    var time = document.getElementById('debtTime').value;
+    var notes = document.getElementById('debtNotes').value.trim();
+    if (!amount || amount <= 0) { showToast('مبلغ غير صحيح', 'error'); return; }
+    if (!personName) { showToast('أدخل اسم الشخص', 'error'); return; }
+    if (!reason) { showToast('أدخل السبب', 'error'); return; }
+    if (!date || !time) { showToast('أدخل التاريخ والوقت', 'error'); return; }
+    appData.debts.push({ id: Date.now() + '' + Math.random().toString(36).substr(2,5), amount: amount, originalAmount: amount, personName: personName, reason: reason, date: date, time: time, notes: notes, status: 'active', month: getMonthFromDate(date), partialPayments: [], paidDate: null, paidTime: null, paidMonth: null, createdAt: Date.now() });
+    saveUserData();
+    closeModal('addDebtModal');
+    var sel = document.getElementById('monthSelector');
+    var m = getMonthFromDate(date);
+    populateMonthSelector();
+    var opts = Array.prototype.slice.call(sel.options);
+    if (opts.some(function(o){ return o.value === m; })) sel.value = m;
+    updateAllUI();
+    renderAllSections();
+    showToast('✅ تم تسجيل الدين على ' + personName, 'success');
+}
+
+function confirmAddLoan() {
+    var amount = parseFloat(document.getElementById('loanAmount').value);
+    var personName = document.getElementById('loanPerson').value.trim();
+    var reason = document.getElementById('loanReason').value.trim();
+    var source = document.getElementById('loanSource').value;
+    var date = document.getElementById('loanDate').value;
+    var time = document.getElementById('loanTime').value;
+    var notes = document.getElementById('loanNotes').value.trim();
+    if (!amount || amount <= 0) { showToast('مبلغ غير صحيح', 'error'); return; }
+    if (!personName) { showToast('أدخل اسم الشخص', 'error'); return; }
+    if (!reason) { showToast('أدخل السبب', 'error'); return; }
+    if (!date || !time) { showToast('أدخل التاريخ والوقت', 'error'); return; }
+    var m = getMonthFromDate(date);
+    var bal = source === 'cash' ? getCashBalance(m) : getAccountBalance(m);
+    if (amount > bal) { showToast('المبلغ أكبر من رصيد ' + (source==='cash'?'الكاش':'الحساب'), 'error'); return; }
+    appData.loans.push({ id: Date.now() + '' + Math.random().toString(36).substr(2,5), amount: amount, originalAmount: amount, personName: personName, reason: reason, source: source, date: date, time: time, notes: notes, status: 'active', month: m, partialReturns: [], returnedDate: null, returnedTime: null, returnedMonth: null, createdAt: Date.now() });
+    saveUserData();
+    closeModal('addLoanModal');
+    var sel = document.getElementById('monthSelector');
+    populateMonthSelector();
+    var opts = Array.prototype.slice.call(sel.options);
+    if (opts.some(function(o){ return o.value === m; })) sel.value = m;
+    updateAllUI();
+    renderAllSections();
+    showToast('✅ تم تسجيل السلف لـ ' + personName, 'success');
+}
+
+// ============ NEW MONTH ============
+function showStartNewMonth() {
+    confirmAction = 'startNewMonth';
+    document.getElementById('confirmIcon').textContent = '🔄';
+    document.getElementById('confirmTitle').textContent = 'بدء شهر جديد';
+    document.getElementById('confirmMessage').textContent = 'سيتم الانتقال لشهر جديد. الرصيد سيبقى كما هو.';
+    document.getElementById('confirmInput').style.display = 'none';
+    document.getElementById('confirmBtn').textContent = 'تأكيد';
+    openModal('confirmDialog');
+}
+
+function executeStartNewMonth() {
+    var m = appData.currentMonth;
+    if (!appData.archivedMonths) appData.archivedMonths = {};
+    appData.archivedMonths[m] = { endingCash: getCashBalance(m), endingAccount: getAccountBalance(m), archivedAt: new Date().toISOString() };
+    var parts = m.split('-');
+    var y = Number(parts[0]);
+    var mo = Number(parts[1]);
+    appData.currentMonth = mo === 12 ? (y+1) + '-01' : y + '-' + String(mo+1).padStart(2,'0');
+    saveUserData();
+    closeModal('confirmDialog');
+    populateMonthSelector();
+    updateAllUI();
+    renderAllSections();
+    showToast('🎉 تم بدء شهر جديد', 'success');
+}
+
+// ============ CLEAR ALL ============
+function showClearAllData() {
+    confirmAction = 'clearAll';
+    document.getElementById('confirmIcon').textContent = '🗑️';
+    document.getElementById('confirmTitle').textContent = 'تحذير: حذف جميع البيانات';
+    document.getElementById('confirmMessage').textContent = 'سيتم حذف جميع العمليات والديون والسلف نهائيًا!';
+    document.getElementById('confirmInput').style.display = 'block';
+    document.getElementById('confirmInput').value = '';
+    document.getElementById('confirmBtn').textContent = 'تأكيد الحذف';
+    openModal('confirmDialog');
+}
+
+function executeClearAllData() {
+    var v = document.getElementById('confirmInput').value.trim();
+    if (v !== 'حذف') { showToast('يجب كتابة "حذف" للتأكيد', 'error'); return; }
+    appData = getDefaultData();
+    saveUserData();
+    closeModal('confirmDialog');
+    populateMonthSelector();
+    updateAllUI();
+    renderAllSections();
+    showToast('تم حذف جميع البيانات', 'warning');
+}
+
+function executeConfirm() {
+    if (confirmAction === 'startNewMonth') executeStartNewMonth();
+    else if (confirmAction === 'clearAll') executeClearAllData();
+}
+
+// ============ PRINT ============
+function buildReportHTML(month) {
+    var cash = getCashBalance(month);
+    var acc = getAccountBalance(month);
+    var total = cash + acc;
+    var income = getMonthIncome(month);
+    var expense = getMonthExpense(month);
+    var net = income - expense;
+    var transfers = (appData.transfers || []).filter(function(t){ return t.month === month; });
+    var incomes = (appData.transactions || []).filter(function(t){ return t.type === 'income' && t.month === month; });
+    var expenses = (appData.transactions || []).filter(function(t){ return t.type === 'expense' && t.month === month; });
+    var activeDebts = (appData.debts || []).filter(function(d){ return d.month === month && d.status !== 'paid'; });
+    var paidDebts = (appData.debts || []).filter(function(d){ return d.status === 'paid'; });
+    var activeLoans = (appData.loans || []).filter(function(l){ return l.month === month && l.status !== 'returned'; });
+    var returnedLoans = (appData.loans || []).filter(function(l){ return l.status === 'returned'; });
+    var userName = currentUser ? currentUser.name : '';
+    var devName = (typeof DEVELOPER_NAME !== 'undefined') ? DEVELOPER_NAME : 'المهندس يوسف أحمد مصطفى';
+
+    var html = '<div class="header"><h1>التقرير المالي الشخصي</h1><div class="user">' + userName + '</div><div class="month">الشهر: ' + formatMonthLabel(month) + '</div><div class="date">تاريخ التقرير: ' + new Date().toLocaleDateString('ar-EG') + '</div><div class="dev">⚡ إعداد: ' + devName + ' ⚡</div></div><div class="summary"><span class="summary-item">💵 الكاش: ' + cash.toLocaleString('ar-EG') + ' ج.م</span><span class="summary-item">🏦 الحساب: ' + acc.toLocaleString('ar-EG') + ' ج.م</span><span class="summary-item">💰 الإجمالي: ' + total.toLocaleString('ar-EG') + ' ج.م</span><span class="summary-item">📈 الداخل: ' + income.toLocaleString('ar-EG') + ' ج.م</span><span class="summary-item">📉 الخارج: ' + expense.toLocaleString('ar-EG') + ' ج.م</span><span class="summary-item">📊 الصافي: ' + net.toLocaleString('ar-EG') + ' ج.م</span></div>';
+
+    function tbl(title, rows, headers) {
+        var h = '<div class="section"><h3>' + title + ' (' + rows.length + ')</h3><table><thead><tr>';
+        headers.forEach(function(x){ h += '<th>' + x + '</th>'; });
+        h += '</tr></thead><tbody>';
+        if (!rows.length) h += '<tr><td colspan="' + headers.length + '" class="empty">لا توجد بيانات</td></tr>';
+        else rows.forEach(function(r){ h += '<tr>'; r.forEach(function(c){ h += '<td>' + c + '</td>'; }); h += '</tr>'; });
+        h += '</tbody></table></div>';
+        return h;
+    }
+
+    html += tbl('📈 سجل الداخل', incomes.map(function(t){ return ['+' + (Number(t.amount)||0).toLocaleString('ar-EG') + ' ج.م', t.reason||'-', t.source==='cash'?'كاش':'حساب', t.date||'-', t.time||'-']; }), ['المبلغ','السبب','النوع','التاريخ','الوقت']);
+    html += tbl('📉 سجل الخارج', expenses.map(function(t){ return ['-' + (Number(t.amount)||0).toLocaleString('ar-EG') + ' ج.م', t.reason||'-', t.source==='cash'?'كاش':'حساب', t.date||'-', t.time||'-']; }), ['المبلغ','السبب','النوع','التاريخ','الوقت']);
+    html += tbl('🔄 التحويلات', transfers.map(function(t){ return [(Number(t.amount)||0).toLocaleString('ar-EG') + ' ج.م', t.from==='cash'?'كاش':'حساب', t.to==='cash'?'كاش':'حساب', t.date||'-']; }), ['المبلغ','من','إلى','التاريخ']);
+    html += tbl('📋 الديون النشطة', activeDebts.map(function(d){ return [d.personName, (Number(d.amount)||0).toLocaleString('ar-EG') + ' ج.م', d.reason||'-', d.date||'-']; }), ['الشخص','المبلغ','السبب','التاريخ']);
+    html += tbl('✅ الديون المسددة', paidDebts.map(function(d){ return [d.personName, (Number(d.originalAmount||d.amount)||0).toLocaleString('ar-EG') + ' ج.م', d.reason||'-', d.paidDate||'-']; }), ['الشخص','المبلغ','السبب','تاريخ التسديد']);
+    html += tbl('🤝 السلف النشطة', activeLoans.map(function(l){ return [l.personName, (Number(l.amount)||0).toLocaleString('ar-EG') + ' ج.م', l.reason||'-', l.source==='cash'?'كاش':'حساب', l.date||'-']; }), ['الشخص','المبلغ','السبب','من','التاريخ']);
+    html += tbl('✅ السلف المستردة', returnedLoans.map(function(l){ return [l.personName, (Number(l.originalAmount||l.amount)||0).toLocaleString('ar-EG') + ' ج.م', l.reason||'-', l.returnedDate||'-']; }), ['الشخص','المبلغ','السبب','تاريخ الاسترداد']);
+
+    return html;
+}
+
+function printReport() {
+    try {
+        var month = getSelectedMonth();
+        var reportHTML = buildReportHTML(month);
+        var oldFrame = document.getElementById('printFrame');
+        if (oldFrame) oldFrame.remove();
+        var iframe = document.createElement('iframe');
+        iframe.id = 'printFrame';
+        iframe.style.cssText = 'position:fixed;right:0;bottom:0;width:0;height:0;border:0;visibility:hidden;';
+        document.body.appendChild(iframe);
+        var doc = iframe.contentWindow.document;
+        doc.open();
+        doc.write('<!DOCTYPE html><html dir="rtl" lang="ar"><head><meta charset="UTF-8"><title>تقرير مالي</title><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0;}body{font-family:"Cairo",Arial,sans-serif;padding:20px;background:#fff;color:#202124;direction:rtl;}.header{text-align:center;margin-bottom:20px;padding-bottom:15px;border-bottom:3px solid #333;}.header h1{font-size:24px;font-weight:900;margin-bottom:6px;}.header .user{font-size:19px;font-weight:800;color:#0d47a1;margin:6px 0;}.header .month{font-size:14px;color:#555;font-weight:700;}.header .date{font-size:12px;color:#777;margin-top:4px;}.header .dev{font-size:14px;color:#b8860b;font-weight:800;margin-top:8px;}.summary{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;justify-content:center;}.summary-item{background:#f0f0f0;padding:8px 14px;border-radius:6px;font-weight:700;font-size:13px;}.section{margin-bottom:22px;page-break-inside:avoid;}.section h3{font-size:15px;font-weight:800;color:#1a73e8;margin-bottom:8px;border-bottom:2px solid #1a73e8;padding-bottom:4px;}table{width:100%;border-collapse:collapse;font-size:12px;}th{background:#f0f0f0;padding:8px 10px;border:1px solid #ccc;text-align:right;font-weight:800;}td{padding:7px 10px;border:1px solid #ccc;text-align:right;}.empty{text-align:center;padding:14px;color:#999;font-style:italic;}@media print{@page{size:A4;margin:15mm;}body{padding:0;}}</style></head><body>' + reportHTML + '</body></html>');
+        doc.close();
+        setTimeout(function() {
+            try { iframe.contentWindow.focus(); iframe.contentWindow.print(); } catch(e) { console.error(e); }
+            setTimeout(function(){ var f = document.getElementById('printFrame'); if (f) f.remove(); }, 2000);
+        }, 700);
+    } catch(err) { console.error(err); showToast('خطأ: ' + err.message, 'error'); }
+}
+
+function downloadPDF() {
+    showToast('📄 جاري تجهيز التقرير...', 'success');
+    setTimeout(function(){ printReport(); }, 300);
+}
+
+// ============ TOAST ============
+function showToast(msg, type) {
+    type = type || 'success';
+    var t = document.getElementById('toast');
+    if (!t) return;
+    if (toastTimeout) clearTimeout(toastTimeout);
+    t.textContent = msg;
+    t.className = 'toast ' + type + ' show';
+    toastTimeout = setTimeout(function() { t.classList.remove('show'); toastTimeout = null; }, 3500);
+}
+
+// ============ AUTO SAVE ============
+window.addEventListener('beforeunload', function() { saveUserData(); });
+window.addEventListener('pagehide', function() { saveUserData(); });
+document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'hidden' && currentUser) saveUserData();
+});
+
+// ============ INIT ============
+document.addEventListener('DOMContentLoaded', function() {
+    var t = document.getElementById('toast');
+    if (t) t.classList.remove('show');
+    if (toastTimeout) clearTimeout(toastTimeout);
+
+    showAuthScreen();
+
+    document.getElementById('loginPassword').addEventListener('keypress', function(e){ if (e.key === 'Enter') handleLogin(); });
+    document.getElementById('regConfirm').addEventListener('keypress', function(e){ if (e.key === 'Enter') handleRegister(); });
+    document.getElementById('forgotNewPwdConfirm').addEventListener('keypress', function(e){ if (e.key === 'Enter') handleForgotPassword(); });
+
+    document.querySelectorAll('.modal-overlay').forEach(function(o) {
+        o.addEventListener('click', function(e) { if (e.target === o) o.classList.remove('active'); });
+    });
+
+    setInterval(function(){ if (currentUser) saveUserData(); }, 30000);
+});
+</script>
+</body>
+</html>
